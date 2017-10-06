@@ -25,4 +25,8 @@ public class PingerDaoImpl extends AbstractDao<Integer, Pinger>implements Pinger
     public void update(Pinger pinger) {
         persistupdate(pinger);
     }
+
+    public void delete(int id) {
+        super.delete(super.getByKey(id));
+    }
 }

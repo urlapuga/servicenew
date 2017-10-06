@@ -21,4 +21,13 @@ public class ManagerController {
         model.addAttribute("clients",potentialClientsService.findAll());
         return "managers";
     }
+
+    @RequestMapping(value = {"/googleCompanies"}, method = RequestMethod.GET)
+    public String showGoogleCompanies(ModelMap model) {
+
+
+
+        model.addAttribute("clients",potentialClientsService.findAll());
+        return "managers";
+    }
 }

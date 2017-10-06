@@ -7,6 +7,7 @@
           <element id="module-output" name="SpringMVCHibernateManyToManyCRUDExample" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.json:json:20170516" />
           <element id="library" level="project" name="Maven: com.jcraft:jsch:0.1.53" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />

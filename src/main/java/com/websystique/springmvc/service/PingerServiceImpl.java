@@ -27,4 +27,8 @@ public class PingerServiceImpl implements PingerService {
         dao.update(pinger);
     }
 
+    public void deleteById(int id) {
+        dao.delete(id);
+    }
+
 }

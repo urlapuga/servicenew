@@ -13,6 +13,7 @@ public class Pinger {
 
 
     public Pinger() {
+        this.alertstatus = 0;
     }
 
     public Pinger(String ip, String coment) {
@@ -29,7 +30,7 @@ public class Pinger {
     }
 
     public boolean pinged(){
-        return status==1;
+        return this.status==1;
     }
 
     public void setId(Integer id) {

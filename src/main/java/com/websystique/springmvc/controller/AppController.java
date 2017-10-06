@@ -219,6 +219,7 @@ public class AppController {
     }
 
     //PINGER
+
     @RequestMapping(value = {"/pinger"}, method = RequestMethod.GET)
     public String listPinger(ModelMap model) {
 
@@ -227,6 +228,11 @@ public class AppController {
         return "pingerlist";
     }
 
+    @RequestMapping(value = {"/delete-pinger-{id}"}, method = RequestMethod.GET)
+    public String deletePinger(@PathVariable String id) {
+        pingerService.deleteById(Integer.parseInt(id));
+        return "redirect:/pinger";
+    }
 
     @RequestMapping(value = {"/newpinger"}, method = RequestMethod.POST)
     public String savePinger(@Valid Pinger pinger, BindingResult result,
@@ -236,6 +242,7 @@ public class AppController {
         model.addAttribute("result", resultList);
         return "pingerlist";
     }
+
     //TASKS
 
     @RequestMapping(value = {"/tasks"}, method = RequestMethod.GET)
