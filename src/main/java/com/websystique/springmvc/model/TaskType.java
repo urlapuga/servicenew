@@ -3,10 +3,22 @@ package com.websystique.springmvc.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "task_type", schema = "service", catalog = "")
+@Table(name = "task_type", schema = "service")
 public class TaskType {
     private int id;
     private String name;
+    private String page;
+
+
+    @Basic
+    @Column(name = "page")
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
 
     @Id
     @GeneratedValue

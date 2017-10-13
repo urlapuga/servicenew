@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("employeesDao")
-public class EmployeeDaoImpl extends AbstractDao<Integer, Employees>implements EmployeeDao
-{
+public class EmployeeDaoImpl extends AbstractDao<Integer, Employees> implements EmployeeDao {
 
     public List<Employees> findAll() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
@@ -25,4 +24,19 @@ public class EmployeeDaoImpl extends AbstractDao<Integer, Employees>implements E
     public void update(Employees pinger) {
         persistupdate(pinger);
     }
+
+    public List<Employees> findByCompany(int id) {
+        return getByNamedQueryWithParam("getByCompany", "companyId", String.valueOf(id));
+    }
+
+    public List<Employees> findByPosition(int id) {
+        return getByNamedQueryWithParam("getByPosition", "positionId", String.valueOf(id));
+    }
+
+    public Employees findById(int id) {
+        return getByKey(id);
+    }
 }
+
+
+

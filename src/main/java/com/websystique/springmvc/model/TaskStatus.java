@@ -59,4 +59,11 @@ public class TaskStatus {
     public void setTasksById(Collection<Tasks> tasksById) {
         this.tasksById = tasksById;
     }
+
+    @Override
+    public String toString() {
+        return "TaskStatus{" +
+                "id=" + id +
+                ", name='" + name + '\'' ;
+    }
 }

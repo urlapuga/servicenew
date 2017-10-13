@@ -3,6 +3,22 @@ package com.websystique.springmvc.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+
+@NamedQueries({
+        @NamedQuery(
+                name = "managerTasks",
+                query = "from Tasks s where s.type = 5"
+        ),
+
+        @NamedQuery(
+                name = "byemployeeTasks",
+                query = "from Tasks s where s.employeeTaskTo = :employeeId"
+        ),
+        @NamedQuery(
+                name = "byCompany",
+                query = "from Tasks s where s.company = :companyId"
+        )
+})
 @Entity
 @Table(name = "tasks")
 public class Tasks {
@@ -18,7 +34,17 @@ public class Tasks {
     private Timestamp datecreated;
     private String dateto;
     private Timestamp dateactionperformed;
+    private Integer company;
 
+    @Basic
+    @Column(name = "company")
+    public Integer getCompany() {
+        return company;
+    }
+
+    public void setCompany(Integer company) {
+        this.company = company;
+    }
 
     @Basic
     @Column(name = "type")
@@ -172,5 +198,23 @@ public class Tasks {
 
     public void setTaskStatusByStatus(TaskStatus taskStatusByStatus) {
         this.taskStatusByStatus = taskStatusByStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Tasks{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", employee=" + employee +
+                ", employeeTaskTo=" + employeeTaskTo +
+                ", status=" + status +
+                ", employeesByEmployee=" + employeesByEmployee +
+                ", employeesByEmployeeTaskTo=" + employeesByEmployeeTaskTo +
+                ", taskStatusByStatus=" + taskStatusByStatus +
+                ", type=" + type +
+                ", datecreated=" + datecreated +
+                ", dateto='" + dateto + '\'' +
+                ", dateactionperformed=" + dateactionperformed +
+                '}';
     }
 }

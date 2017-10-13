@@ -3,11 +3,72 @@ package com.websystique.springmvc.model;
 import javax.persistence.*;
 import java.util.Collection;
 
+
 @Entity
 @Table(name = "companies")
 public class Companies {
     private Integer id;
     private String name;
+    private String phone;
+    private String code;
+    private int director;
+
+
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public String toString() {
+        return "Companies{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", code='" + code + '\'' +
+                ", director=" + director +
+                ", email='" + email + '\'' +
+                ", employeesById=" + employeesById +
+                '}';
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+
+    @Basic
+    @Column(name = "phone")
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Basic
+    @Column(name = "code")
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Basic
+    @Column(name = "director")
+    public int getDirector() {
+        return director;
+    }
+
+    public void setDirector(int director) {
+        this.director = director;
+    }
+
     private Collection<Employees> employeesById;
 
     public Companies() {
@@ -29,7 +90,7 @@ public class Companies {
     }
 
     @Basic
-    @Column(name = "name", nullable = true, length = 0)
+    @Column(name = "name", nullable = true)
     public String getName() {
         return name;
     }

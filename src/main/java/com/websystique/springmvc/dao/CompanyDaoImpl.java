@@ -25,4 +25,16 @@ public class CompanyDaoImpl extends AbstractDao<Integer, Companies>implements Co
     public void update(Companies entity) {
         persistupdate(entity);
     }
+
+    public void delete(Companies entity){super.delete(entity);}
+
+    @Override
+    public void deleteById(int id) {
+        super.delete(super.getByKey(id));
+    }
+
+    @Override
+    public Companies getById(int id) {
+        return super.getByKey(id);
+    }
 }

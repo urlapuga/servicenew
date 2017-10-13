@@ -4,32 +4,22 @@
     <title>Title</title>
 </head>
 <body>
-РџСЂРѕРІРµСЂРёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+Проверить возможность подключения
 <form>
     <input type="text">
     <input type="submit">
 </form>
 
-Р’РЅРµСЃС‚Рё Р·Р°СЏРІРєСѓ РЅР° РїРѕРґРєР»СЋС‡РµРЅРёРµ
+Внести заявку на подключение
 <form>
     <input type="text">
     <input type="submit">
 </form>
 
-Р’РЅРµСЃС‚Рё Р·Р°СЏРІРєСѓ РЅР° РѕР±СЃР»СѓР¶РёРІР°РЅРёРµ
-<form>
-    <input type="text">
-    <input type="submit">
-</form>
+Открыть карточку абонента</br>
 
-РћС‚РєСЂС‹С‚СЊ РєР°СЂС‚РѕС‡РєСѓ Р°Р±РѕРЅРµРЅС‚Р°
-
-<form action="/abonent" method="POST">
-    <input type="text" id="id" name="id">
-    <input type="submit">
-</form>
-
-
+    Договор : <input type="text" id="id" name="id">
+    <input type="submit" value="Открыть" onclick="showAbonent()">
 
 </body>
 </html>

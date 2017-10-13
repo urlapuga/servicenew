@@ -10,4 +10,8 @@ public interface EmployeeDao {
     List<Employees> findAll();
     void add(Employees pinger);
     void update(Employees pinger);
+    List<Employees> findByCompany(int id);
+    List<Employees> findByPosition(int id);
+    Employees findById(int id);
+
 }

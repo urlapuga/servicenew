@@ -1,0 +1,16 @@
+#container {
+    width: 100%; /* Ширина макета */
+}
+
+#chat {
+    float: left;
+}
+
+#content {
+    float: left;
+}
+
+#tasks {
+    width: 300px;
+    float: right;
+}

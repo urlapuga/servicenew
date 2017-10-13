@@ -3,9 +3,21 @@ package com.websystique.springmvc.model;
 import javax.persistence.*;
 import java.util.Collection;
 
+@NamedQueries(value = {
+        @NamedQuery(
+                name = "getByCompany",
+                query = "from Employees e where e.companyId = :companyId"
+        ),
+        @NamedQuery(
+                name = "getByPosition",
+                query = "from Employees e where e.positionId = :positionId"
+        )
+})
+
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 public class Employees {
+
     private Integer id;
     private String name;
     private String lastname;
@@ -183,4 +195,20 @@ public class Employees {
     public void setTasksById_0(Collection<Tasks> tasksById_0) {
         this.tasksById_0 = tasksById_0;
     }
+
+
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", email='" + email + '\'' +
+                ", companyId=" + companyId +
+                ", positionId=" + positionId +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'';
+    }
+
 }

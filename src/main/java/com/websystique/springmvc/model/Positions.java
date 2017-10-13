@@ -9,6 +9,16 @@ public class Positions {
     private Integer id;
     private String name;
     private Collection<Employees> employeesById;
+    private String page;
+
+    @Column(name="page")
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
 
     @Id
     @GeneratedValue

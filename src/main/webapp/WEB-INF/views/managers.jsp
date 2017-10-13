@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<meta http-equiv="content-type" content="text/html; charset=cp1251">
 <html>
 <head>
 
@@ -6,7 +7,7 @@
         function showDiv() {
             var xhttp = new XMLHttpRequest();
             console.log(document.getElementById("searchString").value);
-            xhttp.open("GET", "/googlecompanies?searchString="+document.getElementById("searchString").value, false);
+            xhttp.open("GET", "/googlecompanies?searchString=" + document.getElementById("searchString").value, false);
             xhttp.send();
             document.getElementById("companies").innerHTML = xhttp.responseText;
             document.getElementById("companies").style = "block";
@@ -17,15 +18,16 @@
 <body>
 
 
-    <input type="text" id="searchString" name="searchString">
-    <input type="submit" onclick="showDiv()" title="РїСѓСЃС‚РѕР№ Р·Р°РїСЂРѕСЃ РЅРµ СЂР°Р·СЂРµС€Р°РµС‚СЃСЏ">
+<input type="text" id="searchString" name="searchString">
+<input type="submit" onclick="showDiv()" title="пустой запрос не разрешается">
 
 <div id="companies"></div>
-
-РџРѕС‚РµРЅС†РёР°Р»СЊРЅС‹Рµ РєР»РёРµРЅС‚С‹
+Потенциальные клиенты
 <div id="todos">${clients}</div>
-РњРѕРё Р·Р°РґР°С‡Рё
-<div id="tasks"></div>
+Менеджерские задачи
+<div id="managertasks">${tasks}</div>
+Мои задачи
+<div id="tasks">${owntasks}</div>
 
 </body>
 </html>

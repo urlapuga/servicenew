@@ -10,4 +10,7 @@ public interface CompanyDao {
     List<Companies> findAll();
     void add(Companies entity);
     void update(Companies entity);
+    void delete(Companies entity);
+    void deleteById(int id);
+    Companies getById(int id);
 }

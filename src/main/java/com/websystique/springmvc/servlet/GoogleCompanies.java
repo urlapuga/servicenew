@@ -21,13 +21,17 @@ public class GoogleCompanies extends HttpServlet {
         List<GoogleCompany> googleCompaniesList = MapsApi.getCompaniesByRequestString(searchString);
         if(googleCompaniesList.isEmpty())response.getWriter().write("no results in area");
         else {
+            response.getWriter().write("<table>");
             googleCompaniesList.forEach(c -> {
                 try {
-                    response.getWriter().write("\\n" + String.valueOf(c));
+                    String entityToresponse = "<tr><td>"+c.getName()+"</td><td>"+c.getPhone()+"</td><td>" +
+                            "<input type=\"button\" value=\"Save\" href=\"/potential-save-"+c.getGoogleId()+"\"></td></tr>";
+                    response.getWriter().write(entityToresponse);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
+            response.getWriter().write("</table>");
         }
 
     }

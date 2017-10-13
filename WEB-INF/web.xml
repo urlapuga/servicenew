@@ -6,7 +6,7 @@
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
-            <page-encoding>UTF-8</page-encoding>
+            <page-encoding>Cp1251</page-encoding>
         </jsp-property-group>
     </jsp-config>
 </web-app>

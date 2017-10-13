@@ -17,6 +17,7 @@ import com.websystique.springmvc.service.adress.AddressService;
 import com.websystique.springmvc.service.adress.BuildingService;
 import com.websystique.springmvc.service.adress.CityService;
 import com.websystique.springmvc.service.adress.StreetService;
+import com.websystique.springmvc.service.chat.ChatRoomsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -61,8 +62,20 @@ public class AppController {
     BuildingService buildingService;
     @Autowired
     AddressService addressService;
+    @Autowired
+    ChatRoomsService chatRoomsService;
 
     //ATTRIBUTES
+    @ModelAttribute("employee")
+    public Employees createEmployee() {
+        return new Employees();
+    }
+
+    @ModelAttribute("position")
+    public Positions createPosition() {
+        return new Positions();
+    }
+
     @ModelAttribute("pinger")
     public Pinger createPinger() {
         return new Pinger();
@@ -72,7 +85,6 @@ public class AppController {
     public TaskType createTaskType() {
         return new TaskType();
     }
-
 
     @ModelAttribute("task")
     public Tasks createTask() {
@@ -107,6 +119,26 @@ public class AppController {
     @ModelAttribute("roles")
     public List<UserProfile> initializeProfiles() {
         return userProfileService.findAll();
+    }
+
+    @ModelAttribute("company")
+    public Companies createCompany() {
+        return new Companies();
+    }
+
+    //INDEX
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    public String listUsers(ModelMap model) {
+        model.addAttribute("owntasks", taskService.getByEmployee(3));
+        model.addAttribute("page","director");
+        return "index";
+    }
+
+
+    //POMODORO
+    @RequestMapping(value = {"/pomodoro"})
+    public String showPomodoro(ModelMap model) {
+        return "pomodoro";
     }
 
     //BUHGALTER
@@ -150,6 +182,21 @@ public class AppController {
     //ABONENT
     @RequestMapping(value = {"/abonent"}, method = RequestMethod.POST)
     public String showAbonent(ModelMap model, @RequestParam("id") String id) {
+        Subscribers subscribers = subscriberService.getById(Integer.parseInt(id));
+
+        if (subscribers == null) {
+            model.addAttribute("error", "Договор не найден");
+            return "error";
+        }
+
+        Tarifs tarifs = tarifService.getById(subscribers.getTarif());
+        model.addAttribute("subscriber", subscribers);
+        model.addAttribute("tarif", tarifs);
+        return "abonent";
+    }
+
+    @RequestMapping(value = {"/abonent-{id}"}, method = RequestMethod.GET)
+    public String showAbonentById(ModelMap model, @PathVariable String id) {
         Subscribers subscribers = subscriberService.getById(Integer.parseInt(id));
 
         if (subscribers == null) {
@@ -208,15 +255,6 @@ public class AppController {
         return "redirect:/tasktypes";
     }
 
-    //EPLOYEES
-
-    @RequestMapping(value = {"/employees"}, method = RequestMethod.GET)
-    public String listEmployees(ModelMap model) {
-
-        List<Employees> resultList = employeeService.findAll();
-        model.addAttribute("result", resultList);
-        return "employeelist";
-    }
 
     //PINGER
 
@@ -265,17 +303,19 @@ public class AppController {
         return "/tasklist";
     }
 
+    @RequestMapping(value = {"/task-edit-{id}"}, method = RequestMethod.GET)
+    public String editTask(@PathVariable String id,ModelMap model) {
+        model.addAttribute("tasktypes", taskTypeService.findAll());
+
+        System.out.println(taskService.getById(Integer.parseInt(id)));
+        model.addAttribute("task", taskService.getById(Integer.parseInt(id)));
+        return "/task/connect";
+    }
+
 
     /**
      * This method will list all existing users.
      */
-    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
-
-        List<User> users = userService.findAllUsers();
-        model.addAttribute("users", users);
-        return "userslist";
-    }
 
     /**
      * This method will provide the medium to add a new user.

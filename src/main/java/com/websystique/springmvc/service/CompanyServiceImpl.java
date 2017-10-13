@@ -28,4 +28,19 @@ public class CompanyServiceImpl implements CompanyService {
         dao.update(entity);
     }
 
+    @Override
+    public void delete(Companies entity) {
+        dao.delete(entity);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        dao.deleteById(id);
+    }
+
+    @Override
+    public Companies getById(int id) {
+        return dao.getById(id);
+    }
+
 }

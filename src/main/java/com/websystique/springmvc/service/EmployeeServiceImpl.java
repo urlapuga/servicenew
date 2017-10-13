@@ -15,8 +15,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeDao dao;
 
+    @Override
+    public Employees findById(int id) {
+        return dao.findById(id);
+    }
+
     public List<Employees> findAll() {
         return dao.findAll();
+    }
+
+    public List<Employees> findByCompanyId(int id) {
+        return dao.findByCompany(id);
+    }
+
+    public List<Employees> findByPosition(int id) {
+        return dao.findByPosition(id);
     }
 
     public void add(Employees pinger) {

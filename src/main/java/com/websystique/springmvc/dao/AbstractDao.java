@@ -3,6 +3,8 @@ package com.websystique.springmvc.dao;
 import java.io.Serializable;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -44,5 +46,15 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 
 	public void persistupdate(T entity){getSession().update(entity);}
 
+	public List<T> getByNamedQuery(String queryName) {
+		return getSession().getNamedQuery(queryName).list();
+	}
 
+	public List<T> getByNamedQueryWithParam(String queryName,String paramname,String paramValue) {
+		return getSession().getNamedQuery(queryName).setString(paramname,paramValue).list();
+	}
+
+	public List<T> getByNamedQueryWithTwoParams(String queryName,String paramname,String paramValue,String paramname2,String paramValue2) {
+		return getSession().getNamedQuery(queryName).setString(paramname,paramValue).setString(paramname2,paramValue2).list();
+	}
 }
