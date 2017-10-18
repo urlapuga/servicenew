@@ -1,8 +1,6 @@
 package com.websystique.springmvc.service.chat;
 
-import com.websystique.springmvc.dao.CompanyDao;
 import com.websystique.springmvc.dao.chat.ChatRoomsDao;
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.chat.ChatRooms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

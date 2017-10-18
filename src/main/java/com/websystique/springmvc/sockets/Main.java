@@ -2,10 +2,7 @@ package com.websystique.springmvc.sockets;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Main {
 

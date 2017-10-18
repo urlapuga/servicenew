@@ -1,6 +1,5 @@
 package com.websystique.springmvc.dao;
 
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.PotentialClients;
 
 import java.util.List;

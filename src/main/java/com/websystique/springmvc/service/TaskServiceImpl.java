@@ -24,6 +24,11 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public List<Tasks> getTechnicianTasks() {
+        return dao.getTechnicianTasks();
+    }
+
+    @Override
     public List<Tasks> getByEmployee(int id) {
         return dao.getTasksByEmployeeId(id);
     }
@@ -31,6 +36,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<Tasks> getByCompany(int id) {
         return dao.getTasksByCompany(id);
+    }
+
+    @Override
+    public List<Tasks> getBySubscriber(int id) {
+        return dao.getByCustomer(id);
     }
 
     public void add(Tasks tasks) {

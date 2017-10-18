@@ -1,14 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Pinger</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-</head>
 
 <body>
 <table border="1">
@@ -40,11 +32,11 @@
 
         <tr>
             <td><form:label path="ip" >Ip</form:label></td>
-            <td><form:input path="ip" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" title="ÐŸÑ€Ð¸Ð¼ÐµÑ€  192.168.1.1"/></td>
+            <td><form:input path="ip" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" title="Ïðèìåð  192.168.1.1"/></td>
         </tr>
         <tr>
             <td><form:label path="coment">Coment</form:label></td>
-            <td><form:input path="coment" pattern="[A-Za-zÐ-Ð¯Ð°-ÑÐÑ‘]{3,}" title="ÐœÐ¸Ð½Ð¸Ð¼ÑƒÐ¼ 3 Ð±ÑƒÐºÐ²Ñ‹"/></td>
+            <td><form:input path="coment" pattern="[A-Za-zÀ-ßà-ÿ¨¸]{3,}" title="Ìèíèìóì 3 áóêâû"/></td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit"/></td>

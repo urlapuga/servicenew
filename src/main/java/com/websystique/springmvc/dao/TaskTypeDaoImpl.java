@@ -12,6 +12,11 @@ import java.util.List;
 public class TaskTypeDaoImpl extends AbstractDao<Integer, TaskType>implements TaskTypeDao
 {
 
+    @Override
+    public TaskType byId(int id) {
+        return getByKey(id);
+    }
+
     public List<TaskType> findAll() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.

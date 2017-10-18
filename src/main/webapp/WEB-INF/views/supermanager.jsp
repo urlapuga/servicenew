@@ -1,16 +1,17 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-</br>клиенты</br>
-${clients}
-</br>задачи</br>
-${tasks}
-</br>мои задачи</br>
-${owntasks}
-</br>менеджеры</br>
-${managers}
-</body>
-</html>
+<center>
+    клиенты
+    <div id="clients">
+        <jsp:include page="table-potentialclients.jsp"/>
+    </div>
+
+    задачи отдела
+    <div id="alltasks">
+        <jsp:include page="table-tasks.jsp"/>
+    </div>
+
+    менеджеры
+    <div id="managers">
+        <jsp:include page="table-employee.jsp"/>
+    </div>
+
+</center>

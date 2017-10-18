@@ -3,14 +3,16 @@
 }
 
 #chat {
+    width: 20%;
     float: left;
 }
 
 #content {
+    width: 60%;
     float: left;
 }
 
 #tasks {
-    width: 300px;
+    width: 20%;
     float: right;
 }

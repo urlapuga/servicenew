@@ -69,4 +69,14 @@ public class Positions {
     public void setEmployeesById(Collection<Employees> employeesById) {
         this.employeesById = employeesById;
     }
+
+    @Override
+    public String toString() {
+        return "Positions{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", employeesById=" + employeesById +
+                ", page='" + page + '\'' +
+                '}';
+    }
 }

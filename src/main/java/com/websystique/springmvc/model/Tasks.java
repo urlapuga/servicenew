@@ -9,6 +9,10 @@ import java.sql.Timestamp;
                 name = "managerTasks",
                 query = "from Tasks s where s.type = 5"
         ),
+        @NamedQuery(
+                name = "technicianTasks",
+                query = "from Tasks s where s.type = 1 OR s.type = 2"
+        ),
 
         @NamedQuery(
                 name = "byemployeeTasks",
@@ -17,6 +21,11 @@ import java.sql.Timestamp;
         @NamedQuery(
                 name = "byCompany",
                 query = "from Tasks s where s.company = :companyId"
+        ),
+
+        @NamedQuery(
+                name = "bySubscriber",
+                query = "from Tasks s where s.subscriberId = :subscriberId"
         )
 })
 @Entity
@@ -35,6 +44,17 @@ public class Tasks {
     private String dateto;
     private Timestamp dateactionperformed;
     private Integer company;
+    private Integer subscriberId;
+
+    @Basic
+    @Column(name = "subscriber")
+    public Integer getSubscriberId() {
+        return subscriberId;
+    }
+
+    public void setSubscriberId(Integer subscriberId) {
+        this.subscriberId = subscriberId;
+    }
 
     @Basic
     @Column(name = "company")
@@ -215,6 +235,8 @@ public class Tasks {
                 ", datecreated=" + datecreated +
                 ", dateto='" + dateto + '\'' +
                 ", dateactionperformed=" + dateactionperformed +
+                ", company=" + company +
+                ", subscriberId=" + subscriberId +
                 '}';
     }
 }

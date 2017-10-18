@@ -1,15 +1,13 @@
 package com.websystique.springmvc.dao;
 
-import java.io.Serializable;
-
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 public abstract class AbstractDao<PK extends Serializable, T> {
 	
@@ -35,6 +33,10 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	public void persist(T entity) {
 		getSession().persist(entity);
 	}
+	public T addGet(T entity){
+        getSession().persist(entity);
+        return entity;
+    }
 
 	public void delete(T entity) {
 		getSession().delete(entity);

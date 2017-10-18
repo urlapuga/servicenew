@@ -19,7 +19,7 @@
             <c:forEach items="${owntasks}" var="task">
                 <tr>
                     <td>
-                        <a href="task-edit-${task.id}">
+                        <a href="task-edit-${task.id}" target="_blank">
                                 ${task.text}
                         </a>
                     </td>

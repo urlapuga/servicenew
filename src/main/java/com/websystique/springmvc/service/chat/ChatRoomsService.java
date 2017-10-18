@@ -1,6 +1,5 @@
 package com.websystique.springmvc.service.chat;
 
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.chat.ChatRooms;
 
 import java.util.List;

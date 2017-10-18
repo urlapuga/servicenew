@@ -1,14 +1,13 @@
 package com.websystique.springmvc.dao;
 
-import java.util.List;
-
+import com.websystique.springmvc.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.websystique.springmvc.model.User;
+import java.util.List;
 
 
 

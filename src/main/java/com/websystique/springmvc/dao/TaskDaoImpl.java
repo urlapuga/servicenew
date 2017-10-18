@@ -26,14 +26,24 @@ public class TaskDaoImpl extends AbstractDao<Integer, Tasks> implements TaskDao 
     }
 
     @Override
+    public List<Tasks> getTechnicianTasks() {
+        return getByNamedQuery("technicianTasks");
+    }
+
+    @Override
     public List<Tasks> getTasksByEmployeeId(int id) {
-        return getByNamedQueryWithParam("byemployeeTasks","employeeId",String.valueOf(id));
+        return getByNamedQueryWithParam("byemployeeTasks", "employeeId", String.valueOf(id));
     }
 
     @Override
     public List<Tasks> getTasksByCompany(int id) {
-        return getByNamedQueryWithParam("byCompany","companyId",String.valueOf(id));
+        return getByNamedQueryWithParam("byCompany", "companyId", String.valueOf(id));
 
+    }
+
+    @Override
+    public List<Tasks> getByCustomer(int id) {
+        return getByNamedQueryWithParam("bySubscriber", "subscriberId", String.valueOf(id));
     }
 
     @Override

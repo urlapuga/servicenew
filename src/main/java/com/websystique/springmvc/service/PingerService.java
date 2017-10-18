@@ -1,7 +1,6 @@
 package com.websystique.springmvc.service;
 
 import com.websystique.springmvc.model.Pinger;
-import com.websystique.springmvc.model.Tasks;
 
 import java.util.List;
 

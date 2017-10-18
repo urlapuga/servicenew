@@ -1,7 +1,5 @@
 package com.websystique.springmvc.apis.googleMaps;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
        // String coordinates = MapsApi.getCoordinates("проспект+Степана+Бандери,+23,+Київ,+04655");

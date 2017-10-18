@@ -56,16 +56,16 @@ public class CompaniesController {
     public String saveTaskType(@Valid Companies company, BindingResult result,
                                ModelMap model) {
         companyService.add(company);
-        return "employeelist";
+        return "redirect:/1";
     }
 
-    @RequestMapping(value = {"/delete-company-{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/deletecompany/{id}"}, method = RequestMethod.GET)
     public String deleteCompany(@PathVariable String id) {
         companyService.deleteById(Integer.parseInt(id));
-        return "employeelist";
+        return "redirect:/1";
     }
 
-    @RequestMapping(value = {"/edit-company-{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/editcompany/{id}"}, method = RequestMethod.GET)
     public String editCompany(@PathVariable String id, ModelMap model) {
         Companies companies = companyService.getById(Integer.valueOf(id));
        model.addAttribute("tasks",taskService.getByCompany(Integer.parseInt(id)));
@@ -76,11 +76,11 @@ public class CompaniesController {
         return "companyeditor";
     }
 
-    @RequestMapping(value = {"/save-company"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/savecompany/"}, method = RequestMethod.POST)
     public String saveCompany(@Valid Companies company, BindingResult result, ModelMap model) {
         System.out.println(company);
         companyService.update(company);
-        return "redirect:edit-company-"+company.getId();
+        return "redirect:/editcompany/"+company.getId();
     }
 
 

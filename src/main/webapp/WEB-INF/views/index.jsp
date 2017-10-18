@@ -4,6 +4,8 @@
 <html>
 <head>
     <script src="/static/js/index.js" ></script>
+    <script src="/static/js/jssip-3.0.15.min.js" ></script>
+    <script src="/static/js/sipphone.js" ></script>
     <spring:url value="/static/css/index.css" var="maincss" />
     <title>My Work Place</title>
     <link href="${maincss}" rel="stylesheet" />

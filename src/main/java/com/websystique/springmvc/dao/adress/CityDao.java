@@ -1,6 +1,5 @@
 package com.websystique.springmvc.dao.adress;
 
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.address.AddrCities;
 
 import java.util.List;

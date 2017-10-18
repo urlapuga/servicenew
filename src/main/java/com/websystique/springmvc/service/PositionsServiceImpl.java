@@ -28,4 +28,14 @@ public class PositionsServiceImpl implements PositionsService {
         dao.update(entity);
     }
 
+    @Override
+    public void delete(int id) {
+        dao.delete(id);
+    }
+
+    @Override
+    public Positions getById(int id) {
+        return dao.getById(id);
+    }
+
 }

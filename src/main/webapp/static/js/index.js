@@ -56,8 +56,25 @@ function showRoom(room) {
 
 function showUser(user) {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "user-messages-" + user + "/", false);
+    xhttp.open("GET", "chat/user-" + user + "/", false);
     xhttp.send();
     document.getElementById("content").innerHTML = xhttp.responseText;
     document.getElementById("content").style = "block";
-}
+};
+
+function showAbonent(user) {
+    window.open("/abonenteditor/"+document.getElementById("abonentid").value);
+};
+
+function showDiv() {
+    var xhttp = new XMLHttpRequest();
+    console.log(document.getElementById("searchString").value);
+    xhttp.open("GET", "/googlecompanies?searchString=" + document.getElementById("searchString").value, false);
+    xhttp.send();
+    document.getElementById("companies").innerHTML = xhttp.responseText;
+    document.getElementById("companies").style = "block";
+};
+
+
+
+

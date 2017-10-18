@@ -1,7 +1,6 @@
 package com.websystique.springmvc.dao.adress;
 
 import com.websystique.springmvc.dao.AbstractDao;
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.address.AddrCities;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;

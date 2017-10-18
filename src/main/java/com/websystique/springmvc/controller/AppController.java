@@ -1,12 +1,5 @@
 package com.websystique.springmvc.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Locale;
-
-import javax.validation.Valid;
-
-import com.websystique.springmvc.dao.SubscriberDao;
 import com.websystique.springmvc.model.*;
 import com.websystique.springmvc.model.address.AddrAdress;
 import com.websystique.springmvc.model.address.AddrBuildings;
@@ -25,6 +18,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.Locale;
 
 
 @Controller
@@ -53,6 +50,11 @@ public class AppController {
     TarifService tarifService;
     @Autowired
     PaymentsService paymentsService;
+    @Autowired
+    PositionsService positionsService;
+    @Autowired
+    DevicesService devicesService;
+
     //Address Services
     @Autowired
     CityService cityService;
@@ -126,16 +128,49 @@ public class AppController {
         return new Companies();
     }
 
+    @ModelAttribute("subscriber")
+    public Subscribers createSubscriber() {
+        return new Subscribers();
+    }
+
+
     //INDEX
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
-        model.addAttribute("owntasks", taskService.getByEmployee(3));
-        model.addAttribute("page","director");
+    @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
+    public String listUsers(ModelMap model, @PathVariable String id) {
+        Positions positions = positionsService.getById(Integer.parseInt(id));
+        model.addAttribute("owntasks", taskService.getByEmployee(Integer.parseInt(id)));
+        model.addAttribute("page", positions.getPage());
         return "index";
+    }
+
+    @RequestMapping(value = {"/technician"}, method = RequestMethod.GET)
+    public String techInterface(ModelMap model) {
+        return "technician";
+    }
+
+    @RequestMapping(value = {"/supertechnician"}, method = RequestMethod.GET)
+    public String superTechInterface(ModelMap model) {
+        model.addAttribute("tasks",taskService.getTechnicianTasks());
+        return "supertechnician";
+    }
+
+    //POSITIONS
+    @RequestMapping(value = {"/newposition"}, method = RequestMethod.POST)
+    public String createTarif(@Valid Positions position, BindingResult result,
+                              ModelMap model) {
+        positionsService.add(position);
+        return "redirect:/1";
+    }
+
+    @RequestMapping(value = {"/deleteposition/{id}"}, method = RequestMethod.GET)
+    public String deletePosition(@PathVariable String id,ModelMap model) {
+        positionsService.delete(Integer.parseInt(id));
+        return "redirect:/1";
     }
 
 
     //POMODORO
+
     @RequestMapping(value = {"/pomodoro"})
     public String showPomodoro(ModelMap model) {
         return "pomodoro";
@@ -180,22 +215,8 @@ public class AppController {
 
 
     //ABONENT
-    @RequestMapping(value = {"/abonent"}, method = RequestMethod.POST)
-    public String showAbonent(ModelMap model, @RequestParam("id") String id) {
-        Subscribers subscribers = subscriberService.getById(Integer.parseInt(id));
 
-        if (subscribers == null) {
-            model.addAttribute("error", "Договор не найден");
-            return "error";
-        }
-
-        Tarifs tarifs = tarifService.getById(subscribers.getTarif());
-        model.addAttribute("subscriber", subscribers);
-        model.addAttribute("tarif", tarifs);
-        return "abonent";
-    }
-
-    @RequestMapping(value = {"/abonent-{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/abonenteditor/{id}"}, method = RequestMethod.GET)
     public String showAbonentById(ModelMap model, @PathVariable String id) {
         Subscribers subscribers = subscriberService.getById(Integer.parseInt(id));
 
@@ -205,11 +226,34 @@ public class AppController {
         }
 
         Tarifs tarifs = tarifService.getById(subscribers.getTarif());
+
+        model.addAttribute("employee",employeeService.findById(1));
+
         model.addAttribute("subscriber", subscribers);
+        model.addAttribute("tasks",taskService.getBySubscriber(Integer.parseInt(id)));
         model.addAttribute("tarif", tarifs);
-        return "abonent";
+        model.addAttribute("tarifs",tarifService.findAll());
+        model.addAttribute("tasktypes", taskTypeService.findAll());
+        model.addAttribute("devices",devicesService.findAll());
+        return "abonenteditor";
     }
 
+    @RequestMapping(value = {"/new-subscriber"}, method = RequestMethod.POST)
+    public String createSubscriber(@Valid Subscribers subscribers, BindingResult result,
+                                   ModelMap model) {
+        subscriberService.add(subscribers);
+
+        return "redirect:/2";
+    }
+
+    @RequestMapping(value = {"/saveabonent"}, method = RequestMethod.POST)
+    public String saveAbonent(@Valid Subscribers subscribers, BindingResult result,
+                                   ModelMap model) {
+        System.out.println(subscribers);
+        subscriberService.update(subscribers);
+
+        return "redirect:/abonenteditor/"+subscribers.getId();
+    }
 
     //OPERATOR
     @RequestMapping(value = {"/operator"}, method = RequestMethod.GET)
@@ -304,12 +348,15 @@ public class AppController {
     }
 
     @RequestMapping(value = {"/task-edit-{id}"}, method = RequestMethod.GET)
-    public String editTask(@PathVariable String id,ModelMap model) {
-        model.addAttribute("tasktypes", taskTypeService.findAll());
+    public String editTask(@PathVariable String id, ModelMap model) {
 
-        System.out.println(taskService.getById(Integer.parseInt(id)));
-        model.addAttribute("task", taskService.getById(Integer.parseInt(id)));
-        return "/task/connect";
+        Tasks tasks = taskService.getById(Integer.parseInt(id));
+        List<TaskType> taskTypeList = taskTypeService.findAll();
+
+        TaskType taskType = taskTypeService.byId(tasks.getType());
+        model.addAttribute("tasktypes", taskTypeService.findAll());
+        model.addAttribute("task", tasks);
+        return "/task/"+taskType.getPage();
     }
 
 
@@ -362,9 +409,6 @@ public class AppController {
     }
 
 
-    /**
-     * This method will provide the medium to update an existing user.
-     */
     @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.GET)
     public String editUser(@PathVariable String ssoId, ModelMap model) {
         User user = userService.findBySSO(ssoId);
@@ -373,10 +417,7 @@ public class AppController {
         return "registration";
     }
 
-    /**
-     * This method will be called on form submission, handling POST request for
-     * updating user in database. It also validates the user input
-     */
+
     @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
                              ModelMap model, @PathVariable String ssoId) {
@@ -384,13 +425,6 @@ public class AppController {
         if (result.hasErrors()) {
             return "registration";
         }
-
-		/*//Uncomment below 'if block' if you WANT TO ALLOW UPDATING SSO_ID in UI which is a unique key to a User.
-        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
-			FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-		    result.addError(ssoError);
-			return "registration";
-		}*/
 
 
         userService.updateUser(user);
@@ -408,11 +442,6 @@ public class AppController {
         userService.deleteUserBySSO(ssoId);
         return "redirect:/list";
     }
-
-
-    /**
-     * This method will provide UserProfile list to views
-     */
 
 
 }

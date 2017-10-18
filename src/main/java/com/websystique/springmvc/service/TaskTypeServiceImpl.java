@@ -15,6 +15,11 @@ public class TaskTypeServiceImpl implements TaskTypeService {
     @Autowired
     private TaskTypeDao dao;
 
+    @Override
+    public TaskType byId(int id) {
+        return dao.byId(id);
+    }
+
     public List<TaskType> findAll() {
         return dao.findAll();
     }

@@ -1,7 +1,6 @@
 package com.websystique.springmvc.service;
 
 import com.websystique.springmvc.model.Employees;
-import com.websystique.springmvc.model.Pinger;
 
 import java.util.List;
 

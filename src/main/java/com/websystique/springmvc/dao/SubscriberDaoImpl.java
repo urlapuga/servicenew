@@ -2,7 +2,6 @@ package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.Subscribers;
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +19,7 @@ public class SubscriberDaoImpl extends AbstractDao<Integer, Subscribers>implemen
     }
 
     public void add(Subscribers entity) {
+
         persist(entity);
     }
 

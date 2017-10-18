@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
@@ -49,21 +52,21 @@ public class EmployeesController {
     public String createEmployee(@Valid Employees employee, BindingResult result,
                                  ModelMap model) {
         employeeService.add(employee);
-        return "redirect:/employees";
+        return "redirect:/1";
     }
 
-    @RequestMapping(value = {"/edit-employee-{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/editemployee/{id}"}, method = RequestMethod.GET)
     public String editEmployee(@PathVariable String id, ModelMap model) {
         model.addAttribute("employee", employeeService.findById(Integer.parseInt(id)));
         model.addAttribute("tasks",taskService.getByEmployee(Integer.parseInt(id)));
         return "employeeeditor";
     }
 
-    @RequestMapping(value = {"/update-employee"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/updateemployee"}, method = RequestMethod.POST)
     public String saveEmployee(@Valid Employees employee, BindingResult result,
                                ModelMap model) {
         employeeService.update(employee);
-        return "redirect:/edit-employee-"+employee.getId();
+        return "redirect:/editemployee/"+employee.getId();
     }
 
 }

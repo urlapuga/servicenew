@@ -237,4 +237,27 @@ public class Subscribers {
     public void setIpTypeByIptype(IpType ipTypeByIptype) {
         this.ipTypeByIptype = ipTypeByIptype;
     }
+
+    @Override
+    public String toString() {
+        return "Subscribers{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", device=" + device +
+                ", port=" + port +
+                ", ipaddress='" + ipaddress + '\'' +
+                ", macaddress='" + macaddress + '\'' +
+                ", dateRegistered=" + dateRegistered +
+                ", datepayedto=" + datepayedto +
+                ", status=" + status +
+                ", tarif=" + tarif +
+                ", iptype=" + iptype +
+                ", devicesByDevice=" + devicesByDevice +
+                ", subscriberStatusByStatus=" + subscriberStatusByStatus +
+                ", tarifsByTarif=" + tarifsByTarif +
+                ", ipTypeByIptype=" + ipTypeByIptype +
+                '}';
+    }
 }

@@ -9,7 +9,9 @@ public interface TaskDao {
     List<Tasks> findAll();
     void add(Tasks tasks);
     List<Tasks> getManagerTasks();
+    List<Tasks> getTechnicianTasks();
     List<Tasks> getTasksByEmployeeId(int id);
     List<Tasks> getTasksByCompany(int id);
+    List<Tasks> getByCustomer(int id);
     Tasks getById(int id);
 }

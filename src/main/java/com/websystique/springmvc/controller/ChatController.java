@@ -55,7 +55,7 @@ public class ChatController {
     }
 
     //CHAT WITH USER
-    @RequestMapping(value = {"/user-messages-{user}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/user-{user}"}, method = RequestMethod.GET)
     public String userMessages(@PathVariable String user, ModelMap model) {
         List<ChatMessages> chatMessages = chatMessagesService.findChat(Integer.parseInt(user),4);
         model.addAttribute("messages",chatMessages);
