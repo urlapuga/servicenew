@@ -26,7 +26,6 @@ import java.util.Locale;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("roles")
 public class AppController {
 
     //SERVICES
@@ -36,8 +35,6 @@ public class AppController {
     TaskService taskService;
     @Autowired
     PingerService pingerService;
-    @Autowired
-    UserProfileService userProfileService;
     @Autowired
     EmployeeService employeeService;
     @Autowired
@@ -118,10 +115,6 @@ public class AppController {
         return new Tarifs();
     }
 
-    @ModelAttribute("roles")
-    public List<UserProfile> initializeProfiles() {
-        return userProfileService.findAll();
-    }
 
     @ModelAttribute("company")
     public Companies createCompany() {

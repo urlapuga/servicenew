@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://10.4.1.33:3306/service</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+        <mapping class="com.websystique.springmvc.temp.PageElement"/>
+        <mapping class="com.websystique.springmvc.temp.SiteElements"/>
+        <mapping class="com.websystique.springmvc.temp.SitePages"/>
+        <mapping class="com.websystique.springmvc.temp.SiteSite"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.PageElement"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SiteElements"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SiteLanguages"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SiteMenu"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SitePages"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SiteSite"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SiteTextids"/>
+        <mapping class="com.websystique.springmvc.model.siteparams.SiteTexts"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

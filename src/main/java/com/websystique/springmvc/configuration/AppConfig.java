@@ -1,6 +1,5 @@
 package com.websystique.springmvc.configuration;
 
-import com.websystique.springmvc.converter.RoleToUserProfileConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -22,10 +21,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableScheduling
 public class AppConfig extends WebMvcConfigurerAdapter{
 	
-	
-	@Autowired
-	RoleToUserProfileConverter roleToUserProfileConverter;
-	
+
 
 	/**
      * Configure ViewResolvers to deliver preferred views.
@@ -54,7 +50,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
      */
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(roleToUserProfileConverter);
+
     }
 	
 
