@@ -9,4 +9,5 @@ public interface StreetDao {
     List<AddrStreets> findAll();
     void add(AddrStreets entity);
     void update(AddrStreets entity);
+    List<AddrStreets> getByCity(int city);
 }

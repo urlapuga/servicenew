@@ -7,6 +7,9 @@ import java.util.List;
 public interface BuildingService {
 
     List<AddrBuildings> findAll();
+    List<AddrBuildings> byStreet(int streetId);
+
     void add(AddrBuildings entity);
+
 
 }

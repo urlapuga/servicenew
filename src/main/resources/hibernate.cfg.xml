@@ -19,6 +19,17 @@
         <mapping class="com.websystique.springmvc.model.siteparams.SiteSite"/>
         <mapping class="com.websystique.springmvc.model.siteparams.SiteTextids"/>
         <mapping class="com.websystique.springmvc.model.siteparams.SiteTexts"/>
+        <mapping class="com.websystique.springmvc.model.temp.AddrAdress"/>
+        <mapping class="com.websystique.springmvc.model.temp.AddrBuildings"/>
+        <mapping class="com.websystique.springmvc.model.temp.AddrCities"/>
+        <mapping class="com.websystique.springmvc.model.temp.AddrStreets"/>
+        <mapping class="com.websystique.springmvc.model.temp.DeviceModels"/>
+        <mapping class="com.websystique.springmvc.model.temp.DeviceTypes"/>
+        <mapping class="com.websystique.springmvc.model.temp.Devices"/>
+        <mapping class="com.websystique.springmvc.model.temp.IpType"/>
+        <mapping class="com.websystique.springmvc.model.temp.SubscriberStatus"/>
+        <mapping class="com.websystique.springmvc.model.temp.Subscribers"/>
+        <mapping class="com.websystique.springmvc.model.Subscriberview"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

@@ -6,31 +6,21 @@
 </head>
 <body>
 
-Открыть карточку абонента</br>
+<jsp:include page="pickers/addresspicker.jsp"></jsp:include>
+
+
 
 Договор : <input type="text" id="abonentid" name="abonentid">
 <input type="button" value="Открыть" onclick="showAbonent()">
 
 
-
-
-<form:form method="POST" action="/newsubscriber/" modelAttribute="subscriber">
-    <form:label path="name">Имя</form:label>
-    <form:input path="name"></form:input>
-
-    <form:label path="phone">Телефон</form:label>
-    <form:input path="phone"></form:input>
-
-    <input type="submit" value="Создать абонента"/>
-</form:form>
+<jsp:include page="create/subscriber.jsp"></jsp:include>
 
 
 
 
 
-
-
-
+</br>
 Проверить возможность подключения
 <form>
     <input type="text">

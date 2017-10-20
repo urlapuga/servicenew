@@ -19,6 +19,11 @@ public class BuildingsDaoImpl extends AbstractDao<Integer, AddrBuildings>impleme
         return entitylist;
     }
 
+    @Override
+    public List<AddrBuildings> byStreet(int streetId) {
+        return getByNamedQueryWithParam("byStreet","streetId",String.valueOf(streetId));
+    }
+
     public void add(AddrBuildings entity) {
         persist(entity);
     }

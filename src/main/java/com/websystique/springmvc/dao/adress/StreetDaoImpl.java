@@ -15,6 +15,7 @@ public class StreetDaoImpl extends AbstractDao<Integer, AddrStreets>implements S
     public List<AddrStreets> findAll() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+
         List<AddrStreets> entitylist = (List<AddrStreets>) criteria.list();
         return entitylist;
     }
@@ -25,5 +26,10 @@ public class StreetDaoImpl extends AbstractDao<Integer, AddrStreets>implements S
 
     public void update(AddrStreets entity) {
         persistupdate(entity);
+    }
+
+    @Override
+    public List<AddrStreets> getByCity(int city) {
+        return getByNamedQueryWithParam("byCity", "cityId", String.valueOf(city));
     }
 }

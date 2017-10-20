@@ -2,8 +2,12 @@ package com.websystique.springmvc.model.address;
 
 import javax.persistence.*;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "byStreet",query = "from AddrBuildings b where b.street=:streetId")
+})
+
 @Entity
-@Table(name = "addr_buildings", schema = "service", catalog = "")
+@Table(name = "addr_buildings", schema = "service")
 public class AddrBuildings {
     private int id;
     private String number;

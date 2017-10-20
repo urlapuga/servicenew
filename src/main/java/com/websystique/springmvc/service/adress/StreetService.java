@@ -7,6 +7,8 @@ import java.util.List;
 public interface StreetService {
 
     List<AddrStreets> findAll();
+    List<AddrStreets> byCity(int city);
     void add(AddrStreets entity);
+
 
 }

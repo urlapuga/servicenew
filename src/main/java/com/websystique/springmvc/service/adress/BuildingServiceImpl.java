@@ -19,6 +19,11 @@ public class BuildingServiceImpl implements BuildingService {
         return dao.findAll();
     }
 
+    @Override
+    public List<AddrBuildings> byStreet(int streetId) {
+        return dao.byStreet(streetId);
+    }
+
     public void add(AddrBuildings entity) {
         dao.add(entity);
     }
