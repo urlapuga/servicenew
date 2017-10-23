@@ -1,6 +1,7 @@
 package com.websystique.springmvc.apis.googleMaps;
 
 public class Urls {
+    private static String mapsKey = "AIzaSyCSEBW9aXHWYpsAQjDbxRKmeVvwyBDbU5A";
     private static String key = "AIzaSyAsw03u9TXR4sgXYG4ybb-lPfnUxgy-SYs";
     private static String keyString = "&key="+key;
 

@@ -30,6 +30,9 @@
         <mapping class="com.websystique.springmvc.model.temp.SubscriberStatus"/>
         <mapping class="com.websystique.springmvc.model.temp.Subscribers"/>
         <mapping class="com.websystique.springmvc.model.Subscriberview"/>
+        <mapping class="com.websystique.springmvc.model.Devices"/>
+        <mapping class="com.websystique.springmvc.model.OpticLines"/>
+        <mapping class="com.websystique.springmvc.model.site.SiteHeatMaps"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

@@ -15,6 +15,11 @@ public class Devices {
     private DeviceTypes deviceTypesByType;
     private DeviceModels deviceModelsByModel;
     private Collection<Subscribers> subscribersById;
+    private String lat;
+    private String lng;
+    private Integer address;
+    private Integer floor;
+
 
     @Id
     @GeneratedValue
@@ -25,6 +30,26 @@ public class Devices {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "lat", nullable = true, length = 255)
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    @Basic
+    @Column(name = "lng", nullable = true, length = 255)
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     @Basic
@@ -48,7 +73,7 @@ public class Devices {
     }
 
     @Basic
-    @Column(name = "ipaddress", nullable = true, length = 0)
+    @Column(name = "ipaddress", nullable = true, length = 20)
     public String getIpaddress() {
         return ipaddress;
     }
@@ -58,7 +83,7 @@ public class Devices {
     }
 
     @Basic
-    @Column(name = "login", nullable = true, length = 0)
+    @Column(name = "login", nullable = true, length = 20)
     public String getLogin() {
         return login;
     }
@@ -68,7 +93,7 @@ public class Devices {
     }
 
     @Basic
-    @Column(name = "password", nullable = true, length = 0)
+    @Column(name = "password", nullable = true, length = 20)
     public String getPassword() {
         return password;
     }
@@ -105,32 +130,41 @@ public class Devices {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "type", referencedColumnName = "id", insertable = false, updatable = false)
-    public DeviceTypes getDeviceTypesByType() {
-        return deviceTypesByType;
+    @Basic
+    @Column(name = "address", nullable = true)
+    public Integer getAddress() {
+        return address;
     }
 
-    public void setDeviceTypesByType(DeviceTypes deviceTypesByType) {
-        this.deviceTypesByType = deviceTypesByType;
+    public void setAddress(Integer address) {
+        this.address = address;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "model", referencedColumnName = "id", insertable = false, updatable = false)
-    public DeviceModels getDeviceModelsByModel() {
-        return deviceModelsByModel;
+    @Basic
+    @Column(name = "floor", nullable = true)
+    public Integer getFloor() {
+        return floor;
     }
 
-    public void setDeviceModelsByModel(DeviceModels deviceModelsByModel) {
-        this.deviceModelsByModel = deviceModelsByModel;
+    public void setFloor(Integer floor) {
+        this.floor = floor;
     }
 
-    @OneToMany(mappedBy = "devicesByDevice")
-    public Collection<Subscribers> getSubscribersById() {
-        return subscribersById;
-    }
-
-    public void setSubscribersById(Collection<Subscribers> subscribersById) {
-        this.subscribersById = subscribersById;
+    @Override
+    public String toString() {
+        return "Devices{" +
+                "id=" + id +
+                ", type=" + type +
+                ", model=" + model +
+                ", ipaddress='" + ipaddress + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", deviceTypesByType=" + deviceTypesByType +
+                ", deviceModelsByModel=" + deviceModelsByModel +
+                ", lat='" + lat + '\'' +
+                ", lng='" + lng + '\'' +
+                ", address=" + address +
+                ", floor=" + floor +
+                '}';
     }
 }

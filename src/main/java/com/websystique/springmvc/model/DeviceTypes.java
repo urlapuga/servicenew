@@ -51,12 +51,4 @@ public class DeviceTypes {
         return result;
     }
 
-    @OneToMany(mappedBy = "deviceTypesByType")
-    public Collection<Devices> getDevicesById() {
-        return devicesById;
-    }
-
-    public void setDevicesById(Collection<Devices> devicesById) {
-        this.devicesById = devicesById;
-    }
 }

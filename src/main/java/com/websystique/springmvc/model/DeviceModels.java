@@ -51,10 +51,6 @@ public class DeviceModels {
         return result;
     }
 
-    @OneToMany(mappedBy = "deviceModelsByModel")
-    public Collection<Devices> getDevicesById() {
-        return devicesById;
-    }
 
     public void setDevicesById(Collection<Devices> devicesById) {
         this.devicesById = devicesById;
