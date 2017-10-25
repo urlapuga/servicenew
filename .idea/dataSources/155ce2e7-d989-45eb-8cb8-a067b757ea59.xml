@@ -1310,7 +1310,7 @@ deviceto</ColNames>
     </column>
     <column id="318" parent="47" name="dateto">
       <Position>8</Position>
-      <DataType>varchar(30)|0</DataType>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="319" parent="47" name="dateactionperformed">
       <Position>9</Position>

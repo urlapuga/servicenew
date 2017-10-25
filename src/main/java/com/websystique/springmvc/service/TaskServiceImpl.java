@@ -52,4 +52,9 @@ public class TaskServiceImpl implements TaskService {
         return dao.getById(id);
     }
 
+    @Override
+    public void update(Tasks tasks) {
+        dao.update(tasks);
+    }
+
 }

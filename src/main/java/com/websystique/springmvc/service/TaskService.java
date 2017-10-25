@@ -14,6 +14,7 @@ public interface TaskService {
     List<Tasks> getBySubscriber(int id);
     void add(Tasks tasks);
     Tasks getById(int id);
+    void update(Tasks tasks);
 
 
 

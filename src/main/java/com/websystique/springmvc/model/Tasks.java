@@ -41,7 +41,7 @@ public class Tasks {
     private TaskStatus taskStatusByStatus;
     private Integer type;
     private Timestamp datecreated;
-    private String dateto;
+    private Timestamp dateto;
     private Timestamp dateactionperformed;
     private Integer company;
     private Integer subscriberId;
@@ -145,11 +145,11 @@ public class Tasks {
     }
     @Basic
     @Column(name = "dateto")
-    public String getDateto() {
+    public Timestamp getDateto() {
         return dateto;
     }
 
-    public void setDateto(String dateto) {
+    public void setDateto(Timestamp dateto) {
         this.dateto = dateto;
     }
     @Basic

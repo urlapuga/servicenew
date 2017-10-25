@@ -1,5 +1,6 @@
 package com.websystique.springmvc.controller;
 
+import com.sun.deploy.net.HttpResponse;
 import com.websystique.springmvc.model.*;
 import com.websystique.springmvc.model.address.AddrAdress;
 import com.websystique.springmvc.model.address.AddrBuildings;
@@ -17,7 +18,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -121,10 +129,16 @@ public class AppController {
     }
 
 
+    @RequestMapping(value = {"/favicon.ico"}, method = RequestMethod.GET)
+    public String favicon(ModelMap model) {
+        return "static/favicon.ico";
+    }
+
     //INDEX
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model, @PathVariable String id) {
         Positions positions = positionsService.getById(Integer.parseInt(id));
+        model.addAttribute("tasktypes", taskTypeService.findAll());
         model.addAttribute("owntasks", taskService.getByEmployee(Integer.parseInt(id)));
         model.addAttribute("page", positions.getPage());
         return "index";
@@ -137,7 +151,7 @@ public class AppController {
 
     @RequestMapping(value = {"/supertechnician"}, method = RequestMethod.GET)
     public String superTechInterface(ModelMap model) {
-        model.addAttribute("tasks",taskService.getTechnicianTasks());
+        model.addAttribute("tasks", taskService.getTechnicianTasks());
         return "supertechnician";
     }
 
@@ -150,7 +164,7 @@ public class AppController {
     }
 
     @RequestMapping(value = {"/deleteposition/{id}"}, method = RequestMethod.GET)
-    public String deletePosition(@PathVariable String id,ModelMap model) {
+    public String deletePosition(@PathVariable String id, ModelMap model) {
         positionsService.delete(Integer.parseInt(id));
         return "redirect:/1";
     }
@@ -214,14 +228,14 @@ public class AppController {
 
         Tarifs tarifs = tarifService.getById(subscribers.getTarif());
 
-        model.addAttribute("employee",employeeService.findById(1));
+        model.addAttribute("employee", employeeService.findById(1));
 
         model.addAttribute("subscriber", subscribers);
-        model.addAttribute("tasks",taskService.getBySubscriber(Integer.parseInt(id)));
+        model.addAttribute("tasks", taskService.getBySubscriber(Integer.parseInt(id)));
         model.addAttribute("tarif", tarifs);
-        model.addAttribute("tarifs",tarifService.findAll());
+        model.addAttribute("tarifs", tarifService.findAll());
         model.addAttribute("tasktypes", taskTypeService.findAll());
-        model.addAttribute("devices",devicesService.findAll());
+        model.addAttribute("devices", devicesService.findAll());
         return "abonenteditor";
     }
 
@@ -235,11 +249,11 @@ public class AppController {
 
     @RequestMapping(value = {"/saveabonent"}, method = RequestMethod.POST)
     public String saveAbonent(@Valid Subscribers subscribers, BindingResult result,
-                                   ModelMap model) {
+                              ModelMap model) {
         System.out.println(subscribers);
         subscriberService.update(subscribers);
 
-        return "redirect:/abonenteditor/"+subscribers.getId();
+        return "redirect:/abonenteditor/" + subscribers.getId();
     }
 
     //OPERATOR
@@ -314,6 +328,73 @@ public class AppController {
 
     //TASKS
 
+    /**
+     * Закрываем задачу
+     * Проверяем , что человек закрывает свою задачу , которая в работе
+     */
+    @RequestMapping(value = {"/closetask/{id}"}, method = RequestMethod.GET)
+    public String closeOwnTask(@PathVariable String id, ModelMap model) {
+
+        Tasks tasks = taskService.getById(Integer.parseInt(id));
+        Integer employeeId = 3;
+        if ((tasks.getEmployee() == employeeId) && (tasks.getStatus() == 1)) {
+            tasks.setStatus(2);
+            taskService.update(tasks);
+            model.addAttribute("error", "1");
+        } else {
+            model.addAttribute("error", "0");
+        }
+        return "error";
+    }
+
+
+    @RequestMapping(value = {"/startwork/{id}"}, method = RequestMethod.GET)
+    public String startOwnTask(@PathVariable String id, ModelMap model) {
+
+        Tasks tasks = taskService.getById(Integer.parseInt(id));
+        Integer employeeId = 3;
+        String message = "";
+        if ((tasks.getEmployee() == employeeId) && (tasks.getStatus() == 0)) {
+            tasks.setStatus(1);
+            taskService.update(tasks);
+            message = "Задача в работе";
+        } else {
+            if (tasks.getStatus() != 1) message = "В работу можно взть тоьк оновую заявку ";
+            if (tasks.getEmployee() != employeeId) message = "В работу можно взять только свою задачу";
+        }
+        model.addAttribute("error", message);
+        return "error";
+    }
+
+
+    @RequestMapping(value = {"/newowntask/{type}/{subscriber}/{date}/{text}"}, method = RequestMethod.GET)
+    public String createOwnTask(@PathVariable String type, @PathVariable String subscriber, @PathVariable String date,
+                                @PathVariable String text, ModelMap model) {
+
+        SimpleDateFormat format1 = new SimpleDateFormat("dd_MM_yyyy hh:mm");
+
+        Date d1 = new Date();
+        try {
+            d1 = format1.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if ((type.length() > 0) && (subscriber.length() > 0) && (date.length() > 0) && text.length() > 0) {
+            Tasks tasks = new Tasks();
+            tasks.setDateto(new Timestamp(d1.getTime()));
+            tasks.setType(Integer.parseInt(type));
+            tasks.setSubscriberId(Integer.parseInt(subscriber));
+            tasks.setText(text);
+            taskService.add(tasks);
+        }
+
+        model.addAttribute("tasktypes", taskTypeService.findAll());
+        model.addAttribute("owntasks", taskService.findAll());
+        return "/owntasks";
+    }
+
+
     @RequestMapping(value = {"/tasks"}, method = RequestMethod.GET)
     public String listTasks(ModelMap model) {
         List<Tasks> tasks = taskService.findAll();
@@ -343,7 +424,7 @@ public class AppController {
         TaskType taskType = taskTypeService.byId(tasks.getType());
         model.addAttribute("tasktypes", taskTypeService.findAll());
         model.addAttribute("task", tasks);
-        return "/task/"+taskType.getPage();
+        return "/task/" + taskType.getPage();
     }
 
 }

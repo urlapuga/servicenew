@@ -8,19 +8,22 @@
 <head>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/i18n/jquery-ui-timepicker-ru.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css"/>
 
     <script>
-        $(function() {
+        $(function () {
             $("#datepicker").datetimepicker();
         });
     </script>
+
+
 </head>
 
 <body>
@@ -62,31 +65,31 @@
                     </select>
                 </td>
 
-                <td>${task.employeesByEmployee.lastname}  ${task.employeesByEmployee.name}</td>
+                <td>${task.employeesByEmployee.lastname} ${task.employeesByEmployee.name}</td>
                 <td>${task.dateto}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-</br>
-</br>
+    </br>
+    </br>
+    <div>
+        <form:form method="POST" action="/tasks" modelAttribute="task">
+            <form:label path="type">Тип</form:label>
 
-    <form:form method="POST" action="/tasks" modelAttribute="task">
-        <form:label path="type">Тип</form:label>
+            <form:select path="type">
+                <c:forEach items="${tasktypes}" var="tasktypes">
+                    <option value="${tasktypes.id}">${tasktypes.name}</option>
+                </c:forEach>
+            </form:select>
+            <form:label path="text">Текст</form:label>
+            <form:input path="text"/>
+            <form:input path="dateto" id="datepicker"/>
+            <input type="submit" value="Добавить"/>
 
-        <form:select path="type">
-            <c:forEach items="${tasktypes}" var="tasktypes">
-                <option value="${tasktypes.id}">${tasktypes.name}</option>
-            </c:forEach>
-        </form:select>
-        <form:label path="text">Текст</form:label>
-        <form:input path="text"/>
-        <form:input path="dateto" id="datepicker"/>
-        <input type="submit" value="Добавить"/>
-
-    </form:form>
-
+        </form:form>
+    </div>
 
 </div>
 

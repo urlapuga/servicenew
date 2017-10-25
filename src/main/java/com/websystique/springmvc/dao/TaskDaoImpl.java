@@ -21,6 +21,11 @@ public class TaskDaoImpl extends AbstractDao<Integer, Tasks> implements TaskDao 
     }
 
     @Override
+    public void update(Tasks tasks) {
+        persistupdate(tasks);
+    }
+
+    @Override
     public List<Tasks> getManagerTasks() {
         return getByNamedQuery("managerTasks");
     }

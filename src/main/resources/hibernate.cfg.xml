@@ -33,6 +33,7 @@
         <mapping class="com.websystique.springmvc.model.Devices"/>
         <mapping class="com.websystique.springmvc.model.OpticLines"/>
         <mapping class="com.websystique.springmvc.model.site.SiteHeatMaps"/>
+        <mapping class="com.websystique.springmvc.model.temp.Tasks"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 
