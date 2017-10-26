@@ -1,10 +1,7 @@
 package com.websystique.springmvc.dao.site;
 
 import com.websystique.springmvc.dao.AbstractDao;
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.site.SitePages;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

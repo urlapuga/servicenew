@@ -1,6 +1,5 @@
 package com.websystique.springmvc.service;
 
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.OpticLines;
 
 import java.util.List;

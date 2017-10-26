@@ -1,7 +1,6 @@
 package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.OpticLines;
-import com.websystique.springmvc.model.Payments;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;

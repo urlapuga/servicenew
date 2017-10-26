@@ -3,12 +3,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="/static/js/tasks.js"></script>
 </head>
 <body>
 
 ${task.dateto} ${task.text}
+<input type="text" id="taskcoment">
+<input type="button" value="Отменить" onclick="cancelTask()">
+<input type="button" value="Отказатся" onclick="rejectTask()">
 
-
-<div><jsp:include page="/abonenteditor/${task.subscriberId}"/></div>
+<br>
+<div>
+    <jsp:include page="/abonenteditor/${task.subscriberId}"/>
+</div>
 </body>
 </html>

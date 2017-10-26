@@ -5,6 +5,7 @@
 <html>
 <head>
     <script src="/static/js/index.js"></script>
+    <script src="/static/js/tasks.js"></script>
     <script src="/static/js/jssip-3.0.15.min.js"></script>
     <script src="/static/js/sipphone.js"></script>
 
@@ -27,7 +28,7 @@
 <center>
     <div id="container">
         <div id="chat">
-            <%-- <jsp:include page="/chat/rooms"/>--%>
+            <jsp:include page="/chat/rooms"/>
          </div>
          <div id="content">
              <%-- <jsp:include page="/${page}"/>--%>

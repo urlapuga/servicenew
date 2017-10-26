@@ -1,9 +1,7 @@
 package com.websystique.springmvc.controller;
 
-import com.websystique.springmvc.model.Subscribers;
 import com.websystique.springmvc.model.Subscriberview;
 import com.websystique.springmvc.service.PaymentsService;
-import com.websystique.springmvc.service.SubscriberService;
 import com.websystique.springmvc.service.SubscriberViewService;
 import com.websystique.springmvc.service.adress.BuildingService;
 import com.websystique.springmvc.service.adress.StreetService;
@@ -58,18 +56,14 @@ public class DataController {
     @RequestMapping(value = {"/subscribers/{idBy}/{id}"}, method = RequestMethod.GET)
     public String showSubscribers(ModelMap model, @PathVariable String id, @PathVariable String idBy) {
         List<Subscriberview> subsList = new ArrayList<>();
-        System.out.println(idBy);
-        if (idBy.equals("city")) {
-            subsList = subscriberViewService.byCity(Integer.parseInt(id));
-        }
-        else if (idBy.equals("street")) {
-            subsList = subscriberViewService.byStreet(Integer.parseInt(id));
-        }
-        else if (idBy.equals("building")) {
-            subsList = subscriberViewService.byBuilding(Integer.parseInt(id));
-        } else {
-            model.addAttribute("error", "Некорректный запрос");
-            return "error";
+
+        switch (idBy) {
+            case "city":
+                subsList = subscriberViewService.byCity(Integer.parseInt(id));
+            case "street":
+                subsList = subscriberViewService.byStreet(Integer.parseInt(id));
+            case "building":
+                subsList = subscriberViewService.byBuilding(Integer.parseInt(id));
         }
 
         model.addAttribute("subscribers", subsList);

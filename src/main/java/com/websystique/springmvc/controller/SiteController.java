@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +36,7 @@ public class SiteController {
         Map<String, String> menuMap = new HashMap<>();
 
         sitePages.forEach(p -> menuMap.put(p.getName(), p.getAnchor()));
-        model.addAttribute("site", siteService.getById(0));
+        model.addAttribute("site", siteSite);
         model.addAttribute("pages", sitePages);
         model.addAttribute("menu", menuMap);
         return "site";

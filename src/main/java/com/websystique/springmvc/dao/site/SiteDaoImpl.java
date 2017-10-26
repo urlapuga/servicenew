@@ -1,7 +1,6 @@
 package com.websystique.springmvc.dao.site;
 
 import com.websystique.springmvc.dao.AbstractDao;
-import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.site.SiteSite;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
