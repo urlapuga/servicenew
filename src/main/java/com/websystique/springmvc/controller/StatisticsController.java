@@ -17,7 +17,6 @@ public class StatisticsController {
     @RequestMapping(value = {"/statistics"}, method = RequestMethod.GET)
     public String saveTaskType(ModelMap model) {
         System.out.println(statisticsService.allManworkList());
-
         return "statistics";
     }
 

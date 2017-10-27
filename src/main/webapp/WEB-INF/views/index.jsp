@@ -25,18 +25,23 @@
     <link href="${maincss}" rel="stylesheet"/>
 </head>
 <body>
-<center>
-    <div id="container">
-        <div id="chat">
-            <jsp:include page="/chat/rooms"/>
-         </div>
-         <div id="content">
-             <%-- <jsp:include page="/${page}"/>--%>
-        </div>
-        <div id="tasks">
-            <jsp:include page="owntasks.jsp"/>
-        </div>
+
+<div id="container">
+    <div id="chat">
+        <jsp:include page="/chat/rooms"/>
     </div>
-</center>
+
+    <div id="content">
+
+        <center>
+
+            <jsp:include page="/abonentsearch"></jsp:include>
+            <%-- <jsp:include page="/${page}"/>--%>
+        </center>
+    </div>
+    <div id="tasks">
+        <jsp:include page="owntasks.jsp"/>
+    </div>
+</div>
 </body>
 </html>
