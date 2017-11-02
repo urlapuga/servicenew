@@ -5,7 +5,7 @@ import com.websystique.springmvc.model.Payments;
 import java.util.List;
 
 public interface PaymentsService {
-
+    List<Payments> bySubscriber(int id);
     List<Payments> findAll();
     void add(Payments pinger);
     void update(Payments pinger);

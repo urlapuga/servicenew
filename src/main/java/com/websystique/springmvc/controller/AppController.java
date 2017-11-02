@@ -130,6 +130,15 @@ public class AppController {
         return "static/favicon.ico";
     }
 
+
+    //Addresspicker
+    @RequestMapping(value = {"/addresspicker"}, method = RequestMethod.GET)
+    public String listUsers(ModelMap model) {
+        model.addAttribute("cities", cityService.findAll());
+        return "pickers/addresspicker";
+    }
+
+
     //INDEX
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model, @PathVariable String id) {
@@ -211,46 +220,6 @@ public class AppController {
     }
 
 
-    //ABONENT
-
-    @RequestMapping(value = {"/abonenteditor/{id}"}, method = RequestMethod.GET)
-    public String showAbonentById(ModelMap model, @PathVariable String id) {
-        Subscribers subscribers = subscriberService.getById(Integer.parseInt(id));
-
-        if (subscribers == null) {
-            model.addAttribute("error", "Договор не найден");
-            return "error";
-        }
-
-        Tarifs tarifs = tarifService.getById(subscribers.getTarif());
-
-        model.addAttribute("employee", employeeService.findById(1));
-
-        model.addAttribute("subscriber", subscribers);
-        model.addAttribute("tasks", taskService.getBySubscriber(Integer.parseInt(id)));
-        model.addAttribute("tarif", tarifs);
-        model.addAttribute("tarifs", tarifService.findAll());
-        model.addAttribute("tasktypes", taskTypeService.findAll());
-        model.addAttribute("devices", devicesService.findAll());
-        return "abonenteditor";
-    }
-
-    @RequestMapping(value = {"/new-subscriber"}, method = RequestMethod.POST)
-    public String createSubscriber(@Valid Subscribers subscribers, BindingResult result,
-                                   ModelMap model) {
-        subscriberService.add(subscribers);
-
-        return "redirect:/2";
-    }
-
-    @RequestMapping(value = {"/saveabonent"}, method = RequestMethod.POST)
-    public String saveAbonent(@Valid Subscribers subscribers, BindingResult result,
-                              ModelMap model) {
-        System.out.println(subscribers);
-        subscriberService.update(subscribers);
-
-        return "redirect:/abonenteditor/" + subscribers.getId();
-    }
 
     //OPERATOR
     @RequestMapping(value = {"/operator"}, method = RequestMethod.GET)

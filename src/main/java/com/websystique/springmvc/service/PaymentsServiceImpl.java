@@ -15,6 +15,11 @@ public class PaymentsServiceImpl implements PaymentsService {
     @Autowired
     private PaymentsDao dao;
 
+    @Override
+    public List<Payments> bySubscriber(int id) {
+        return dao.bySubscriber(id);
+    }
+
     public List<Payments> findAll() {
         return dao.findAll();
     }

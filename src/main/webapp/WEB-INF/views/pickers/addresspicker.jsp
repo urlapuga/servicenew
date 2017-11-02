@@ -10,7 +10,7 @@ function getStreets(){
     var xhttp = new XMLHttpRequest();
     var e = document.getElementsByName("city")[0];
     var cid = e.options[e.selectedIndex].value;
-    xhttp.open("GET", "data/streets/"+cid, false);
+    xhttp.open("GET", "/data/streets/"+cid, false);
     xhttp.send();
     document.getElementById("streets").innerHTML = xhttp.responseText;
 };
@@ -19,7 +19,7 @@ function getBuildings(){
     var xhttp = new XMLHttpRequest();
     var e = document.getElementsByName("street")[0];
     var cid = e.options[e.selectedIndex].value;
-    xhttp.open("GET", "data/buildings/"+cid, false);
+    xhttp.open("GET", "/data/buildings/"+cid, false);
     xhttp.send();
     document.getElementById("buildings").innerHTML = xhttp.responseText;
 };
@@ -52,7 +52,7 @@ function showSubscribers (){
         id = e.options[e.selectedIndex].value;
         idBy = "building";
     }
-    xhttp.open("GET", "data/subscribers/"+idBy+"/"+id, false);
+    xhttp.open("GET", "/data/subscribers/"+idBy+"/"+id, false);
     xhttp.send();
     document.getElementById("subscribers").innerHTML = xhttp.responseText;
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -141,13 +142,13 @@ public class TaskController {
 
 
     @RequestMapping(value = {"/tasks"}, method = RequestMethod.POST)
-    public String saveTask(@Valid Tasks tasks, BindingResult result,
+    public String saveTask(@Valid Tasks tasks, BindingResult result,HttpServletRequest request,
                            ModelMap model) {
         System.out.println(tasks.getDateto());
         taskService.add(tasks);
         model.addAttribute("tasktypes", taskTypeService.findAll());
         model.addAttribute("tasks", taskService.findAll());
-        return "/tasklist";
+        return "redirect:"+request.getHeader("Referer");
     }
 
     @RequestMapping(value = {"/task-edit-{id}"}, method = RequestMethod.GET)

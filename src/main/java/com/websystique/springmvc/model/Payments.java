@@ -3,6 +3,10 @@ package com.websystique.springmvc.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "paymentsBySubscriber",query = "from Payments p where to=:subscriberId")
+})
+
 @Entity
 @Table(name="payments")
 public class Payments {

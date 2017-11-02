@@ -36,7 +36,8 @@
         <center>
 
             <jsp:include page="/abonentsearch"></jsp:include>
-            <%-- <jsp:include page="/${page}"/>--%>
+            <jsp:include page="create/subscriber.jsp"></jsp:include>
+            <%---       <jsp:include page="/${page}"/> --%>
         </center>
     </div>
     <div id="tasks">

@@ -23,6 +23,36 @@ public class Subscribers {
     private SubscriberStatus subscriberStatusByStatus;
     private Tarifs tarifsByTarif;
     private IpType ipTypeByIptype;
+    private Integer address;
+    private Integer room;
+
+    public Subscribers() {
+    }
+
+    public Subscribers(String name, String phone, Integer address, Integer room) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.room = room;
+    }
+
+    @Column(name = "room")
+    public Integer getRoom() {
+        return room;
+    }
+
+    public void setRoom(Integer room) {
+        this.room = room;
+    }
+
+    @Column(name= "address")
+    public Integer getAddress() {
+        return address;
+    }
+
+    public void setAddress(Integer address) {
+        this.address = address;
+    }
 
     @Id
     @GeneratedValue

@@ -10,5 +10,6 @@ public interface SubscriberService {
     void add(Subscribers pinger);
     void update(Subscribers pinger);
     Subscribers getById(int id);
+    Subscribers addGet(Subscribers subscribers);
 
 }

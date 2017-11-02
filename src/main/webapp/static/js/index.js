@@ -1,6 +1,13 @@
 var chatHidden = false;
 var tasksHidden = false;
 
+function sendGet(addrString){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", addrString, false);
+    xhttp.send();
+    return xhttp.responseText;
+}
+
 function showChat() {
 
     if (!chatHidden) {
@@ -37,7 +44,6 @@ function setgetter(getter) {
 function send() {
     var xhttp = new XMLHttpRequest();
     var room = document.getElementById("room").value;
-    ;
     var message = document.getElementById("mess").value;
     var getter = document.getElementById("getter").value;
     xhttp.open("GET", "newmessage-" + room + "-" + message + "-" + getter, false);

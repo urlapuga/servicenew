@@ -19,8 +19,12 @@ public class SubscriberDaoImpl extends AbstractDao<Integer, Subscribers>implemen
     }
 
     public void add(Subscribers entity) {
-
         persist(entity);
+    }
+
+    @Override
+    public Subscribers addGet(Subscribers entity) {
+        return super.addGet(entity);
     }
 
     public void update(Subscribers entity) {

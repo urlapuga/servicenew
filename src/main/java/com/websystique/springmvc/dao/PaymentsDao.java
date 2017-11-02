@@ -5,7 +5,7 @@ import com.websystique.springmvc.model.Payments;
 import java.util.List;
 
 public interface PaymentsDao {
-
+    List<Payments> bySubscriber(int id);
     List<Payments> findAll();
     void add(Payments entity);
     void update(Payments entity);

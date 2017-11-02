@@ -31,4 +31,8 @@ public class SubscriberServiceImpl implements SubscriberService {
         return dao.getById(id);
     }
 
+    @Override
+    public Subscribers addGet(Subscribers subscribers) {
+        return dao.addGet(subscribers);
+    }
 }

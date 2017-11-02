@@ -10,6 +10,11 @@ import java.util.List;
 @Repository("paymentsDao")
 public class PaymentsDaoImpl extends AbstractDao<Integer, Payments>implements PaymentsDao
 {
+    @Override
+    public List<Payments> bySubscriber(int id) {
+        return super.getByNamedQueryWithParam("paymentsBySubscriber","subscriberId",String.valueOf(id));
+    }
+
     public List<Payments> findAll() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.

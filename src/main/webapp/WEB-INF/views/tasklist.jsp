@@ -1,32 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
-<meta http-equiv="content-type" content="text/html; charset=cp1251">
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
-<html>
-
-<head>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/i18n/jquery-ui-timepicker-ru.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css"/>
-
-    <script>
-        $(function () {
-            $("#datepicker").datetimepicker();
-        });
-    </script>
-
-
-</head>
-
-<body>
 
 <div class="panel panel-default">
     <!-- Default panel contents -->
@@ -76,6 +51,7 @@
     </br>
     <div>
         <form:form method="POST" action="/tasks" modelAttribute="task">
+            <form:hidden path="subscriberId" value="${subscriber.id}"/>
             <form:label path="type">Тип</form:label>
 
             <form:select path="type">
@@ -92,6 +68,3 @@
     </div>
 
 </div>
-
-</body>
-</html>
