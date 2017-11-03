@@ -33,8 +33,11 @@
     <div>Дата регистрации ${subscriber.dateRegistered} </div>
     <div>Оплачено до ${subscriber.datepayedto}</div>
     <div>Тариф ${tarif.name} , Скорость ${tarif.speed} , Стоимость ${tarif.cost}</div>
-
-
+<div>
+    <a href="/showdoc/akt/${subscriber.id}" target="_blank"><button>Акт</button></a>
+    <a href="/showdoc/dogovor/${subscriber.id}" target="_blank"><button>Договор</button></a>
+    <a href="/showdoc/schet/${subscriber.id}" target="_blank"><button>Счет</button></a>
+</div>
     <table>
 
         <tr>
@@ -87,6 +90,71 @@
     </table>
 
 
+
+    <table>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Адрес
+            </th>
+            <th>
+                Р/Р
+            </th>
+            <th>
+                Банк
+            </th>
+            <th>
+                МФО
+            </th>
+            <th>
+                ЕДРПОУ
+            </th>
+            <th>
+                ЕДР
+            </th>
+            <th>
+                Форма налогообложения
+            </th>
+            <th>
+                Директор
+            </th>
+            <th>
+                Телефон
+            </th>
+            <th>
+                Управление
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <form:form method="POST" action="/saverekvizity" modelAttribute="rekvizity">
+                <form:input path="id" value="${rekvizity.id}" hidden="true"></form:input>
+                <form:input path="subscriber" hidden="true" value="${rekvizity.subscriber}"></form:input></td>
+                <form:input path="data" hidden="true" value="${rekvizity.data}"></form:input></td>
+                <td><form:input path="fopname" value="${rekvizity.fopname}"/></td>
+                <td><form:input path="address" value="${rekvizity.address}"/></td>
+                <td><form:input path="rr" value="${rekvizity.rr}"/></td>
+                <td><form:input path="bank" value="${rekvizity.bank}"/></td>
+                <td><form:input path="mfo" value="${rekvizity.mfo}"/></td>
+
+                <td><form:input path="edrpou" value="${rekvizity.edrpou}"/></td>
+                <td><form:input path="edr" value="${rekvizity.edr}"/></td>
+                <td><form:input path="nalogform" value="${rekvizity.nalogform}"/></td>
+                <td><form:input path="director" value="${rekvizity.director}"/></td>
+                <td><form:input path="phone" value="${rekvizity.phone}"/></td>
+                <td><input type="submit" value="Изменить"/></td>
+            </form:form>
+        </tr>
+    </table>
+
+
+
+
+
     <table width="100%">
         <tr valign="top">
             <td width="50%">
@@ -98,6 +166,8 @@
         </tr>
 
     </table>
+
+
 </center>
 </body>
 </html>

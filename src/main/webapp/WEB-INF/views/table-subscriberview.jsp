@@ -2,6 +2,7 @@
 <table border="1">
     <c:forEach items="${subscribers}" var="row">
         <tr>
+            <th>Договор</th>
             <th>Имя</th>
             <th>Телефон</th>
             <th>Ip</th>
@@ -13,6 +14,7 @@
             <th>Статус</th>
         </tr>
         <tr>
+            <td><a href="/abonenteditor/${row.id}" target="_blank">${row.id}</a></td>
             <td>${row.name}</td>
             <td><a href="#" onclick="call('${row.phone}')">${row.phone}</a></td>
             <td>${row.ipaddress}</td>

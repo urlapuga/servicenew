@@ -531,7 +531,7 @@
     <TR CLASS=R13>
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R17C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">Покупець:</SPAN></TD>
-        <TD CLASS="R17C6" COLSPAN=32>Товариство з обмеженою відповідальністю «ФІБРАТЕКС»</TD>
+        <TD CLASS="R17C6" COLSPAN=32>${rekvizity.fopname}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -543,7 +543,7 @@
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R21C7" COLSPAN=31>Тел.: (097) 883-33-98</TD>
+        <TD CLASS="R21C7" COLSPAN=31>Тел.: ${rekvizity.phone}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -586,7 +586,7 @@
     <TR CLASS=R23>
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R23C1" COLSPAN=4>Договір:</TD>
-        <TD CLASS="R23C1" COLSPAN=33>ДОГОВІР 2 від 01.08.2017</TD>
+        <TD CLASS="R23C1" COLSPAN=33>ДОГОВІР ${rekvizity.subscriber} від ${rekvizity.data.split(" ")[0]}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -647,8 +647,8 @@
         <TD CLASS="R27C3" COLSPAN=23>Технічне обслуговування ком`ютерного обладнання</TD>
         <TD CLASS="R27C26" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">1</SPAN></TD>
         <TD CLASS="R27C3" COLSPAN=2>послуга</TD>
-        <TD CLASS="R27C26" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">530,00</SPAN></TD>
-        <TD CLASS="R27C34" COLSPAN=4><SPAN STYLE="white-space:nowrap;max-width:0px;">530,00</SPAN></TD>
+        <TD CLASS="R27C26" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">${cost},00</SPAN></TD>
+        <TD CLASS="R27C34" COLSPAN=4><SPAN STYLE="white-space:nowrap;max-width:0px;">${cost},00</SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -712,7 +712,7 @@
         <TD CLASS="R29C23" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">Разом:</SPAN></TD>
         <TD CLASS="R29C26" COLSPAN=4><SPAN></SPAN></TD>
         <TD CLASS="R29C26" COLSPAN=4><SPAN></SPAN></TD>
-        <TD CLASS="R29C34" COLSPAN=4><SPAN STYLE="white-space:nowrap;max-width:0px;">530,00</SPAN></TD>
+        <TD CLASS="R29C34" COLSPAN=4><SPAN STYLE="white-space:nowrap;max-width:0px;">${cost}</SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -768,13 +768,13 @@
     </TR>
     <TR CLASS=R0>
         <TD><SPAN></SPAN></TD>
-        <TD COLSPAN=37><SPAN STYLE="white-space:nowrap;max-width:0px;">Всього&nbsp;найменувань&nbsp;1,&nbsp;на&nbsp;суму&nbsp;530,00&nbsp;грн.</SPAN></TD>
+        <TD COLSPAN=37><SPAN STYLE="white-space:nowrap;max-width:0px;">Всього&nbsp;найменувань&nbsp;1,&nbsp;на&nbsp;суму&nbsp;${cost},00&nbsp;грн.</SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
     <TR CLASS=R33>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R33C1" COLSPAN=37>П'ятсот тридцять гривень 00 копійок<BR>У т.ч. ПДВ: Вісімдесят вісім гривень 33 копійки</TD>
+        <TD CLASS="R33C1" COLSPAN=37>${money}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>

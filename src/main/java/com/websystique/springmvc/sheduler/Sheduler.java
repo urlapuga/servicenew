@@ -23,16 +23,13 @@ public class Sheduler {
         for(Pinger p:pingers){
             boolean pingResult = PingProducer.ping(p.getIp());
             String out = pingResult?"up":"down";
-            System.out.println(p.getIp()+" " + out);
             if(pingResult!=p.pinged()){
                 p.setStatus(pingResult?1:0);
                 pingerService.update(p);
                 MailProducer.send("urlapuga1@mail.ru","pinger",p.getIp()+
                         " " + out);
-                System.out.println("status changed");
 
             }
         }
-        System.out.println("ping");
     }
 }
