@@ -4,6 +4,15 @@
 
 <html>
 <head>
+    <style>
+        #mainDiv {
+            background: #007E3E; /* Цвет фона */
+            color: #fff; /* Цвет текста */
+            padding: 10px; /* Поля вокруг текста */
+            border-radius: 5px; /* Уголки */
+        }
+    </style>
+
     <script src="/static/js/index.js"></script>
     <script src="/static/js/tasks.js"></script>
     <script src="/static/js/jssip-3.0.15.min.js"></script>
@@ -35,9 +44,12 @@
 
         <center>
 
-            <jsp:include page="/abonentsearch"></jsp:include>
-            <jsp:include page="create/subscriber.jsp"></jsp:include>
-            <%---       <jsp:include page="/${page}"/> --%>
+            <div id="mainDiv">
+                <jsp:include page="/abonentsearch"></jsp:include>
+                <jsp:include page="create/subscriber.jsp"></jsp:include>
+            </div>
+
+            <jsp:include page="/${page}"/>
         </center>
     </div>
     <div id="tasks">

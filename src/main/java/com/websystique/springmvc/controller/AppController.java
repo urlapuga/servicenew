@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -157,6 +158,7 @@ public class AppController {
     @RequestMapping(value = {"/supertechnician"}, method = RequestMethod.GET)
     public String superTechInterface(ModelMap model) {
         model.addAttribute("tasks", taskService.getTechnicianTasks());
+        model.addAttribute("employees", employeeService.findAll());
         return "supertechnician";
     }
 
@@ -277,18 +279,18 @@ public class AppController {
     }
 
     @RequestMapping(value = {"/delete-pinger-{id}"}, method = RequestMethod.GET)
-    public String deletePinger(@PathVariable String id) {
+    public String deletePinger(@PathVariable String id, HttpServletRequest request) {
         pingerService.deleteById(Integer.parseInt(id));
-        return "redirect:/pinger";
+        return "redirect:"+request.getHeader("Referer");
     }
 
     @RequestMapping(value = {"/newpinger"}, method = RequestMethod.POST)
     public String savePinger(@Valid Pinger pinger, BindingResult result,
-                             ModelMap model) {
+                             ModelMap model, HttpServletRequest request) {
         pingerService.add(pinger);
         List<Pinger> resultList = pingerService.findAll();
         model.addAttribute("result", resultList);
-        return "pingerlist";
+        return "redirect:"+request.getHeader("Referer");
     }
 
 

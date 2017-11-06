@@ -69,7 +69,7 @@ function showUser(user) {
     document.getElementById("chatcontent").style = "block";
 };
 
-function showAbonent(user) {
+function showAbonent() {
     window.open("/abonenteditor/" + document.getElementById("abonentid").value);
 };
 

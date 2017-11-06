@@ -30,6 +30,19 @@ public class TaskController {
     TaskTypeService taskTypeService;
     //TASKS
 
+
+    @RequestMapping(value = {"/settaskemployee/{id}/{employeeId}"}, method = RequestMethod.GET)
+    public String setTaskEmployee(@PathVariable Integer id,@PathVariable Integer employeeId, ModelMap model) {
+
+        Tasks tasks = taskService.getById(id);
+        tasks.setEmployeeTaskTo(employeeId);
+        taskService.update(tasks);
+        model.addAttribute("error","task updated");
+        return "error";
+    }
+
+
+
     /**
      * Закрываем задачу
      * Проверяем , что человек закрывает свою задачу , которая в работе
@@ -85,7 +98,7 @@ public class TaskController {
         return "error";
     }
 
-    @RequestMapping(value = {"/rejectltask/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/rejecttask/{id}"}, method = RequestMethod.GET)
     public String rejectOwnTask(@PathVariable String id, ModelMap model) {
 
         Tasks tasks = taskService.getById(Integer.parseInt(id));

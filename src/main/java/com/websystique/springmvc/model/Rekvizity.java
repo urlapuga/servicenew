@@ -25,6 +25,18 @@ public class Rekvizity {
     private Timestamp data;
     private Integer pdv;
 
+
+    @Column(name = "site")
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
+    }
+
+    private String site;
+
     @Column(name = "pdv")
     public Integer getPdv() {
         return pdv;

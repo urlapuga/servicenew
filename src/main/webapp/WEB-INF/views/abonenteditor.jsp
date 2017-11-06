@@ -19,6 +19,22 @@
             $(function () {
                 $("#datepicker").datetimepicker();
             });
+
+            function sendGet(addrString){
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", addrString, false);
+                xhttp.send();
+                return xhttp.responseText;
+            };
+
+            function generatePass(id) {
+                var email =  document.getElementById("email").value;
+                if(email.length<1){
+                    alert("Пароль отправляется на почту");
+                    return;
+                }
+                alert(sendGet("/generatePass/"+id));
+            };
         </script>
 
 
@@ -29,9 +45,9 @@
 
 
 <center>
-    <div>Договор ${subscriber.id}</div>
-    <div>Дата регистрации ${subscriber.dateRegistered} </div>
-    <div>Оплачено до ${subscriber.datepayedto}</div>
+    Договор ${subscriber.id} <input type="button" value="Создать пароль" onclick="generatePass(${subscriber.id})"> </div>
+    <div>Дата регистрации ${subscriber.dateRegistered.toString().split(" ")[0]} </div>
+    <div>Оплачено до ${subscriber.datepayedto.toString().split(" ")[0]}</div>
     <div>Тариф ${tarif.name} , Скорость ${tarif.speed} , Стоимость ${tarif.cost}</div>
 <div>
     <a href="/showdoc/akt/${subscriber.id}" target="_blank"><button>Акт</button></a>

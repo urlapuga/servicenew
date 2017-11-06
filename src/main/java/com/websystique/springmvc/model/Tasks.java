@@ -22,7 +22,6 @@ import java.sql.Timestamp;
                 name = "byCompany",
                 query = "from Tasks s where s.company = :companyId"
         ),
-
         @NamedQuery(
                 name = "bySubscriber",
                 query = "from Tasks s where s.subscriberId = :subscriberId"

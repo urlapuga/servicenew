@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name="subscribers")
+@Table(name = "subscribers")
 public class Subscribers {
     private Integer id;
     private String name;
@@ -25,6 +25,16 @@ public class Subscribers {
     private IpType ipTypeByIptype;
     private Integer address;
     private Integer room;
+    private String password;
+
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Subscribers() {
     }
@@ -45,7 +55,7 @@ public class Subscribers {
         this.room = room;
     }
 
-    @Column(name= "address")
+    @Column(name = "address")
     public Integer getAddress() {
         return address;
     }

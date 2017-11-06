@@ -8,7 +8,7 @@ var configuration = {
 
 var ua = new JsSIP.UA(configuration);
 
-ua.start();
+
 
 var eventHandlers = {
     'progress': function(e) {
@@ -34,6 +34,7 @@ var options = {
 // var session  = ua.sendMessage('380638339275', "1234");
 
 function call(number){
+    ua.start();
     ua.call(number, options);
 }
 

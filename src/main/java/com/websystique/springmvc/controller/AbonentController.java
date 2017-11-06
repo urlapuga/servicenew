@@ -1,6 +1,8 @@
 package com.websystique.springmvc.controller;
 
+import com.websystique.springmvc.actionproducer.MailProducer;
 import com.websystique.springmvc.converters.MoneyConverter;
+import com.websystique.springmvc.converters.PassToHashConverter;
 import com.websystique.springmvc.model.*;
 import com.websystique.springmvc.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +59,29 @@ public class AbonentController {
     }
 
 
+    //PASSWORD GENERATION
+    @RequestMapping(value = {"/generatePass/{subscriberID}"}, method = RequestMethod.GET)
+    public String generatePass(@PathVariable Integer subscriberID, ModelMap model) {
+        Subscribers subscribers = subscriberService.getById(subscriberID);
+        if(subscribers.getEmail()!=null){
+            if(subscribers.getEmail().length()>0){
+                String pass = PassToHashConverter.generatePass();
+                String hash = PassToHashConverter.convert(pass);
+
+
+                String text = "Ваш Договор (Логин ) - "+ subscriberID + "Ваш пароль -" + pass;
+                text += " Ваш пароль знаете только вы";
+                MailProducer.send(subscribers.getEmail(),"Доступ в Личный кабинет",text);
+                subscribers.setPassword(hash);
+                subscriberService.update(subscribers);
+            model.addAttribute("error","пароль успешно сгенерирован");
+            }
+        }
+        else{
+            model.addAttribute("error","Сначала внесите emzil абонента");
+        }
+        return "error";
+    }
     //DOCUMENTS
 
     @RequestMapping(value = {"/showdoc/{doctype}/{subscriberID}"}, method = RequestMethod.GET)
