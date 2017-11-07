@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
@@ -6,10 +6,10 @@
 <head>
     <style>
         #mainDiv {
-            background: #007E3E; /* Цвет фона */
-            color: #fff; /* Цвет текста */
-            padding: 10px; /* Поля вокруг текста */
-            border-radius: 5px; /* Уголки */
+            background: #007E3E; /* Р¦РІРµС‚ С„РѕРЅР° */
+            color: #fff; /* Р¦РІРµС‚ С‚РµРєСЃС‚Р° */
+            padding: 10px; /* РџРѕР»СЏ РІРѕРєСЂСѓРі С‚РµРєСЃС‚Р° */
+            border-radius: 5px; /* РЈРіРѕР»РєРё */
         }
     </style>
 
