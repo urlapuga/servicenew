@@ -3,10 +3,7 @@ package com.websystique.springmvc.controller;
 import com.websystique.springmvc.model.Companies;
 import com.websystique.springmvc.model.Employees;
 import com.websystique.springmvc.model.Positions;
-import com.websystique.springmvc.service.CompanyService;
-import com.websystique.springmvc.service.EmployeeService;
-import com.websystique.springmvc.service.PositionsService;
-import com.websystique.springmvc.service.TaskService;
+import com.websystique.springmvc.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,7 +27,8 @@ public class EmployeesController {
     PositionsService positionsService;
     @Autowired
     TaskService taskService;
-
+    @Autowired
+    TaskTypeService taskTypeService;
 
     @ModelAttribute("employee")
     public Employees createEmployee() {
@@ -56,9 +54,18 @@ public class EmployeesController {
     }
 
     @RequestMapping(value = {"/editemployee/{id}"}, method = RequestMethod.GET)
-    public String editEmployee(@PathVariable String id, ModelMap model) {
-        model.addAttribute("employee", employeeService.findById(Integer.parseInt(id)));
-        model.addAttribute("tasks",taskService.getByEmployee(Integer.parseInt(id)));
+    public String editEmployee(@PathVariable Integer id, ModelMap model) {
+
+        Employees employees = employeeService.findById(id);
+        if(employees==null){
+            model.addAttribute("error","Сотьрудник не найден");
+
+            return "error";
+        }
+
+        model.addAttribute("employee", employees);
+        model.addAttribute("tasks", taskService.getByEmployee(id));
+        model.addAttribute("taskTypes",taskTypeService.findAll());
         return "employeeeditor";
     }
 
@@ -66,7 +73,7 @@ public class EmployeesController {
     public String saveEmployee(@Valid Employees employee, BindingResult result,
                                ModelMap model) {
         employeeService.update(employee);
-        return "redirect:/editemployee/"+employee.getId();
+        return "redirect:/editemployee/" + employee.getId();
     }
 
 }

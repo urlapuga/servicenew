@@ -49,8 +49,6 @@ public class ChatController {
         model.addAttribute("messages", chatMessagesService.getByRoom(Integer.parseInt(room)));
         model.addAttribute("room", room);
         model.addAttribute("employeenames", userNames());
-        System.out.println("room - " + room);
-        System.out.println("roommessages");
         return "chat/roommessages";
     }
 

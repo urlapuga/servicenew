@@ -1,9 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251"%>
-<meta http-equiv="content-type" content="text/html; charset=cp1251">
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
         <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
         <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
@@ -30,7 +30,7 @@
             function generatePass(id) {
                 var email =  document.getElementById("email").value;
                 if(email.length<1){
-                    alert("Пароль отправляется на почту");
+                    alert("РџР°СЂРѕР»СЊ РѕС‚РїСЂР°РІР»СЏРµС‚СЃСЏ РЅР° РїРѕС‡С‚Сѓ");
                     return;
                 }
                 alert(sendGet("/generatePass/"+id));
@@ -39,34 +39,34 @@
 
 
 
-    <title>Учетная запись абонента</title>
+    <title>РЈС‡РµС‚РЅР°СЏ Р·Р°РїРёСЃСЊ Р°Р±РѕРЅРµРЅС‚Р°</title>
 </head>
 <body>
 
 
 <center>
-    Договор ${subscriber.id} <input type="button" value="Создать пароль" onclick="generatePass(${subscriber.id})"> </div>
-    <div>Дата регистрации ${subscriber.dateRegistered.toString().split(" ")[0]} </div>
-    <div>Оплачено до ${subscriber.datepayedto.toString().split(" ")[0]}</div>
-    <div>Тариф ${tarif.name} , Скорость ${tarif.speed} , Стоимость ${tarif.cost}</div>
+    Р”РѕРіРѕРІРѕСЂ ${subscriber.id} <input type="button" value="РЎРѕР·РґР°С‚СЊ РїР°СЂРѕР»СЊ" onclick="generatePass(${subscriber.id})"> </div>
+    <div>Р”Р°С‚Р° СЂРµРіРёСЃС‚СЂР°С†РёРё ${subscriber.dateRegistered.toString().split(" ")[0]} </div>
+    <div>РћРїР»Р°С‡РµРЅРѕ РґРѕ ${subscriber.datepayedto.toString().split(" ")[0]}</div>
+    <div>РўР°СЂРёС„ ${tarif.name} , РЎРєРѕСЂРѕСЃС‚СЊ ${tarif.speed} , РЎС‚РѕРёРјРѕСЃС‚СЊ ${tarif.cost}</div>
 <div>
-    <a href="/showdoc/akt/${subscriber.id}" target="_blank"><button>Акт</button></a>
-    <a href="/showdoc/dogovor/${subscriber.id}" target="_blank"><button>Договор</button></a>
-    <a href="/showdoc/schet/${subscriber.id}" target="_blank"><button>Счет</button></a>
+    <a href="/showdoc/akt/${subscriber.id}" target="_blank"><button>РђРєС‚</button></a>
+    <a href="/showdoc/dogovor/${subscriber.id}" target="_blank"><button>Р”РѕРіРѕРІРѕСЂ</button></a>
+    <a href="/showdoc/schet/${subscriber.id}" target="_blank"><button>РЎС‡РµС‚</button></a>
 </div>
     <table>
 
         <tr>
-            <th>Обращение</th>
-            <th>Телефон</th>
-            <th>Почта</th>
-            <th>Мак адрес</th>
-            <th>Айпи Адрес</th>
-            <th>Статус</th>
-            <th>Тариф</th>
-            <th>Свитчь</th>
-            <th>Порт</th>
-            <th>Управление</th>
+            <th>РћР±СЂР°С‰РµРЅРёРµ</th>
+            <th>РўРµР»РµС„РѕРЅ</th>
+            <th>РџРѕС‡С‚Р°</th>
+            <th>РњР°Рє Р°РґСЂРµСЃ</th>
+            <th>РђР№РїРё РђРґСЂРµСЃ</th>
+            <th>РЎС‚Р°С‚СѓСЃ</th>
+            <th>РўР°СЂРёС„</th>
+            <th>РЎРІРёС‚С‡СЊ</th>
+            <th>РџРѕСЂС‚</th>
+            <th>РЈРїСЂР°РІР»РµРЅРёРµ</th>
         </tr>
         <tr>
             <form:form method="POST" action="/saveabonent" modelAttribute="subscriber">
@@ -100,7 +100,7 @@
                     </form:select>
                 </td>
                 <td><form:input path="port" value="${subscriber.port}"/></td>
-                <td><input type="submit" value="Изменить"/></td>
+                <td><input type="submit" value="РР·РјРµРЅРёС‚СЊ"/></td>
             </form:form>
         </tr>
     </table>
@@ -110,37 +110,37 @@
     <table>
         <tr>
             <th>
-                Название
+                РќР°Р·РІР°РЅРёРµ
             </th>
             <th>
-                Адрес
+                РђРґСЂРµСЃ
             </th>
             <th>
-                Р/Р
+                Р /Р 
             </th>
             <th>
-                Банк
+                Р‘Р°РЅРє
             </th>
             <th>
-                МФО
+                РњР¤Рћ
             </th>
             <th>
-                ЕДРПОУ
+                Р•Р”Р РџРћРЈ
             </th>
             <th>
-                ЕДР
+                Р•Р”Р 
             </th>
             <th>
-                Форма налогообложения
+                Р¤РѕСЂРјР° РЅР°Р»РѕРіРѕРѕР±Р»РѕР¶РµРЅРёСЏ
             </th>
             <th>
-                Директор
+                Р”РёСЂРµРєС‚РѕСЂ
             </th>
             <th>
-                Телефон
+                РўРµР»РµС„РѕРЅ
             </th>
             <th>
-                Управление
+                РЈРїСЂР°РІР»РµРЅРёРµ
             </th>
 
         </tr>
@@ -162,7 +162,7 @@
                 <td><form:input path="nalogform" value="${rekvizity.nalogform}"/></td>
                 <td><form:input path="director" value="${rekvizity.director}"/></td>
                 <td><form:input path="phone" value="${rekvizity.phone}"/></td>
-                <td><input type="submit" value="Изменить"/></td>
+                <td><input type="submit" value="РР·РјРµРЅРёС‚СЊ"/></td>
             </form:form>
         </tr>
     </table>

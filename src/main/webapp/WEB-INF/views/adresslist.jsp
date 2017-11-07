@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Pinger</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
@@ -20,14 +19,14 @@
     <c:forEach items="${cities}" var="city">
         <tr>
             <td>${city.name}</td>
-            <td><a href="<c:url value='/delete-city-${city.id}' />" class="btn btn-danger custom-width">Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ</a></td>
+            <td><a href="<c:url value='/delete-city-${city.id}' />" class="btn btn-danger custom-width">Óäàëèòü</a></td>
         </tr>
     </c:forEach>
 </table>
 
 <form:form method="POST" action="/newcity" modelAttribute="city">
-    <form:input path="name" pattern="[A-Za-zÐ-Ð¯Ð°-ÑÐÑ‘]{3,}" title="ÐœÐ¸Ð½Ð¸Ð¼ÑƒÐ¼ 3 Ð±ÑƒÐºÐ²Ñ‹"/>
-    <input type="submit" value="Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"/>
+    <form:input path="name" pattern="[A-Za-zÀ-ßà-ÿ¨¸]{3,}" title="Ìèíèìóì 3 áóêâû"/>
+    <input type="submit" value="Äîáàâèòü"/>
 </form:form>
 
 
@@ -40,7 +39,7 @@
     <c:forEach items="${streets}" var="street">
         <tr>
             <td>${street.name}</td>
-            <td><a href="<c:url value='/delete-street-${street.id}' />" class="btn btn-danger custom-width">Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ</a>
+            <td><a href="<c:url value='/delete-street-${street.id}' />" class="btn btn-danger custom-width">Óäàëèòü</a>
             </td>
         </tr>
     </c:forEach>
@@ -52,8 +51,8 @@
             <option value="${city.id}">${city.name}</option>
         </c:forEach>
     </select>
-    <form:input id="streetname" path="name" pattern="[A-Za-zÐ-Ð¯Ð°-ÑÐÑ‘]{3,}" title="ÐœÐ¸Ð½Ð¸Ð¼ÑƒÐ¼ 3 Ð±ÑƒÐºÐ²Ñ‹"/>
-    <input type="submit" value="Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"/>
+    <form:input id="streetname" path="name" pattern="[A-Za-zÀ-ßà-ÿ¨¸]{3,}" title="Ìèíèìóì 3 áóêâû"/>
+    <input type="submit" value="Äîáàâèòü"/>
 </form:form>
 
 
@@ -67,7 +66,7 @@
         <tr>
             <td>${building.number}</td>
             <td><a href="<c:url value='/delete-building-${building.id}' />"
-                   class="btn btn-danger custom-width">Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ</a>
+                   class="btn btn-danger custom-width">Óäàëèòü</a>
             </td>
         </tr>
     </c:forEach>
@@ -88,7 +87,7 @@
     </select>
 
     <form:input path="number" />
-    <input type="submit" value="Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"/>
+    <input type="submit" value="Äîáàâèòü"/>
 </form:form>
 
 

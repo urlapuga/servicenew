@@ -1,19 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading"><span class="lead">Задачи по абоненту</span></div>
+    <div class="panel-heading"><span class="lead">Р—Р°РґР°С‡Рё РїРѕ Р°Р±РѕРЅРµРЅС‚Сѓ</span></div>
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>Текст</th>
-            <th>Статус</th>
-            <th>Тип</th>
-            <th>Исполнитель</th>
-            <th>Дата</th>
+            <th>РўРµРєСЃС‚</th>
+            <th>РЎС‚Р°С‚СѓСЃ</th>
+            <th>РўРёРї</th>
+            <th>РСЃРїРѕР»РЅРёС‚РµР»СЊ</th>
+            <th>Р”Р°С‚Р°</th>
         </tr>
         </thead>
         <tbody>
@@ -52,17 +51,17 @@
     <div>
         <form:form method="POST" action="/tasks" modelAttribute="task">
             <form:hidden path="subscriberId" value="${subscriber.id}"/>
-            <form:label path="type">Тип</form:label>
+            <form:label path="type">РўРёРї</form:label>
 
             <form:select path="type">
                 <c:forEach items="${tasktypes}" var="tasktypes">
                     <option value="${tasktypes.id}">${tasktypes.name}</option>
                 </c:forEach>
             </form:select>
-            <form:label path="text">Текст</form:label>
+            <form:label path="text">РўРµРєСЃС‚</form:label>
             <form:input path="text"/>
             <form:input path="dateto" id="datepicker"/>
-            <input type="submit" value="Добавить"/>
+            <input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"/>
 
         </form:form>
     </div>

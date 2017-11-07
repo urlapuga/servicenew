@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form:form method="POST" action="/update-employee" modelAttribute="employee">
+<form:form method="POST" action="/updateemployee" modelAttribute="employee">
     <td><form:input path="id" value="${employee.id}" hidden="true"></form:input></td>
 
     <td><form:input path="name" value="${employee.name}"/></td>
@@ -37,11 +37,27 @@
     <c:forEach items="${tasks}" var="task">
         <tr>
             <th>${task.text}</th>
-            <th>${task.status}</th>
+            <th>3</th>
             <th>${task.type}</th>
         </tr>
     </c:forEach>
+<tr>
+    <td>
+        <form action="createTask(${employee.id})">
+            <input type="text"  id="tasktext">
+            <select id="taskType">
+                <c:forEach items="${taskTypes}" var="taskType">
+                    <option value="${taskType.id}">${taskType.name}</option>
+                </c:forEach>
+            </select>
+            Абонент<input type="text" id="subscriverId">
 
+            <input type="submit" value="Создать">
+
+        </form>
+
+    </td>
+</tr>
     </tbody>
 </table>
 </body>

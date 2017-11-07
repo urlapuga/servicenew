@@ -1,6 +1,6 @@
 package com.websystique.springmvc.service.site;
 
-import com.websystique.springmvc.dao.SiteHeatmapDao;
+import com.websystique.springmvc.dao.site.SiteHeatmapDao;
 import com.websystique.springmvc.model.site.SiteHeatMaps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
