@@ -1,5 +1,5 @@
 <input type="text" id="searchString" name="searchString">
-<input type="submit" onclick="showDiv()" title="������ ������ �� �����������">
+<input type="submit" onclick="showDiv()" title="Интерфейс менеджера">
 
 <div id="companies"></div>
 

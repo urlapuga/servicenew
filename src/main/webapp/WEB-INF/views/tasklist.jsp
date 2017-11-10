@@ -28,15 +28,14 @@
                     </c:when>
                     <c:when test="${task.status=='2'}">
                         <td>DONE</td>
-                    </c:when>
+                    </c:when>.
+
                 </c:choose>
 
                 <td>
-                    <select name="tasktype">
-                        <c:forEach items="${tasktypes}" var="tasktypes">
-                            <option value="${tasktypes.id}" ${tasktypes.id eq task.type ? 'selected' : ''}>${tasktypes.name}</option>
-                        </c:forEach>
-                    </select>
+                    <c:forEach items="${tasktypes}" var="tasktypes">
+                        ${tasktypes.id eq task.type ? tasktypes.name : ''}
+                    </c:forEach>
                 </td>
 
                 <td>${task.employeesByEmployee.lastname} ${task.employeesByEmployee.name}</td>

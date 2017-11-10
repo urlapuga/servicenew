@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -24,6 +26,8 @@ import java.io.UnsupportedEncodingException;
 @RequestMapping("/")
 public class AbonentController {
 
+    @Autowired
+    HttpSession session;
     @Autowired
     SubscriberService subscriberService;
 
@@ -99,6 +103,7 @@ public class AbonentController {
     //ABONENT
     @RequestMapping(value = {"/abonenteditor/{id}"}, method = RequestMethod.GET)
     public String showAbonentById(ModelMap model, @PathVariable Integer id) {
+        System.out.println(session.getAttribute("employee"));
         Subscribers subscribers = subscriberService.getById(id);
 
         if (subscribers == null) {

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<%@ page language="java" %>
 <meta http-equiv="content-type" content="text/html; charset=cp1251">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -32,7 +32,7 @@
 </form:form>
 
 <center>
-    <h2>����������</h2>
+    <h2>Сотрудники</h2>
     <table border="1">
         <tr bgcolor="#a9a9a9">
             <th>Имя</th>
@@ -40,7 +40,7 @@
             <th>Телефон</th>
             <th>Email</th>
             <th>Должность</th>
-            <th>����������</th>
+            <th>Управление</th>
         </tr>
         <c:forEach items="${employee}" var="employees">
             <tr>
@@ -117,11 +117,9 @@
                 </c:choose>
 
                 <td>
-                    <select name="tasktype">
-                        <c:forEach items="${tasktypes}" var="tasktypes">
-                            <option value="${tasktypes.id}" ${tasktypes.id eq task.type ? 'selected' : ''}>${tasktypes.name}</option>
-                        </c:forEach>
-                    </select>
+                    <c:forEach items="${tasktypes}" var="tasktypes">
+                        ${tasktypes.id eq task.type ? tasktypes.name : ''}
+                    </c:forEach>
                 </td>
 
                 <td>${task.employee}</td>

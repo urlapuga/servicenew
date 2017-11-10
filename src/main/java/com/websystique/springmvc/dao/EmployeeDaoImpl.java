@@ -1,6 +1,7 @@
 package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.Employees;
+import com.websystique.springmvc.service.EmployeeService;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,11 @@ public class EmployeeDaoImpl extends AbstractDao<Integer, Employees> implements 
 
     public Employees findById(int id) {
         return getByKey(id);
+    }
+
+    @Override
+    public Employees getByLoginPass(String login, String pass) {
+        return getByNamedQueryWithTwoParams("getByLoginPass","login",login,"pass",pass).get(0);
     }
 }
 

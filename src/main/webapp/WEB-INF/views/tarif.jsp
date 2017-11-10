@@ -1,11 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
-<head>
-    <title>Tarif Editing</title>
-</head>
-<body>
+
 <table>
     <c:forEach items="${tarifs}" var="tarif">
         <tr>
@@ -36,6 +32,3 @@
     <form:input path="cost" pattern="[0-9]{1,5}"/>
     <input type="submit" value="Создать">
 </form:form>
-
-</body>
-</html>

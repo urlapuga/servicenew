@@ -12,6 +12,5 @@ public interface EmployeeService {
     List<Employees> findByPosition(int id);
     void add(Employees pinger);
     void update(Employees pinger);
-
-
+    Employees getByLoginPass(String login,String pass);
 }

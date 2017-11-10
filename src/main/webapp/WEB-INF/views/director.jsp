@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
-<meta http-equiv="content-type" content="text/html; charset=cp1251">
+<%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
@@ -46,8 +45,8 @@
                 <th>Код</th>
                 <th>Телефон</th>
                 <th>Email</th>
-                <th>��������</th>
-                <th>����������</th>
+                <th>Компания</th>
+                <th>Управление</th>
             </tr>
 
 
@@ -70,7 +69,7 @@
                         </select>
                     </td>
 
-                    <td><input type="submit" value="�������"/></td>
+                    <td><input type="submit" value="Создать"/></td>
 
 
                 </form:form>
@@ -78,16 +77,16 @@
         </table>
     </div>
 
-    <h2>����������</h2>
+    <h2>Сотрудники</h2>
     <table border="1">
         <tr bgcolor="#a9a9a9">
-            <th>���</th>
-            <th>�������</th>
-            <th>�������</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
             <th>Email</th>
-            <th>��������</th>
-            <th>���������</th>
-            <th>����������</th>
+            <th>Компания</th>
+            <th>Должность</th>
+            <th>Управление</th>
         </tr>
         <c:forEach items="${result}" var="employees">
             <tr>
@@ -97,18 +96,18 @@
                 <td>${employees.email}</td>
                 <td>${employees.companyId}</td>
                 <td>${employees.positionId}</td>
-                <td><a href="<c:url value='/editemployee/${employees.id}' />" target="_blank" class="btn btn-default">��������</a>
+                <td><a href="<c:url value='/editemployee/${employees.id}' />" target="_blank" class="btn btn-default">Изменить</a>
                 </td>
             </tr>
         </c:forEach>
         <tr bgcolor="#a9a9a9">
-            <th>���</th>
-            <th>�������</th>
-            <th>�������</th>
+            th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
             <th>Email</th>
-            <th>��������</th>
-            <th>���������</th>
-            <th>����������</th>
+            <th>Компания</th>
+            <th>Должность</th>
+            <th>Управление</th>
         </tr>
 
 
@@ -157,7 +156,7 @@
                 <tr>
                     <td>${p.name}</td>
                     <td><a href="<c:url value='/deleteposition/${p.id}' />"
-                           class="btn btn-danger custom-width">�������</a>
+                           class="btn btn-danger custom-width">Удалить</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -166,7 +165,7 @@
 
                     <td><form:hidden path="id"></form:hidden>
                         <form:input path="name"/></td>
-                    <td><input type="submit" value="�������"/></td>
+                    <td><input type="submit" value="Создать"/></td>
                 </form:form>
 
             </tr>

@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <title>Нет доступа</title>
 </head>
 <body>
-Только активный сотрудник имеет  доступ к базе.
+У вас нет доступа к данной странице
 </body>
 </html>

@@ -19,7 +19,7 @@
     </script>
 </head>
 <body onunload="send()">
-<div onmousemove="coords.push(event.clientX+':'+event.clientY)" onclick="console.log(coords)">
+<div onmousemove="coords.push(event.clientX+':'+event.clientY)" onclick="console.logg(coords)">
     <div id="menudiv">
         <jsp:include page="sitemodules/menu.jsp"></jsp:include>
     </div>

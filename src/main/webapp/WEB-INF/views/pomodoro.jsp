@@ -25,7 +25,7 @@
 
         function func(message) {
             play(message);
-            console.log(message);
+            console.logg(message);
             alert(message);
         }
 

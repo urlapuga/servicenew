@@ -9,9 +9,10 @@
     <name>SpringMVCHibernateManyToManyCRUDExample</name>
 
     <properties>
-        <springframework.version>4.1.7.RELEASE</springframework.version>
-        <hibernate.version>4.3.10.Final</hibernate.version>
+        <springframework.version>4.2.5.RELEASE</springframework.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
         <mysql.connector.version>5.1.31</mysql.connector.version>
+        <springsecurity.version>4.0.4.RELEASE</springsecurity.version>
     </properties>
 
     <dependencies>
@@ -137,11 +138,8 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>4.0.4.RELEASE</version>
-        </dependency>
+
+
 
     </dependencies>
 

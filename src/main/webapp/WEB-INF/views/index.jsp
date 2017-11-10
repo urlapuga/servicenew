@@ -41,10 +41,11 @@
     </div>
 
     <div id="content">
-
+        <a href="/exit"><input type="button" value="Выход"> </a>
         <center>
 
             <div id="mainDiv">
+
                 <jsp:include page="/abonentsearch"></jsp:include>
                 <jsp:include page="create/subscriber.jsp"></jsp:include>
             </div>

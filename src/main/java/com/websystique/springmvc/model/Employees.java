@@ -11,6 +11,10 @@ import java.util.Collection;
         @NamedQuery(
                 name = "getByPosition",
                 query = "from Employees e where e.positionId = :positionId"
+        ),
+        @NamedQuery(
+                name = "getByLoginPass",
+                query = "from Employees e where e.login = :login AND e.password = :pass AND e.positionId!=0"
         )
 })
 

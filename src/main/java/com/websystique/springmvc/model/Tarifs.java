@@ -12,6 +12,17 @@ public class Tarifs {
     private Integer cost;
     private Collection<Subscribers> subscribersById;
 
+    @Column(name = "companyid")
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    private Integer companyId;
+
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)

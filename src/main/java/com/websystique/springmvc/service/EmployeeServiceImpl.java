@@ -40,4 +40,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         dao.update(pinger);
     }
 
+    @Override
+    public Employees getByLoginPass(String login, String pass) {
+        return dao.getByLoginPass(login,pass);
+    }
+
 }

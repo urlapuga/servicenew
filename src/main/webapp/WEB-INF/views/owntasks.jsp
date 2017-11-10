@@ -4,7 +4,7 @@
 
 <script>
     window.onload = function() {
-        console.log(1);
+        console.logg(1);
         $(function () {
             $("#datepicker").datetimepicker();
         });
