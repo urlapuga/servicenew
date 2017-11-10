@@ -23,7 +23,7 @@
             <td><a href="/abonenteditor/${row.subscriberId}" target="_blank">${row.subscriberId}</a></td>
             <c:if test="${row.taskStatusByStatus.id<2}">
                 <td>
-                    <button onclick="setEmployee(${row.id})">Назначить</button>
+                    <button onclick="setEmployee(${row.id})">РќР°Р·РЅР°С‡РёС‚СЊ</button>
                 </td>
             </c:if>
 

@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <style>
         #chatcontainer {
-            width: 900px; /* Ширина макета */
+            width: 900px;
         }
 
         #nav {
-            width: 200px; /* Ширина левой колонки */
+            width: 200px;
             float: left;
         }
 
         #aside {
-            width: 20px; /* Ширина правой колонки */
+            width: 20px;
             height: 100%;
             background-color: #cccccc;
             float: left;
@@ -28,7 +28,7 @@
 
             <table>
                 <tr>
-                    <th>Комнаты</th>
+                    <th>РљРѕРјРЅР°С‚С‹</th>
                 </tr>
                 <c:forEach items="${rooms}" var="room">
                     <tr>

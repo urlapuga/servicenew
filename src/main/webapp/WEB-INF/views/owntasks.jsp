@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
@@ -17,7 +16,7 @@
 </script>
 <style>
     #taskcloser {
-        width: 20px; /* Ширина правой колонки */
+        width: 20px;
         height: 100%;
         background-color: #cccccc;
         float: right;
@@ -59,10 +58,10 @@
                     </td>
                     <td>
                         <c:if test = "${task.status == 0}">
-                            <input type="button" value="Приступить" onclick="startTask(${task.id})"/>
+                            <input type="button" value="РџСЂРёСЃС‚СѓРїРёС‚СЊ" onclick="startTask(${task.id})"/>
                         </c:if>
                         <c:if test = "${task.status == 1}">
-                            <input type="button" value="Закрыть" onclick="closeTask(${task.id})"/>
+                            <input type="button" value="Р—Р°РІРµСЂС€РёС‚СЊ" onclick="closeTask(${task.id})"/>
                         </c:if>
 
                     </td>
@@ -91,7 +90,7 @@
                     <tr>
 
                         <td>
-                            Абонент
+                            РўРµРєСЃС‚
                         </td>
                         <td>
                             <input type="text" id="subscriberid">
@@ -106,7 +105,7 @@
 
                     <tr>
                         <td colspan="2">
-                            <input type="button" value="Добавить" onclick="createowntask()"/>
+                            <input type="button" value="РЎРѕР·РґР°С‚СЊ" onclick="createowntask()"/>
                         </td>
                     </tr>
 

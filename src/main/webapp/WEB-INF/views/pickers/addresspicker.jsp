@@ -35,7 +35,7 @@ function showSubscribers (){
         if(e==null||e.options[e.selectedIndex].value==-1) {
             e =document.getElementsByName("city")[0];
             if(e==null||e.options[e.selectedIndex].value==-1){
-                alert("Выберите минимум город");
+                alert("РќСѓР¶РЅРѕ Р·Р°РґР°С‚СЊ РјРёРЅРёРјСѓРј РіРѕСЂРѕРґ");
                 return;
             }
             else{
@@ -78,7 +78,7 @@ function showSubscribers (){
     <div class="floatleft" id="buildings">
 
     </div>
-    <input class="floatleft"  type="button" value="показать" onclick="showSubscribers()">
+    <input class="floatleft"  type="button" value="РџРѕРєР°Р·Р°С‚СЊ" onclick="showSubscribers()">
     <div id="subscribers"></div>
 </div>
 

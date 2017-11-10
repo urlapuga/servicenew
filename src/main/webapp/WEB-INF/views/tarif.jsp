@@ -28,13 +28,13 @@
 
 
 <form:form method="POST" action="/tarif" modelAttribute="tarif" accept-charset="utf-8">
-    <form:label path="name">Название</form:label>
+    <form:label path="name">РќР°Р·РІР°РЅРёРµ</form:label>
     <form:input path="name"/>
-    <form:label path="speed">Скорость</form:label>
+    <form:label path="speed">РЎРєРѕСЂРѕСЃС‚СЊ</form:label>
     <form:input path="speed" pattern="[0-9]{1,4}"/>
-    <form:label path="cost">Стоимость</form:label>
+    <form:label path="cost">РЎС‚РѕРёРјРѕСЃС‚СЊ</form:label>
     <form:input path="cost" pattern="[0-9]{1,5}"/>
-    <input type="submit" value="Создать">
+    <input type="submit" value="РЎРѕР·РґР°С‚СЊ">
 </form:form>
 
 </body>

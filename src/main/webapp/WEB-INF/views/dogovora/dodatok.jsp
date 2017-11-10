@@ -14,65 +14,65 @@
 <body>
 
 <strong>
-    <p align="right">Додаток №1<br>
-        до Договору № ${rekvizity.subscriber} від «${rekvizity.data.toString().split("-")[2].split(" ")[0]} ${month}
-        » ${rekvizity.data.toString().split("-")[0]} року</strong></p>
+    <p align="right">Р”РѕРґР°С‚РѕРє в„–1<br>
+        РґРѕ Р”РѕРіРѕРІРѕСЂСѓ в„–   ${rekvizity.subscriber} РІС–Рґ В«${rekvizity.data.toString().split("-")[2].split(" ")[0]} ${month}
+        В» ${rekvizity.data.toString().split("-")[0]} СЂРѕРєСѓ</strong></p>
 
 <table width="100%">
     <tr width="100%">
         <td align="left">
-            м. Київ
+            Рј.РљРёС—РІ
         </td>
         <td align="right">
-            «31» серпня 2017 року
+            В«31В» Р¶РѕРІС‚РЅСЏ 2017 СЂРѕРєСѓ
         </td>
     </tr>
 </table>
-                                                                                         
-<p align="center">Специфікація Послуг</p>
-<p align="center">1. Послуги по організації некомутованого з&rsquo;єднання</p>
+
+<p align="center">РЎРїРµС†РёС„С–РєР°С†С–СЏ РџРѕСЃР»СѓРі</p>
+<p align="center">1. РџРѕСЃР»СѓРіРё РїРѕ РѕСЂРіР°РЅС–Р·Р°С†С–С— РЅРµРєРѕРјСѓС‚РѕРІР°РЅРѕРіРѕ Р·вЂ™С”РґРЅР°РЅРЅСЏ</p>
 
 
 </strong>
 <table border="1" cellspacing="0" cellpadding="0" width="100%">
     <tr height="25">
-        <th align="center">Пункт</th>
-        <th align="center">Назва послуги</th>
-        <th align="center">Вартість послуги, грн.</th>
+        <th align="center">РџСѓРЅРєС‚</th>
+        <th align="center">РќР°Р·РІР° РїРѕСЃР»СѓРіРё</th>
+        <th align="center">Р’Р°СЂС‚С–СЃС‚СЊ РїРѕСЃР»СѓРіРё, РіСЂРЅ.</th>
     </tr>
     <tr height="25">
-        <td align="center">1.1.</strong></td>
-        <td align="center">Організація фізичного некомутованого з&rsquo;єднання за адресою: м. Київ, просп. Степана
-            Бандери, 23
+        <td align="center">1.1.</td>
+        <td align="center">РћСЂРіР°РЅС–Р·Р°С†С–СЏ С„С–Р·РёС‡РЅРѕРіРѕ РЅРµРєРѕРјСѓС‚РѕРІР°РЅРѕРіРѕ Р·вЂ™С”РґРЅР°РЅРЅСЏ  Р·Р° Р°РґСЂРµСЃРѕСЋ: Рј. РљРёС—РІ, РїСЂРѕСЃРї. РЎС‚РµРїР°РЅР° Р‘Р°РЅРґРµСЂРё, 23
         </td>
         <td align="center"></td>
     </tr>
     <tr height="25">
         <td align="center"></td>
-        <td align="right">ПДВ 20%<br>
-            Всього до сплати:
+        <td align="right">РџР”Р’ 20%
+            <br>
+            Р’СЃСЊРѕРіРѕ РґРѕ СЃРїР»Р°С‚Рё:
         </td>
         <td align="center"></td>
     </tr>
 </table>
 
 
-<p><strong>Розділ 2. Доступ до мережі Інтернет без обмеження по трафіку 100 Мбіт/с.</strong></p>
+<p><strong>Р РѕР·РґС–Р» 2. Р”РѕСЃС‚СѓРї РґРѕ РјРµСЂРµР¶С– Р†РЅС‚РµСЂРЅРµС‚ Р±РµР· РѕР±РјРµР¶РµРЅРЅСЏ РїРѕ С‚СЂР°С„С–РєСѓ РњР±С–С‚/СЃ.</strong></p>
 
 <table border="1" cellspacing="0" cellpadding="0" width="100%">
     <tr height="25">
-        <th align="center">Пункт</th>
-        <th align="center">Назва послуги</th>
-        <th align="center">Вартість послуги, грн.</th>
+        <th align="center">ГЏГіГ­ГЄГІ</th>
+        <th align="center">ГЌГ Г§ГўГ  ГЇГ®Г±Г«ГіГЈГЁ</th>
+        <th align="center">Г‚Г Г°ГІВіГ±ГІГј ГЇГ®Г±Г«ГіГЈГЁ, ГЈГ°Г­.</th>
     </tr>
     <tr height="25">
         <td align="center"><strong>1.1.</strong></td>
-        <td align="center">Абонплата за місяць (швидкість порту _______Мбіт/с)</td>
+        <td align="center">ГЂГЎГ®Г­ГЇГ«Г ГІГ  Г§Г  Г¬ВіГ±ГїГ¶Гј (ГёГўГЁГ¤ГЄВіГ±ГІГј ГЇГ®Г°ГІГі _______ГЊГЎВіГІ/Г±)</td>
         <td align="center"></td>
     </tr>
     <tr height="25">
         <td align="center"><strong>1.2.</strong></td>
-        <td align="center">Статичний IP адрес</td>
+        <td align="center">Г‘ГІГ ГІГЁГ·Г­ГЁГ© IP Г Г¤Г°ГҐГ±</td>
         <td align="center"></td>
     </tr>
     <tr height="25">
@@ -82,8 +82,8 @@
     </tr>
     <tr height="25">
         <td align="center"></td>
-        <td align="right"><strong>ПДВ 20% <br>
-            Всього до сплати:</strong></td>
+        <td align="right"><strong>ГЏГ„Г‚ 20% <br>
+            Г‚Г±ГјГ®ГЈГ® Г¤Г® Г±ГЇГ«Г ГІГЁ:</strong></td>
         <td align="center"></td>
     </tr>
 </table>
@@ -103,20 +103,20 @@
             <strong>${rekvizity.fopname}</strong><br>
             ${rekvizity.address}<br>
             ${rekvizity.rr}<br>
-                ${rekvizity.bank}<br>
-                ${rekvizity.mfo}<br>
-            <strong>Директор</strong><br>
+            ${rekvizity.bank}<br>
+            ${rekvizity.mfo}<br>
+            <strong>Г„ГЁГ°ГҐГЄГІГ®Г°</strong><br>
             <strong>______________ ${rekvizity.director}</strong></td>
 
 
-        <td align="left" ><strong>ТОВ «САКСКАЙ»</strong><br>
-            04655, м. Київ, пр. Московський (Степана Бандери), 23<br>
-            Код ЄДРПОУ 38883067 <br>
-            р/р  26003052750322<br>
-            у Печерській філії ПАТ КБ «ПРИВАТБАНК» у м. Києві,<br>
-            МФО 300711 </p>
-            <p><strong>Директор </strong></p>
-            <p><strong>______________ САДОВСЬКИЙ О.Л.</strong></p></td>
+        <td align="left" ><strong>Г’ГЋГ‚ В«Г‘ГЂГЉГ‘ГЉГЂГ‰В»</strong><br>
+            04655, Г¬. ГЉГЁВїГў, ГЇГ°. ГЊГ®Г±ГЄГ®ГўГ±ГјГЄГЁГ© (Г‘ГІГҐГЇГ Г­Г  ГЃГ Г­Г¤ГҐГ°ГЁ), 23<br>
+            ГЉГ®Г¤ ВЄГ„ГђГЏГЋГ“ 38883067 <br>
+            Г°/Г°  26003052750322<br>
+            Гі ГЏГҐГ·ГҐГ°Г±ГјГЄВіГ© ГґВіГ«ВіВї ГЏГЂГ’ ГЉГЃ В«ГЏГђГ€Г‚ГЂГ’ГЃГЂГЌГЉВ» Гі Г¬. ГЉГЁВєГўВі,<br>
+            ГЊГ”ГЋ 300711 </p>
+            <p><strong>Г„ГЁГ°ГҐГЄГІГ®Г° </strong></p>
+            <p><strong>______________ Г‘ГЂГ„ГЋГ‚Г‘ГњГЉГ€Г‰ ГЋ.Г‹.</strong></p></td>
     </tr>
 </table>
 

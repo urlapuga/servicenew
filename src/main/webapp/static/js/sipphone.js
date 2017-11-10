@@ -1,9 +1,9 @@
-var socket = new JsSIP.WebSocketInterface('ws://10.5.1.12:8088/ws');
+var socket = new JsSIP.WebSocketInterface('ws://94.131.209.250:8088/ws');
 var configuration = {
     sockets  : [ socket ],
-    uri: "101@10.5.1.12",
-    authorization_user: "101",
-    password : '101'
+    uri: "302@94.131.209.250",
+    authorization_user: "302",
+    password : 'Urlapuga2017'
 };
 
 var ua = new JsSIP.UA(configuration);

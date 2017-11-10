@@ -32,11 +32,11 @@
 
         <tr>
             <td><form:label path="ip" >Ip</form:label></td>
-            <td><form:input path="ip" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" title="œËÏÂ  192.168.1.1"/></td>
+            <td><form:input path="ip" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" title="–ü—Ä–∏–º–µ—Ä  192.168.1.1"/></td>
         </tr>
         <tr>
-            <td><form:label path="coment">Coment</form:label></td>
-            <td><form:input path="coment" pattern="[A-Za-z¿-ﬂ‡-ˇ®∏]{3,}" title="ÃËÌËÏÛÏ 3 ·ÛÍ‚˚"/></td>
+            <td><form:label path="coment">–ö–æ–º–µ–Ω—Ç–∞—Ä–∏–π</form:label></td>
+            <td><form:input path="coment" pattern="[A-Za-z–ê-–Ø–∞-—è–Å—ë]{3,}" title="–ú–∏–Ω–∏–º—É–º 3 —Å–∏–º–≤–æ–ª–∞"/></td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit"/></td>

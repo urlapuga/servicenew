@@ -1,8 +1,9 @@
 <input type="text" id="searchString" name="searchString">
-<input type="submit" onclick="showDiv()" title="пустой запрос не разрешается">
+<input type="submit" onclick="showDiv()" title="пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ">
 
 <div id="companies"></div>
-Потенциальные клиенты
+
+РџРѕС‚РµРЅС†РёР°Р»СЊРЅС‹Рµ РєР»РёРµРЅС‚С‹
 <div id="clients">
     <jsp:include page="table-potentialclients.jsp"/>
 </div>

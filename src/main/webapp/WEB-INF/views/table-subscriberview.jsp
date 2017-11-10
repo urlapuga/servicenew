@@ -2,16 +2,16 @@
 <table border="1">
     <c:forEach items="${subscribers}" var="row">
         <tr>
-            <th>Договор</th>
-            <th>Имя</th>
-            <th>Телефон</th>
+            <th>Р”РѕРіРѕРІРѕСЂ</th>
+            <th>РРјСЏ</th>
+            <th>РўРµР»РµС„РѕРЅ</th>
             <th>Ip</th>
-            <th>Город</th>
-            <th>Улица</th>
-            <th>Дом</th>
-            <th>Квартира</th>
-            <th>Тариф</th>
-            <th>Статус</th>
+            <th>Р“РѕСЂРѕРґ</th>
+            <th>РЈР»РёС†Р°</th>
+            <th>Р”РѕРј</th>
+            <th>РљРѕРјРЅР°С‚Р°</th>
+            <th>РўР°СЂРёС„</th>
+            <th>РЎС‚Р°С‚СѓСЃ</th>
         </tr>
         <tr>
             <td><a href="/abonenteditor/${row.id}" target="_blank">${row.id}</a></td>

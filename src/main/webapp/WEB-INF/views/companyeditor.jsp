@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Редактирование компании</title>
+    <title>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєРѕРјРїР°РЅРёРё</title>
 </head>
 <body>
 
@@ -27,20 +27,20 @@
         </select>
     </td>
 
-    <td><input type="submit" value="Изменить"/></td>
+    <td><input type="submit" value="пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"/></td>
 
 </form:form>
 
 <center>
-    <h2>Сотрудники</h2>
+    <h2>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</h2>
     <table border="1">
         <tr bgcolor="#a9a9a9">
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Телефон</th>
+            <th>РРјСЏ</th>
+            <th>Р¤Р°РјРёР»РёСЏ</th>
+            <th>РўРµР»РµС„РѕРЅ</th>
             <th>Email</th>
-            <th>Должность</th>
-            <th>Управление</th>
+            <th>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
         </tr>
         <c:forEach items="${employee}" var="employees">
             <tr>
@@ -49,16 +49,16 @@
                 <td>${employees.phonenumber}</td>
                 <td>${employees.email}</td>
                 <td>${employees.positionId}</td>
-                <td><a href="<c:url value='/edit-employee-${employees.id}' />" class="btn btn-default">Изменить</a></td>
+                <td><a href="<c:url value='/edit-employee-${employees.id}' />" class="btn btn-default">РР·РјРµРЅРёС‚СЊ</a></td>
             </tr>
         </c:forEach>
         <tr bgcolor="#a9a9a9">
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Телефон</th>
+            <th>РРјСЏ</th>
+            <th>Р¤Р°РјРёР»РёСЏ</th>
+            <th>РўРµР»РµС„РѕРЅ</th>
             <th>Email</th>
-            <th>Должность</th>
-            <th>Управление</th>
+            <th>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</th>
+            <th>РЈРїСЂР°РІР»РµРЅРёРµ</th>
         </tr>
 
 
@@ -82,7 +82,7 @@
                 </td>
 
 
-                <td><input type="submit" value="Создать"/></td>
+                <td><input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"/></td>
             </form:form>
         </tr>
     </table>
@@ -91,7 +91,7 @@
 
 
 <center>
-    <h2>Задачи</h2>
+    <h2>Р—Р°РґР°С‡Рё</h2>
     <table border="1">
         <thead>
         <tr>
@@ -141,7 +141,7 @@
                 </c:forEach>
             </form:select></td>
             <td><form:input path="dateto" id="datepicker"/></td>
-            <td><input type="submit" value="Добавить"/>
+            <td><input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"/>
                 </form:form></td>
 
         </tr>

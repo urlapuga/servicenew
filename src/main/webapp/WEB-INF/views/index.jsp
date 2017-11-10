@@ -6,10 +6,10 @@
 <head>
     <style>
         #mainDiv {
-            background: #007E3E; /* Цвет фона */
-            color: #fff; /* Цвет текста */
-            padding: 10px; /* Поля вокруг текста */
-            border-radius: 5px; /* Уголки */
+            background: #007E3E;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
 

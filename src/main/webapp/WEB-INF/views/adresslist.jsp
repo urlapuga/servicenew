@@ -19,14 +19,14 @@
     <c:forEach items="${cities}" var="city">
         <tr>
             <td>${city.name}</td>
-            <td><a href="<c:url value='/delete-city-${city.id}' />" class="btn btn-danger custom-width">Удалить</a></td>
+            <td><a href="<c:url value='/delete-city-${city.id}' />" class="btn btn-danger custom-width">РЈРґР°Р»РёС‚СЊ</a></td>
         </tr>
     </c:forEach>
 </table>
 
 <form:form method="POST" action="/newcity" modelAttribute="city">
-    <form:input path="name" pattern="[A-Za-zА-Яа-яЁё]{3,}" title="Минимум 3 буквы"/>
-    <input type="submit" value="Добавить"/>
+    <form:input path="name" pattern="[A-Za-zРђ-РЇР°-СЏРЃС‘]{3,}" title="РњРёРЅРёРјСѓРј 3 СЃРёРјРІРѕР»Р°"/>
+    <input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"/>
 </form:form>
 
 
@@ -39,7 +39,7 @@
     <c:forEach items="${streets}" var="street">
         <tr>
             <td>${street.name}</td>
-            <td><a href="<c:url value='/delete-street-${street.id}' />" class="btn btn-danger custom-width">Удалить</a>
+            <td><a href="<c:url value='/delete-street-${street.id}' />" class="btn btn-danger custom-width">РЈРґР°Р»РёС‚СЊ</a>
             </td>
         </tr>
     </c:forEach>
@@ -51,8 +51,8 @@
             <option value="${city.id}">${city.name}</option>
         </c:forEach>
     </select>
-    <form:input id="streetname" path="name" pattern="[A-Za-zА-Яа-яЁё]{3,}" title="Минимум 3 буквы"/>
-    <input type="submit" value="Добавить"/>
+    <form:input id="streetname" path="name" pattern="[A-Za-zРђ-РЇР°-СЏРЃС‘]{3,}" title="РњРёРЅРёРјСѓРј 3 СЃРёРјРІРѕР»Р°"/>
+    <input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"/>
 </form:form>
 
 
@@ -66,7 +66,7 @@
         <tr>
             <td>${building.number}</td>
             <td><a href="<c:url value='/delete-building-${building.id}' />"
-                   class="btn btn-danger custom-width">Удалить</a>
+                   class="btn btn-danger custom-width">РЈРґР°Р»РёС‚СЊ</a>
             </td>
         </tr>
     </c:forEach>
@@ -87,7 +87,7 @@
     </select>
 
     <form:input path="number" />
-    <input type="submit" value="Добавить"/>
+    <input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"/>
 </form:form>
 
 

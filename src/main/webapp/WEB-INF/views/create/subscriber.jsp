@@ -1,18 +1,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-Офис: <input type="text" id="subscriberRoom">
-Имя : <input type="text" id="subscriberName">
-Телефон : <input type="text" id="subscriberFone">
+РћС„РёСЃ: <input type="text" id="subscriberRoom">
+РРјСЏ : <input type="text" id="subscriberName">
+РўРµР»РµС„РѕРЅ : <input type="text" id="subscriberFone">
 
 
-<input type="button" onclick="createSubscriber()" value="Создать">
+<input type="button" onclick="createSubscriber()" value="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ">
 
 <script>
     function createSubscriber() {
 
         if (document.getElementById("building") == null) {
-            alert("Адрес обязателен");
+            alert("Р’РІРµРґРёС‚Рµ Р°РґСЂРµСЃ");
             return;
         }
         var addr = document.getElementById("building").value;

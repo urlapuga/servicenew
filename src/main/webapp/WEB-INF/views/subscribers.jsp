@@ -60,9 +60,9 @@
 
 
     <form:form method="POST" action="/newtask" modelAttribute="task">
-        <form:label path="text">Текст</form:label>
+        <form:label path="text">С‚РµРєСЃС‚</form:label>
         <form:input path="text"/>
-        <input type="submit" value="Добавить"/>
+        <input type="submit" value="РЎРѕР·РґР°С‚СЊ"/>
     </form:form>
 
 

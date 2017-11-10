@@ -149,6 +149,7 @@ public class AbonentController {
     @RequestMapping(value = {"/saverekvizity"}, method = RequestMethod.POST)
     public String saveRekvizity(@Valid Rekvizity rekvizity, BindingResult result,
                                 ModelMap model, HttpServletRequest request) throws UnsupportedEncodingException {
+
         rekvizityService.update(rekvizity);
         return "redirect:/abonenteditor/" + rekvizity.getSubscriber();
     }

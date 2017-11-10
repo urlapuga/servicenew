@@ -1,15 +1,15 @@
 <center>
-    клиенты
+    РљР»РёРµРЅС‚С‹
     <div id="clients">
         <jsp:include page="table-potentialclients.jsp"/>
     </div>
 
-    задачи отдела
+    Р—Р°РґР°С‡Рё
     <div id="alltasks">
         <jsp:include page="table-tasks.jsp"/>
     </div>
 
-    менеджеры
+    РњРµРЅРµРґР¶РµСЂС‹
     <div id="managers">
         <jsp:include page="table-employee.jsp"/>
     </div>

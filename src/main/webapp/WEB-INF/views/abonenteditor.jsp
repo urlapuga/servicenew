@@ -50,9 +50,12 @@
     <div>Оплачено до ${subscriber.datepayedto.toString().split(" ")[0]}</div>
     <div>Тариф ${tarif.name} , Скорость ${tarif.speed} , Стоимость ${tarif.cost}</div>
 <div>
-    <a href="/showdoc/akt/${subscriber.id}" target="_blank"><button>Акт</button></a>
     <a href="/showdoc/dogovor/${subscriber.id}" target="_blank"><button>Договор</button></a>
+    <a href="/showdoc/dodatoc/${subscriber.id}" target="_blank"><button>Додаток</button></a>
+    <a href="/showdoc/conectakt/${subscriber.id}" target="_blank"><button>Акт подключения</button></a>
     <a href="/showdoc/schet/${subscriber.id}" target="_blank"><button>Счет</button></a>
+    <a href="/showdoc/akt/${subscriber.id}" target="_blank"><button>Акт</button></a>
+
 </div>
     <table>
 

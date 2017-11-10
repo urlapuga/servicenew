@@ -24,7 +24,7 @@
         <td><input type="text" value="0" name="getter" id="getter" hidden>
             <input type="text" value="${room}" name="room" id="room" hidden>
             <input type="text" name="mess" id="mess">
-            <input type="button" value="Îòïðàâèòü" onclick="send()"></td>
+            <input type="button" value="ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ" onclick="send()"></td>
     </tr>
 
 </table>

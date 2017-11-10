@@ -5,7 +5,6 @@
 <html>
 
 <head>
-    <title>Интерфейс Директора</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
@@ -15,15 +14,15 @@
 <center>
     <div id="companiesDiv">
         </br></br>
-        <h2>Компании</h2>
+        <h2>РљРѕРјРїР°РЅРёРё</h2>
         <table border="1">
             <tr bgcolor="#a9a9a9">
-                <th>Название</th>
-                <th>Телефон</th>
+                <th>РќР°Р·РІР°РЅРёРµ</th>
+                <th>РўРµР»РµС„РѕРЅ</th>
                 <th>Email</th>
-                <th>Код</th>
-                <th>Директор</th>
-                <th>Управление</th>
+                <th>РљРѕРґ</th>
+                <th>Р”РёСЂРµРєС‚РѕСЂ</th>
+                <th>РЈРїСЂР°РІР»РµРЅРёРµ</th>
             </tr>
             <c:forEach items="${companies}" var="company">
                 <tr>
@@ -35,7 +34,7 @@
                         <td>${company.code}</td>
                         <td>${company.director}</td>
                         <td><a href="<c:url value='/editcompany/${company.id}' />" target="_blank"
-                               class="btn btn-default">Изменить</a>
+                               class="btn btn-default">РР·РјРµРЅРёС‚СЊ</a>
                         </td>
                     </form>
                 </tr>
@@ -43,12 +42,12 @@
 
 
             <tr bgcolor="#a9a9a9">
-                <th>Название</th>
-                <th>Телефон</th>
+                <th>РќР°Р·РІР°РЅРёРµ</th>
+                <th>РљРѕРґ</th>
+                <th>РўРµР»РµС„РѕРЅ</th>
                 <th>Email</th>
-                <th>Код</th>
-                <th>Директор</th>
-                <th>Управление</th>
+                <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+                <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
             </tr>
 
 
@@ -71,7 +70,7 @@
                         </select>
                     </td>
 
-                    <td><input type="submit" value="Создать"/></td>
+                    <td><input type="submit" value="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"/></td>
 
 
                 </form:form>
@@ -79,16 +78,16 @@
         </table>
     </div>
 
-    <h2>Сотрудники</h2>
+    <h2>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</h2>
     <table border="1">
         <tr bgcolor="#a9a9a9">
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Телефон</th>
+            <th>пїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
             <th>Email</th>
-            <th>Компания</th>
-            <th>Должность</th>
-            <th>Управление</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
         </tr>
         <c:forEach items="${result}" var="employees">
             <tr>
@@ -98,18 +97,18 @@
                 <td>${employees.email}</td>
                 <td>${employees.companyId}</td>
                 <td>${employees.positionId}</td>
-                <td><a href="<c:url value='/editemployee/${employees.id}' />" target="_blank" class="btn btn-default">Изменить</a>
+                <td><a href="<c:url value='/editemployee/${employees.id}' />" target="_blank" class="btn btn-default">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
                 </td>
             </tr>
         </c:forEach>
         <tr bgcolor="#a9a9a9">
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Телефон</th>
+            <th>пїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
             <th>Email</th>
-            <th>Компания</th>
-            <th>Должность</th>
-            <th>Управление</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
+            <th>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</th>
         </tr>
 
 
@@ -143,7 +142,7 @@
                 </td>
 
 
-                <td><input type="submit" value="Создать"/></td>
+                <td><input type="submit" value="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"/></td>
 
 
             </form:form>
@@ -152,13 +151,13 @@
 
     <div id="positionsDiv">
         </br></br>
-        <h2>Должности</h2>
+        <h2>Р”РѕР»Р¶РЅРѕСЃС‚Рё</h2>
         <table border="1">
             <c:forEach items="${positions}" var="p">
                 <tr>
                     <td>${p.name}</td>
                     <td><a href="<c:url value='/deleteposition/${p.id}' />"
-                           class="btn btn-danger custom-width">Удалить</a>
+                           class="btn btn-danger custom-width">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -167,7 +166,7 @@
 
                     <td><form:hidden path="id"></form:hidden>
                         <form:input path="name"/></td>
-                    <td><input type="submit" value="Создать"/></td>
+                    <td><input type="submit" value="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"/></td>
                 </form:form>
 
             </tr>

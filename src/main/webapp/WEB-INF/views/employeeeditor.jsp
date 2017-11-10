@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=cp1251" language="java" %>
+<%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Редактирование сотрудника</title>
+    <title>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 
     <td><form:input path="companyId" value="${employee.companyId}"/></td>
 
-    <td><input type="submit" value="Изменить"/></td>
+    <td><input type="submit" value="РР·РјРµРЅРёС‚СЊ"/></td>
 
 </form:form>
 
@@ -50,9 +50,9 @@
                     <option value="${taskType.id}">${taskType.name}</option>
                 </c:forEach>
             </select>
-            Абонент<input type="text" id="subscriverId">
+            Р”РѕРіРѕРІРѕСЂ<input type="text" id="subscriberId">
 
-            <input type="submit" value="Создать">
+            <input type="submit" value="РЎРѕР·РґР°С‚СЊ">
 
         </form>
 

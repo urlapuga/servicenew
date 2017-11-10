@@ -9,8 +9,8 @@
 
 ${task.dateto} ${task.text}
 <input type="text" id="taskcoment">
-<input type="button" value="Îòìåíèòü" onclick="cancelTask()">
-<input type="button" value="Îòêàçàòñÿ" onclick="rejectTask()">
+<input type="button" value="ĞÑ‚Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ" onclick="cancelTask()">
+<input type="button" value="ĞÑ‚ĞºĞ°Ğ·Ğ°Ñ‚ÑÑ" onclick="rejectTask()">
 
 <br>
 <div>
