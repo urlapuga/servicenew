@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -218,9 +219,9 @@ public class AppController {
 
     @RequestMapping(value = {"/deleteposition/{id}"}, method = RequestMethod.GET)
     public String deletePosition(@PathVariable String id, ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{1})) return "restricted";
-
         Employees employees = (Employees) session.getAttribute("employee");
+        if (!Arrays.asList(new Integer[]{1}).contains(employees.getPositionId()))return "restricted";
+
         logService.add(new Logg("postition",id , "delete", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         positionsService.delete(Integer.parseInt(id));
         return "redirect:/";

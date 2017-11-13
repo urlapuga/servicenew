@@ -147,6 +147,32 @@
     </table>
 
 
+    <div id="positionsDiv">
+        </br></br>
+        <h2>Должности</h2>
+        <table border="1">
+            <c:forEach items="${positions}" var="p">
+                <tr>
+                    <td>${p.name}</td>
+                    <td><a href="<c:url value='/deleteposition/${p.id}' />"
+                           class="btn btn-danger custom-width">Удалить</a>
+                    </td>
+                </tr>
+            </c:forEach>
+            <tr bgcolor="#f0ffff">
+                <form:form method="POST" action="/newposition/" modelAttribute="position">
+
+                    <td><form:hidden path="id"></form:hidden>
+                        <form:input path="name"/></td>
+                    <td><input type="submit" value="Создать"/></td>
+                </form:form>
+
+            </tr>
+        </table>
+
+    </div>
+
+
 </center>
 
 

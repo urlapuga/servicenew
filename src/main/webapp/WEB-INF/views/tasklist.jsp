@@ -28,8 +28,7 @@
                     </c:when>
                     <c:when test="${task.status=='2'}">
                         <td>DONE</td>
-                    </c:when>.
-
+                    </c:when>
                 </c:choose>
 
                 <td>

@@ -21,10 +21,14 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class AbonentController {
+
+    @Autowired
+    HttpServletRequest request;
 
     @Autowired
     HttpSession session;
@@ -52,9 +56,20 @@ public class AbonentController {
     @Autowired
     RekvizityService rekvizityService;
 
+    @Autowired
+    SubscriberTarifsService subscriberTarifsService;
+
+    @Autowired
+    SubscriberHasTarifsService subscriberHasTarifsService;
+
     @ModelAttribute("task")
     public Tasks createTask() {
         return new Tasks();
+    }
+
+    @ModelAttribute("subscribertarifs")
+    public SubscriberTarifs addTarif() {
+        return new SubscriberTarifs();
     }
 
     @ModelAttribute("rekvizity")
@@ -62,27 +77,51 @@ public class AbonentController {
         return new Rekvizity();
     }
 
+    //TARIFICATION
+    @RequestMapping(value = {"/edittarif/{id}/{device}/{port}"}, method = RequestMethod.GET)
+    public String editTarif(ModelMap model, @PathVariable Integer id, @PathVariable Integer device, @PathVariable Integer port) {
+        SubscriberTarifs subscriberTarifs = subscriberHasTarifsService.getById(id);
+
+        subscriberTarifs.setDevice(device);
+        subscriberTarifs.setPort(port);
+        subscriberHasTarifsService.update(subscriberTarifs);
+        model.addAttribute("error","Готово");
+        return "error";
+    }
+
+    @RequestMapping(value = {"/deletetarif/{id}"}, method = RequestMethod.GET)
+    public String deleteTarif(ModelMap model, @PathVariable Integer id) {
+        subscriberHasTarifsService.delete(id);
+        model.addAttribute("error","Готово");
+        return "error";
+    }
+
+    @RequestMapping(value = {"/addtarif"}, method = RequestMethod.POST)
+    public String addTarif(ModelMap model,@Valid SubscriberTarifs tarif, BindingResult result) {
+        subscriberHasTarifsService.add(tarif);
+        return "redirect:" + request.getHeader("Referer");
+    }
+
 
     //PASSWORD GENERATION
     @RequestMapping(value = {"/generatePass/{subscriberID}"}, method = RequestMethod.GET)
     public String generatePass(@PathVariable Integer subscriberID, ModelMap model) {
         Subscribers subscribers = subscriberService.getById(subscriberID);
-        if(subscribers.getEmail()!=null){
-            if(subscribers.getEmail().length()>0){
+        if (subscribers.getEmail() != null) {
+            if (subscribers.getEmail().length() > 0) {
                 String pass = PassToHashConverter.generatePass();
                 String hash = PassToHashConverter.convert(pass);
 
 
-                String text = "Ваш Договор (Логин ) - "+ subscriberID + "Ваш пароль -" + pass;
+                String text = "Ваш Договор (Логин ) - " + subscriberID + "Ваш пароль -" + pass;
                 text += " Ваш пароль знаете только вы";
-                MailProducer.send(subscribers.getEmail(),"Доступ в Личный кабинет",text);
+                MailProducer.send(subscribers.getEmail(), "Доступ в Личный кабинет", text);
                 subscribers.setPassword(hash);
                 subscriberService.update(subscribers);
-            model.addAttribute("error","пароль успешно сгенерирован");
+                model.addAttribute("error", "пароль успешно сгенерирован");
             }
-        }
-        else{
-            model.addAttribute("error","Сначала внесите emzil абонента");
+        } else {
+            model.addAttribute("error", "Сначала внесите emzil абонента");
         }
         return "error";
     }
@@ -93,17 +132,16 @@ public class AbonentController {
         Rekvizity rekvizity = rekvizityService.getBySubscriber(subscriberID);
         Subscribers subscribers = subscriberService.getById(subscriberID);
 
-        model.addAttribute("cost",tarifService.getById(subscribers.getTarif()).getCost());
-        model.addAttribute("money", MoneyConverter.convert(String.valueOf(tarifService.getById(subscribers.getTarif()).getCost()),rekvizity.getPdv()));
+        model.addAttribute("cost", tarifService.getById(subscribers.getTarif()).getCost());
+        model.addAttribute("money", MoneyConverter.convert(String.valueOf(tarifService.getById(subscribers.getTarif()).getCost()), rekvizity.getPdv()));
         model.addAttribute("month", MonthUkr.values()[Integer.parseInt(rekvizity.getData().toString().split("-")[1])]);
-        model.addAttribute("rekvizity",rekvizity );
+        model.addAttribute("rekvizity", rekvizity);
         return "/dogovora/" + doctype;
     }
 
     //ABONENT
     @RequestMapping(value = {"/abonenteditor/{id}"}, method = RequestMethod.GET)
     public String showAbonentById(ModelMap model, @PathVariable Integer id) {
-        System.out.println(session.getAttribute("employee"));
         Subscribers subscribers = subscriberService.getById(id);
 
         if (subscribers == null) {
@@ -111,10 +149,12 @@ public class AbonentController {
             return "error";
         }
 
+        List<Subscribertarifsview> subscribertarifsviews = subscriberTarifsService.getBySubscriber(1);
+
 
         Tarifs tarifs = tarifService.getById(subscribers.getTarif());
 
-
+        model.addAttribute("alltarifs", subscribertarifsviews);
         model.addAttribute("rekvizity", rekvizityService.getBySubscriber(id));
         model.addAttribute("employee", employeeService.findById(1));
         model.addAttribute("payments", paymentsService.bySubscriber(id));
@@ -145,7 +185,6 @@ public class AbonentController {
     public String saveAbonent(@Valid Subscribers subscribers, BindingResult result,
                               ModelMap model, HttpServletRequest request) throws UnsupportedEncodingException {
         request.setCharacterEncoding("CP1251");
-        System.out.println(subscribers);
         subscriberService.update(subscribers);
 
         return "redirect:/abonenteditor/" + subscribers.getId();
