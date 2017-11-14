@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("SubscriberHasTarifsService")
 @Transactional
 public class SubscriberHasTarifsServiceImpl implements SubscriberHasTarifsService {
@@ -30,6 +32,11 @@ public class SubscriberHasTarifsServiceImpl implements SubscriberHasTarifsServic
     @Override
     public SubscriberTarifs getById(int id) {
         return dao.getById(id);
+    }
+
+    @Override
+    public List<SubscriberTarifs> getBySubscriber(int id) {
+        return dao.getBySubscriber(id);
     }
 
 }

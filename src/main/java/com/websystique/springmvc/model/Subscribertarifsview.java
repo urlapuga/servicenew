@@ -6,7 +6,8 @@ import javax.persistence.*;
 
 
 @NamedQueries(value = {
-        @NamedQuery(name = "tarifsBySubscriber", query = "FROM Subscribertarifsview  s where s.id = :subscriberId")
+        @NamedQuery(name = "tarifsBySubscriber", query = "FROM Subscribertarifsview  s where s.id = :subscriberId"),
+        @NamedQuery(name = "allActiveTarifs",query = "FROM Subscribertarifsview  s where s.active = 1")
 })
 @Immutable
 @Entity

@@ -18,11 +18,11 @@ public class SshProducer {
     private Properties config = new Properties();
     private JSch jsch = new JSch();
 
-    public SshProducer(String host, String user, String password, int port) {
+    public SshProducer(String host, String user, String password) {
         this.host = host;
         this.user = user;
         this.password = password;
-        this.port = port;
+        this.port = Integer.parseInt(props.getProperty("ssh.port"));
     }
 
     public SshProducer() {
@@ -31,6 +31,17 @@ public class SshProducer {
         this.password = props.getProperty("ssh.password");
         this.port = Integer.parseInt(props.getProperty("ssh.port"));
     }
+
+    public void shape(Integer speed,Integer port){
+        exec("shape port "+ port + " " + speed);
+    }
+
+
+    public void disablePort(Integer port){
+        exec("disable");
+
+    }
+
 
     public boolean exec(String command1) {
 

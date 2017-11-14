@@ -26,6 +26,17 @@ public class Subscribers {
     private Integer address;
     private Integer room;
     private String password;
+    private double balance;
+
+    @Basic
+    @Column(name="balance")
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
     @Column(name = "password")
     public String getPassword() {

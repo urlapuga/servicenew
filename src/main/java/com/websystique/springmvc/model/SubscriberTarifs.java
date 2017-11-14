@@ -2,6 +2,10 @@ package com.websystique.springmvc.model;
 
 import javax.persistence.*;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "TarifsOfSubscriber",query = "From SubscriberTarifs st where st.subscriberId= :subscriberId")
+})
+
 @Entity
 @Table(name = "subscriber_tarifs", schema = "service", catalog = "")
 public class SubscriberTarifs {

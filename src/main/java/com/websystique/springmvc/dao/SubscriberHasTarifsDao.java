@@ -10,4 +10,5 @@ public interface SubscriberHasTarifsDao {
     void update(SubscriberTarifs tarif);
     void delete(int id);
     SubscriberTarifs getById(int id);
+    List<SubscriberTarifs> getBySubscriber(int id);
 }

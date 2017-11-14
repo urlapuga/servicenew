@@ -11,4 +11,5 @@ public interface SubscriberHasTarifsService {
     void update(SubscriberTarifs entity);
     void delete(int id);
     SubscriberTarifs getById(int id);
+    List<SubscriberTarifs> getBySubscriber(int id);
 }

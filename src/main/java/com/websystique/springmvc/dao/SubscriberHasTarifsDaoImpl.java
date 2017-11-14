@@ -3,6 +3,8 @@ package com.websystique.springmvc.dao;
 import com.websystique.springmvc.model.SubscriberTarifs;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository("subscriberHasTarifsDao")
 public class SubscriberHasTarifsDaoImpl extends AbstractDao<Integer, SubscriberTarifs>implements SubscriberHasTarifsDao
 {
@@ -26,5 +28,10 @@ public class SubscriberHasTarifsDaoImpl extends AbstractDao<Integer, SubscriberT
     @Override
     public SubscriberTarifs getById(int id) {
         return super.getByKey(id);
+    }
+
+    @Override
+    public List<SubscriberTarifs> getBySubscriber(int id) {
+        return getByNamedQueryWithParam("TarifsOfSubscriber","subscriberID",String.valueOf(id));
     }
 }
