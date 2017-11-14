@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2017-11-07 16:57:33
+Date: 2017-11-14 17:03:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -300,13 +300,13 @@ CREATE TABLE `employees` (
   KEY `FK1ekpcbo0lmdx6ou8e3fh9j4lq` (`company_id`),
   KEY `FKngcpgx7fx5kednw3m7u0u8of3` (`position_id`),
   CONSTRAINT `companyid` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of employees
 -- ----------------------------
 INSERT INTO `employees` VALUES ('0', '', 'no employee', '0', '0', '1', '0', '0', '0');
-INSERT INTO `employees` VALUES ('3', 'Andrey', 'Ponomarenko', '380638339275', 'urlapuga@gmail.com', '1', '1', 'urlapuga', 'gfhjkm');
+INSERT INTO `employees` VALUES ('3', 'Andrey', 'Ponomarenko', '380638339275', 'urlapuga@gmail.com', '1', '1', '1', '1');
 INSERT INTO `employees` VALUES ('4', 'Dima', 'Marchenko', '380638339275', 'malief@gmail.com', '1', '2', 'testlogin', 'gfhjkm');
 INSERT INTO `employees` VALUES ('5', 'Kiril', 'Maliev', '380638339275', 'dmarchenko@gmail.com', '1', '2', 'nickname', 'gfhjkm');
 INSERT INTO `employees` VALUES ('6', 'ira', 'lastname', '380638339275', 'ira@email.domain', '1', '4', 'ira', 'ira');
@@ -390,6 +390,34 @@ INSERT INTO `ip_type` VALUES ('1', 'dhcp');
 INSERT INTO `ip_type` VALUES ('2', 'static');
 
 -- ----------------------------
+-- Table structure for `logg`
+-- ----------------------------
+DROP TABLE IF EXISTS `logg`;
+CREATE TABLE `logg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `when_done` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `who` int(11) DEFAULT NULL,
+  `what` varchar(100) DEFAULT NULL,
+  `what_id` varchar(100) DEFAULT NULL,
+  `action` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `employeeloged` (`who`),
+  CONSTRAINT `employeeloged` FOREIGN KEY (`who`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of logg
+-- ----------------------------
+INSERT INTO `logg` VALUES ('15', '2017-11-10 17:07:57', '3', 'login', null, 'success');
+INSERT INTO `logg` VALUES ('16', '2017-11-10 17:21:25', '3', 'login', '', 'success');
+INSERT INTO `logg` VALUES ('17', '2017-11-10 17:21:25', '3', 'login', '', 'success');
+INSERT INTO `logg` VALUES ('18', '2017-11-10 17:32:19', '3', 'login', '', 'success');
+INSERT INTO `logg` VALUES ('19', '2017-11-13 11:46:14', '3', 'login', '', 'success');
+INSERT INTO `logg` VALUES ('20', '2017-11-13 15:15:55', '3', 'login', '', 'success');
+INSERT INTO `logg` VALUES ('21', '2017-11-13 16:09:12', '3', 'login', '', 'success');
+INSERT INTO `logg` VALUES ('22', '2017-11-13 16:40:25', '3', 'login', '', 'success');
+
+-- ----------------------------
 -- Table structure for `optic_lines`
 -- ----------------------------
 DROP TABLE IF EXISTS `optic_lines`;
@@ -461,7 +489,7 @@ CREATE TABLE `pinger` (
   `dateadded` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `lastpingchage` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pinger
@@ -479,7 +507,7 @@ CREATE TABLE `positions` (
   `page` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=cp1251;
 
 -- ----------------------------
 -- Records of positions
@@ -533,14 +561,14 @@ CREATE TABLE `rekvizity` (
   `phone` varchar(255) DEFAULT NULL,
   `data` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pdv` int(1) DEFAULT NULL,
-  `site` varchar(0) DEFAULT NULL,
+  `site` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of rekvizity
 -- ----------------------------
-INSERT INTO `rekvizity` VALUES ('1', '1', 'fop name', 'ÃÂ°ÃÂ°', '111111', 'bank', '12341231', '498126405', '3440987632929840', 'forma naloga', 'director', '0444444444', '2017-11-02 14:39:18', null, null);
+INSERT INTO `rekvizity` VALUES ('1', '1', 'fop name', 'фффііі', '12345', 'bank', '12341231', '498126405', '3440987632929840', 'forma naloga', 'director', '0444444444', '2017-11-02 14:39:18', '1', '');
 
 -- ----------------------------
 -- Table structure for `site_elements`
@@ -735,13 +763,37 @@ CREATE TABLE `subscriber_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of subscriber_status
 -- ----------------------------
 INSERT INTO `subscriber_status` VALUES ('0', 'disabled');
 INSERT INTO `subscriber_status` VALUES ('1', 'active');
+
+-- ----------------------------
+-- Table structure for `subscriber_tarifs`
+-- ----------------------------
+DROP TABLE IF EXISTS `subscriber_tarifs`;
+CREATE TABLE `subscriber_tarifs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subscriber_id` int(11) DEFAULT NULL,
+  `tarif_id` int(11) DEFAULT NULL,
+  `device` int(11) DEFAULT NULL,
+  `port` int(11) DEFAULT NULL,
+  `active` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sub_id` (`subscriber_id`),
+  KEY `tarif_id` (`tarif_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of subscriber_tarifs
+-- ----------------------------
+INSERT INTO `subscriber_tarifs` VALUES ('1', '1', '1', '1', '2', '1');
+INSERT INTO `subscriber_tarifs` VALUES ('2', '1', '3', '2', '1', '1');
+INSERT INTO `subscriber_tarifs` VALUES ('3', '1', '4', '1', '4', '1');
+INSERT INTO `subscriber_tarifs` VALUES ('4', '1', '0', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for `subscribers`
@@ -764,6 +816,7 @@ CREATE TABLE `subscribers` (
   `address` int(255) DEFAULT NULL,
   `room` int(4) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
+  `balance` double(20,0) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `device` (`device`),
   KEY `statuss` (`status`),
@@ -780,21 +833,21 @@ CREATE TABLE `subscribers` (
 -- ----------------------------
 -- Records of subscribers
 -- ----------------------------
-INSERT INTO `subscribers` VALUES ('1', 'Andrey Ponomarenko', 'urlapuga@gmail.com', '102', '1', '2', '192.168.1.1', 'aa:bb:cc:dd:ee:ff', '2017-11-03 00:00:00', '2017-10-17 12:14:52', '1', '3', '1', '1', '1', '1CE756F532F42E647BA27D6728B2B50E0079A243');
-INSERT INTO `subscribers` VALUES ('2', '1', '1', '1', '1', '1', '1', '1', '2017-11-03 17:14:09', '2017-10-17 12:14:52', '1', '1', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('3', '33', '1', '23', null, null, null, null, '2017-11-03 17:17:50', null, '1', '1', '1', '1', '12', null);
-INSERT INTO `subscribers` VALUES ('4', '33', null, '23', null, null, null, null, '2017-11-03 17:17:51', null, '1', '0', '1', '1', '12', null);
-INSERT INTO `subscribers` VALUES ('5', '33', null, '23', null, null, null, null, '2017-11-03 17:17:54', null, '0', '0', '1', '1', '12', null);
-INSERT INTO `subscribers` VALUES ('6', '33', null, '23', null, null, null, null, '2017-11-03 17:17:51', null, '0', '0', '1', '1', '12', null);
-INSERT INTO `subscribers` VALUES ('7', 'phone', '1', 'name', null, null, null, null, '2017-11-03 17:17:53', null, '1', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('8', '3', null, '2', null, null, null, null, '2017-11-03 17:17:52', null, '1', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('9', '1', '1', '1', '1', null, null, null, '2017-11-03 17:18:39', '2017-11-01 14:51:21', '1', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('10', '3', null, '2', null, null, null, null, '2017-11-03 17:17:55', null, '1', '1', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('11', '3', null, '2', null, null, null, null, '2017-11-03 17:17:56', null, '1', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('12', '3', null, '2', null, null, null, null, '2017-11-03 17:17:56', null, '1', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('13', '111?', 'mail', '0638339275', '1', null, '123', '1', '2017-11-03 17:18:40', null, '0', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('14', '1', null, '1', null, null, null, null, '2017-11-03 17:17:58', null, '1', '0', '1', '1', '1', null);
-INSERT INTO `subscribers` VALUES ('15', '1', '2', '3', null, null, null, null, '2017-11-03 17:18:43', '2017-11-03 17:17:13', '0', '0', '1', '1', '1', null);
+INSERT INTO `subscribers` VALUES ('1', 'Andrey Ponomarenko', 'urlapuga@gmail.com', '102', '1', '2', '192.168.1.1', 'aa:bb:cc:dd:ee:ff', '2017-11-14 10:20:57', '2017-10-17 12:14:52', '1', '3', '1', '1', '1', '1CE756F532F42E647BA27D6728B2B50E0079A243', '0');
+INSERT INTO `subscribers` VALUES ('2', '1', '1', '1', '1', '1', '1', '1', '2017-11-14 10:20:58', '2017-10-17 12:14:52', '1', '1', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('3', '33', '1', '23', null, null, null, null, '2017-11-14 10:20:59', null, '1', '1', '1', '1', '12', null, '0');
+INSERT INTO `subscribers` VALUES ('4', '33', null, '23', null, null, null, null, '2017-11-14 10:20:59', null, '1', '0', '1', '1', '12', null, '0');
+INSERT INTO `subscribers` VALUES ('5', '33', null, '23', null, null, null, null, '2017-11-14 10:21:00', null, '0', '0', '1', '1', '12', null, '0');
+INSERT INTO `subscribers` VALUES ('6', '33', null, '23', null, null, null, null, '2017-11-14 10:21:00', null, '0', '0', '1', '1', '12', null, '0');
+INSERT INTO `subscribers` VALUES ('7', 'phone', '1', 'name', null, null, null, null, '2017-11-14 10:21:01', null, '1', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('8', '3', null, '2', null, null, null, null, '2017-11-14 10:21:01', null, '1', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('9', '1', '1', '1', '1', null, null, null, '2017-11-14 10:21:02', '2017-11-01 14:51:21', '1', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('10', '3', null, '2', null, null, null, null, '2017-11-14 10:21:02', null, '1', '1', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('11', '3', null, '2', null, null, null, null, '2017-11-14 10:21:03', null, '1', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('12', '3', null, '2', null, null, null, null, '2017-11-14 10:21:03', null, '1', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('13', '111?', 'mail', '0638339275', '1', null, '123', '1', '2017-11-14 10:21:04', null, '0', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('14', '1', null, '1', null, null, null, null, '2017-11-14 10:21:04', null, '1', '0', '1', '1', '1', null, '0');
+INSERT INTO `subscribers` VALUES ('15', '1', '2', '3', null, null, null, null, '2017-11-14 10:21:05', '2017-11-03 17:17:13', '0', '0', '1', '1', '1', null, '0');
 
 -- ----------------------------
 -- Table structure for `tarifs`
@@ -805,17 +858,18 @@ CREATE TABLE `tarifs` (
   `name` varchar(255) DEFAULT NULL,
   `cost` int(10) DEFAULT NULL,
   `speed` int(11) DEFAULT NULL,
+  `companyid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tarifs
 -- ----------------------------
-INSERT INTO `tarifs` VALUES ('0', 'Нет тарифа', '0', '0');
-INSERT INTO `tarifs` VALUES ('1', 'Безліміт 10', '255', '10');
-INSERT INTO `tarifs` VALUES ('3', 'Безліміт 20', '325', '20');
-INSERT INTO `tarifs` VALUES ('4', 'Безліміт 50', '385', '50');
-INSERT INTO `tarifs` VALUES ('5', 'Безліміт 100', '480', '100');
+INSERT INTO `tarifs` VALUES ('0', 'Нет тарифа', '0', '0', '1');
+INSERT INTO `tarifs` VALUES ('1', 'Безліміт 10', '255', '10', '1');
+INSERT INTO `tarifs` VALUES ('3', 'Безліміт 20', '325', '20', '1');
+INSERT INTO `tarifs` VALUES ('4', 'Безліміт 50', '385', '50', '1');
+INSERT INTO `tarifs` VALUES ('5', 'Безліміт 100', '480', '100', '1');
 
 -- ----------------------------
 -- Table structure for `task_status`
@@ -825,7 +879,7 @@ CREATE TABLE `task_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of task_status
@@ -878,7 +932,7 @@ CREATE TABLE `tasks` (
   KEY `FKlrw802q2gbvoc16pf2gcdb4e0` (`status`),
   CONSTRAINT `employee` FOREIGN KEY (`employee`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `employeetaskto` FOREIGN KEY (`employee_task_to`) REFERENCES `employees` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tasks
@@ -906,6 +960,9 @@ INSERT INTO `tasks` VALUES ('26', '111', null, null, '0', '1', '2017-11-01 16:08
 INSERT INTO `tasks` VALUES ('27', '????', null, null, '0', '1', '2017-11-01 17:10:14', null, null, null, null, '13');
 INSERT INTO `tasks` VALUES ('28', '123', null, null, '0', '1', '2017-11-06 14:01:56', null, null, null, null, '1');
 INSERT INTO `tasks` VALUES ('29', 'Ð°Ð°Ð°', null, null, '0', '1', '2017-11-07 16:37:37', null, null, null, null, '1');
+INSERT INTO `tasks` VALUES ('30', 'Ð°Ð°', null, null, '0', '1', '2017-11-07 17:22:33', null, null, null, null, '1');
+INSERT INTO `tasks` VALUES ('31', 'Ð°Ð°Ð°', null, null, '0', '1', '2017-11-07 17:22:47', null, null, null, null, '1');
+INSERT INTO `tasks` VALUES ('32', 'фвф', null, null, '0', '1', '2017-11-08 10:08:09', null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for `tasks_copy1`
@@ -966,6 +1023,18 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`user`@`%` SQL SECURITY DEFINER VIEW `allmana
 -- ----------------------------
 DROP VIEW IF EXISTS `connectionsperdate`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`user`@`%` SQL SECURITY DEFINER VIEW `connectionsperdate` AS select `tasks`.`id` AS `id`,cast(`tasks`.`dateactionperformed` as date) AS `date`,count(0) AS `amount` from (`tasks` join `task_type`) where ((`tasks`.`type` = 1) and (`tasks`.`status` = 2)) group by cast(`tasks`.`dateactionperformed` as date);
+
+-- ----------------------------
+-- View structure for `idbalancecost`
+-- ----------------------------
+DROP VIEW IF EXISTS `idbalancecost`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `idbalancecost` AS select `subscribers`.`id` AS `id`,`subscribers`.`balance` AS `balance`,sum(`tarifs`.`cost`) AS `cost` from ((`subscribers` left join `subscriber_tarifs` on((`subscriber_tarifs`.`subscriber_id` = `subscribers`.`id`))) left join `tarifs` on((`tarifs`.`id` = `subscriber_tarifs`.`tarif_id`))) where ((`subscriber_tarifs`.`active` = '1') and (`subscribers`.`status` = '1')) group by `subscribers`.`id`,`subscribers`.`balance`;
+
+-- ----------------------------
+-- View structure for `subscribertarifsview`
+-- ----------------------------
+DROP VIEW IF EXISTS `subscribertarifsview`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subscribertarifsview` AS select `subscribers`.`id` AS `id`,`tarifs`.`name` AS `name`,`tarifs`.`speed` AS `speed`,`tarifs`.`cost` AS `cost`,`subscriber_tarifs`.`device` AS `device`,`subscriber_tarifs`.`port` AS `port`,`subscriber_tarifs`.`active` AS `active`,`subscriber_tarifs`.`id` AS `subscribertarifid`,`tarifs`.`id` AS `tarifid` from ((`subscribers` join `subscriber_tarifs` on((`subscriber_tarifs`.`subscriber_id` = `subscribers`.`id`))) join `tarifs` on((`tarifs`.`id` = `subscriber_tarifs`.`tarif_id`)));
 
 -- ----------------------------
 -- View structure for `subscriberview`
