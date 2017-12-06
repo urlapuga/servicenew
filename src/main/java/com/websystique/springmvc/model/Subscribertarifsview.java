@@ -11,6 +11,7 @@ import javax.persistence.*;
 })
 @Immutable
 @Entity
+@Table(name="subscribertarifsview")
 public class Subscribertarifsview {
     private int id;
     private String name;

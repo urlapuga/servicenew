@@ -19,6 +19,11 @@ public class TarifServiceImpl implements TarifService {
         return dao.findAll();
     }
 
+    @Override
+    public List<Tarifs> findByCompany(int id) {
+        return dao.getByCompany(id);
+    }
+
     public void add(Tarifs entity) {
 
         dao.add(entity);

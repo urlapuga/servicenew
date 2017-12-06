@@ -1,6 +1,30 @@
 var chatHidden = false;
 var tasksHidden = false;
 
+
+function callNew(){
+
+
+    SIPml.init(
+        function(e){
+            var stack =  new SIPml.Stack({realm: '94.131.209.250', impi: '302', impu: 'sip:302@94.131.209.250', password: 'Urlapuga2017',
+                events_listener: { events: 'started', listener: function(e){
+                    var callSession = stack.newSession('call-audiovideo', {
+
+                    });
+                    callSession.call('380638339275');
+                }
+                }
+            });
+            stack.start();
+        }
+    );
+
+
+}
+
+
+
 function sendGet(addrString){
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", addrString, false);

@@ -18,6 +18,11 @@ public class TarifDaoImpl extends AbstractDao<Integer, Tarifs>implements TarifDa
         return entitylist;
     }
 
+    @Override
+    public List<Tarifs> getByCompany(int id) {
+        return getByNamedQueryWithParam("getTarifsByCompany","companyId",String.valueOf(id));
+    }
+
     public void add(Tarifs entity) {
         persist(entity);
     }

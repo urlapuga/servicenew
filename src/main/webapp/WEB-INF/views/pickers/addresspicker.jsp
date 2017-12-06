@@ -79,7 +79,7 @@ function showSubscribers (){
 
     </div>
     <input class="floatleft"  type="button" value="Показать" onclick="showSubscribers()">
-    <div id="subscribers"></div>
+
 </div>
 
 </br>

@@ -6,6 +6,7 @@ import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository("rekvizityDao")
 public class RekvizityDaoImpl extends AbstractDao<Integer, Rekvizity>implements RekvizityDao
@@ -20,7 +21,9 @@ public class RekvizityDaoImpl extends AbstractDao<Integer, Rekvizity>implements 
 
     @Override
     public Rekvizity getBySubscriber(int subscriberId) {
-        return super.getByNamedQueryWithParam("rekvizityBySubscriber","subscriberId",String.valueOf(subscriberId)).get(0);
+        List<Rekvizity> rekvizity = super.getByNamedQueryWithParam("rekvizityBySubscriber","subscriberId",String.valueOf(subscriberId));
+        if(rekvizity.isEmpty())return new Rekvizity();
+        return rekvizity.get(0);
     }
 
     public void add(Rekvizity entity) {

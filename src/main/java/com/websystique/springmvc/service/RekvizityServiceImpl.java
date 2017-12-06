@@ -21,6 +21,7 @@ public class RekvizityServiceImpl implements RekvizityService {
 
     @Override
     public Rekvizity getBySubscriber(int subscriberId) {
+
         return dao.getBySubscriber(subscriberId);
     }
 

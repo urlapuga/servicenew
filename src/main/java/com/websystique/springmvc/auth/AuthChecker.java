@@ -13,7 +13,14 @@ public class AuthChecker {
 
     public static boolean check(Integer[] allowedPositionsList) {
         Employees employees = (Employees) httpSession.getAttribute("employee");
-
+        if(employees==null) return false;
         return Arrays.asList(allowedPositionsList).contains(employees.getPositionId());
     }
+
+    public static boolean check(HttpSession session,Integer[] allowedPositionsList) {
+        Employees employees = (Employees) session.getAttribute("employee");
+        if(employees==null) return false;
+        return Arrays.asList(allowedPositionsList).contains(employees.getPositionId());
+    }
+
 }

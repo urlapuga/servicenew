@@ -3,13 +3,20 @@ package com.websystique.springmvc.model;
 import javax.persistence.*;
 import java.util.Collection;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "getTarifsByCompany", query = "FROM Tarifs t where t.companyId = :companyId")
+})
+
 @Entity
-@Table(name="tarifs")
+@Table(name = "tarifs")
 public class Tarifs {
     private Integer id;
     private String name;
     private Integer speed;
     private Integer cost;
+    private Integer companyId;
+
+
     private Collection<Subscribers> subscribersById;
 
     @Column(name = "companyid")
@@ -21,7 +28,6 @@ public class Tarifs {
         this.companyId = companyId;
     }
 
-    private Integer companyId;
 
     @Id
     @GeneratedValue

@@ -1,9 +1,6 @@
 package com.websystique.springmvc.controller;
 
-import com.websystique.springmvc.model.Companies;
-import com.websystique.springmvc.model.Employees;
-import com.websystique.springmvc.model.Positions;
-import com.websystique.springmvc.model.Tasks;
+import com.websystique.springmvc.model.*;
 import com.websystique.springmvc.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +37,15 @@ public class CompaniesController {
         return new Tasks();
     }
 
+    @ModelAttribute("tarif")
+    public Tarifs createTarif() {
+        return new Tarifs();
+    }
 
+
+
+    @Autowired
+    TarifService tarifService;
     @Autowired
     CompanyService companyService;
     @Autowired
@@ -73,6 +78,7 @@ public class CompaniesController {
         model.addAttribute("employee", employeeService.findByCompanyId(Integer.valueOf(id)));
         model.addAttribute("positions",positionsService.findAll());
         model.addAttribute("tasktypes",taskTypeService.findAll());
+        model.addAttribute("tarifs",tarifService.findByCompany(Integer.parseInt(id)));
         return "companyeditor";
     }
 

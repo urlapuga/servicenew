@@ -155,11 +155,13 @@ public class AppController {
 
     //AUTH
     @RequestMapping(value = {"/authorize"}, method = RequestMethod.POST)
-    public String auth(ModelMap model, @RequestParam(value = "login", required = false) String login, @RequestParam(value = "pass", required = false) String pass) {
+    public String auth(ModelMap model, @RequestParam(value = "login") String login, @RequestParam(value = "pass") String pass) {
+        if(login==null||pass==null) return "redirect:/auth";
+        if(login.length()==0||pass.length()==0)  return "redirect:/auth";
         Employees employees = employeeService.getByLoginPass(login, pass);
 
         if (employees == null) {
-            logService.add(new Logg("login", request.getRemoteAddr(), "error", new Timestamp(Calendar.getInstance().getTime().getTime()),""));
+            logService.add(new Logg("login", request.getRemoteAddr(), "error", new Timestamp(Calendar.getInstance().getTime().getTime()),"0"));
             model.addAttribute("mesage", "Неверный логин и/или пароль");
             return "auth";
         } else {
@@ -177,11 +179,6 @@ public class AppController {
     }
 
 
-    @RequestMapping(value = {"/favicon.ico"}, method = RequestMethod.GET)
-    public String favicon(ModelMap model) {
-        return "static/favicon.ico";
-    }
-
 
     //Addresspicker
     @RequestMapping(value = {"/addresspicker"}, method = RequestMethod.GET)
@@ -194,7 +191,7 @@ public class AppController {
     @RequestMapping(value = {"/technician"}, method = RequestMethod.GET)
     public String techInterface(ModelMap model) {
 
-        if (!AuthChecker.check(new Integer[]{2})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{2})) return "restricted";
         return "technician";
     }
 
@@ -210,7 +207,7 @@ public class AppController {
     @RequestMapping(value = {"/newposition"}, method = RequestMethod.POST)
     public String createTarif(@Valid Positions position, BindingResult result,
                               ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{1})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{1})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("postition", position.getName(), "add", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         positionsService.add(position);
@@ -238,7 +235,7 @@ public class AppController {
     //BUHGALTER
     @RequestMapping(value = {"/buhgalter"}, method = RequestMethod.GET)
     public String showBuhgalter(ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{7})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{7})) return "restricted";
         return "buhgalter";
     }
 
@@ -251,41 +248,41 @@ public class AppController {
     }
 
     //TARIF
-    @RequestMapping(value = {"/tarif"}, method = RequestMethod.GET)
-    public String showTarif(ModelMap model) {
+    @RequestMapping(value = {"/tarif/{companyId}/"}, method = RequestMethod.GET)
+    public String showTarif(ModelMap model,@PathVariable Integer companyId) {
         if (session.getAttribute("employee") == null) return "auth";
-        List<Tarifs> tarifsList = tarifService.findAll();
+        List<Tarifs> tarifsList = tarifService.findByCompany(companyId);
         model.addAttribute("tarifs", tarifsList);
-        return "tarif";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
 
     @RequestMapping(value = {"/tarif"}, method = RequestMethod.POST)
     public String createTarif(@Valid Tarifs tarif, BindingResult result,
                               ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{1})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{1})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("tarif",tarif.getName() , "add", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         tarifService.add(tarif);
         List<Tarifs> tarifsList = tarifService.findAll();
         model.addAttribute("tarifs", tarifsList);
-        return "tarif";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
     @RequestMapping(value = {"/delete-tarif-{id}"}, method = RequestMethod.GET)
     public String deleteTarif(@PathVariable String id) {
-        if (!AuthChecker.check(new Integer[]{1})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{1})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("tarif",id , "delete", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         tarifService.delete(Integer.parseInt(id));
-        return "redirect:/tarif";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
 
     //OPERATOR
     @RequestMapping(value = {"/operator"}, method = RequestMethod.GET)
     public String operator(ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{3})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{3})) return "restricted";
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("streets", streetService.findAll());
         model.addAttribute("buildings", buildingService.findAll());
@@ -300,7 +297,7 @@ public class AppController {
         model.addAttribute("cities", cityService.findAll());
         model.addAttribute("streets", streetService.findAll());
         model.addAttribute("buildings", buildingService.findAll());
-        return "adresslist";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
     //TASK TYPES
@@ -309,28 +306,28 @@ public class AppController {
         if (session.getAttribute("employee") == null) return "auth";
         List<TaskType> resultList = taskTypeService.findAll();
         model.addAttribute("result", resultList);
-        return "tasktypelist";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
     @RequestMapping(value = {"/newtasktype"}, method = RequestMethod.POST)
     public String saveTaskType(@Valid TaskType taskType, BindingResult result,
                                ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{1})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{1})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("tasktype",taskType.getName() , "add", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         taskTypeService.add(taskType);
         List<TaskType> resultList = taskTypeService.findAll();
         model.addAttribute("result", resultList);
-        return "tasktypelist";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
     @RequestMapping(value = {"/delete-tasktype-{id}"}, method = RequestMethod.GET)
     public String deleteTaskType(@PathVariable String id) {
-        if (!AuthChecker.check(new Integer[]{1})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{1})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("tasktype",id , "delete", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         taskTypeService.delete(Integer.parseInt(id));
-        return "redirect:/tasktypes";
+        return "redirect:"+ request.getHeader("Referer");
     }
 
 
@@ -338,7 +335,7 @@ public class AppController {
 
     @RequestMapping(value = {"/pinger"}, method = RequestMethod.GET)
     public String listPinger(ModelMap model) {
-        if (!AuthChecker.check(new Integer[]{2, 6})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{2, 6})) return "restricted";
         List<Pinger> resultList = pingerService.findAll();
         model.addAttribute("result", resultList);
         return "pingerlist";
@@ -346,7 +343,7 @@ public class AppController {
 
     @RequestMapping(value = {"/delete-pinger-{id}"}, method = RequestMethod.GET)
     public String deletePinger(@PathVariable String id, HttpServletRequest request) {
-        if (!AuthChecker.check(new Integer[]{2, 6})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{2, 6})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("pinger",id , "delete", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         pingerService.deleteById(Integer.parseInt(id));
@@ -357,7 +354,7 @@ public class AppController {
     public String savePinger(@Valid Pinger pinger, BindingResult result,
                              ModelMap model, HttpServletRequest request) {
 
-        if (!AuthChecker.check(new Integer[]{2, 6})) return "restricted";
+        if (!AuthChecker.check(session,new Integer[]{2, 6})) return "restricted";
         Employees employees = (Employees) session.getAttribute("employee");
         logService.add(new Logg("pinger",pinger.getIp() , "add", new Timestamp(Calendar.getInstance().getTime().getTime()),String.valueOf(employees.getId())));
         pingerService.add(pinger);

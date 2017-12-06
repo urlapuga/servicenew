@@ -40,7 +40,9 @@ public class EmployeeDaoImpl extends AbstractDao<Integer, Employees> implements 
 
     @Override
     public Employees getByLoginPass(String login, String pass) {
-        return getByNamedQueryWithTwoParams("getByLoginPass","login",login,"pass",pass).get(0);
+        List<Employees> employees= getByNamedQueryWithTwoParams("getByLoginPass","login",login,"pass",pass);
+        if(employees.isEmpty()) return null;
+        else  return  employees.get(0);
     }
 }
 

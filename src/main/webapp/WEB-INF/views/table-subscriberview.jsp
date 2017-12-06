@@ -1,18 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <table border="1">
+    <tr>
+        <th>Договор</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+        <th>Ip</th>
+        <th>Город</th>
+        <th>Улица</th>
+        <th>Дом</th>
+        <th>Комната</th>
+        <th>Тариф</th>
+        <th>Статус</th>
+    </tr>
     <c:forEach items="${subscribers}" var="row">
-        <tr>
-            <th>Договор</th>
-            <th>Имя</th>
-            <th>Телефон</th>
-            <th>Ip</th>
-            <th>Город</th>
-            <th>Улица</th>
-            <th>Дом</th>
-            <th>Комната</th>
-            <th>Тариф</th>
-            <th>Статус</th>
-        </tr>
         <tr>
             <td><a href="/abonenteditor/${row.id}" target="_blank">${row.id}</a></td>
             <td>${row.name}</td>

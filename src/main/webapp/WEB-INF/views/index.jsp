@@ -12,7 +12,7 @@
             border-radius: 5px;
         }
     </style>
-
+    <script src="/static/js/sipml.js"></script>
     <script src="/static/js/index.js"></script>
     <script src="/static/js/tasks.js"></script>
     <script src="/static/js/jssip-3.0.15.min.js"></script>
@@ -34,8 +34,10 @@
     <link href="${maincss}" rel="stylesheet"/>
 </head>
 <body>
-
-<div id="container">
+<center>
+<button onclick="callNew()">test</button>
+</center>
+    <div id="container">
     <div id="chat">
         <jsp:include page="/chat/rooms"/>
     </div>
@@ -48,8 +50,9 @@
 
                 <jsp:include page="/abonentsearch"></jsp:include>
                 <jsp:include page="create/subscriber.jsp"></jsp:include>
-            </div>
 
+            </div>
+            <div id="subscribers"></div>
             <jsp:include page="/${page}"/>
         </center>
     </div>

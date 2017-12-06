@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form:form method="POST" action="/save-company" modelAttribute="company">
+<form:form method="POST" action="/savecompany/" modelAttribute="company">
     <td><form:input path="id" value="${company.id}" hidden="true"></form:input></td>
 
     <td><form:input path="name" value="${company.name}"/></td>
@@ -27,7 +27,7 @@
         </select>
     </td>
 
-    <td><input type="submit" value="��������"/></td>
+    <td><input type="submit" value="Изменить"/></td>
 
 </form:form>
 
@@ -172,7 +172,7 @@
 
     </div>
 
-
+<jsp:include page="table-tarifs.jsp"></jsp:include>
 </center>
 
 

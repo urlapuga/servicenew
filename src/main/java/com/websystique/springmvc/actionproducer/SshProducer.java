@@ -53,8 +53,12 @@ public class SshProducer {
             session.connect();
             System.out.println("Connected");
 
-            Channel channel = session.openChannel("exec");
-            ((ChannelExec) channel).setCommand(command1);
+            Channel channel = session.openChannel("shell");
+            ((ChannelExec) channel).setCommand("conf -t");
+            ((ChannelExec) channel).setCommand("int fa 1/0/45");
+            ((ChannelExec) channel).setCommand("shut");
+            ((ChannelExec) channel).setCommand("exit");
+            ((ChannelExec) channel).setCommand("exit");
             channel.setInputStream(null);
             ((ChannelExec) channel).setErrStream(System.err);
 

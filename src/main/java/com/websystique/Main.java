@@ -1,28 +1,24 @@
 package com.websystique;
 
-import com.websystique.springmvc.converters.MoneyConverter;
-import com.websystique.springmvc.converters.PassToHashConverter;
+import com.websystique.springmvc.actionproducer.SshProducer;
+import com.websystique.springmvc.actionproducer.SshjProducer;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
-        String pass = PassToHashConverter.generatePass();
 
-        String hashSign = PassToHashConverter.convert(pass);
-        System.out.println(hashSign);
-
+       // SshjProducer sshjProducer = new SshjProducer();
+        List<String> list = new ArrayList<>();
+        list.add("conf-t");
+        list.add("int fa 1/0/45");
+        list.add("shut");
+        list.add("exit");
+        list.add("exit");
+        list.forEach(System.out::println);
+       // sshjProducer.exec(list);
     }
-
-
-
 }
 
