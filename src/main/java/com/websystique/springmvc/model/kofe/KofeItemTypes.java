@@ -73,7 +73,7 @@ public class KofeItemTypes {
 
     @Override
     public String toString() {
-        return "id=" + id +
+        return "id=" + id +items+
                 ", name='" + name + '\'';
     }
 }

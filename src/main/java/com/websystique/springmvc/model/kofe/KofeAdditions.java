@@ -1,15 +1,35 @@
 package com.websystique.springmvc.model.kofe;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "kofe_additions", schema = "service")
 public class KofeAdditions {
 
-    private List<KofeItems> itemsList;
+    @Id
+    @Column(name = "id")
     private int id;
+
+    @Basic
+    @Column(name = "name")
     private String name;
+
+   @ManyToMany
+   @JoinTable(name = "kofe_additions_items",
+            joinColumns = {@JoinColumn(name = "addition")},
+            inverseJoinColumns = {@JoinColumn(name = "item")})
+    private List<KofeItems> itemsList = new ArrayList<>();
+
+
+    public List<KofeItems> getItemsList() {
+        return itemsList;
+    }
+
+    public void setItemsList(List<KofeItems> itemsList) {
+        this.itemsList = itemsList;
+    }
 
     public KofeAdditions(String name) {
         this.name = name;
@@ -18,8 +38,7 @@ public class KofeAdditions {
     public KofeAdditions() {
     }
 
-    @Id
-    @Column(name = "id")
+
     public int getId() {
         return id;
     }
@@ -28,8 +47,6 @@ public class KofeAdditions {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -62,7 +79,7 @@ public class KofeAdditions {
     public String toString() {
         return "KofeAdditions{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + name + '\'' + itemsList+
                 '}';
     }
 }

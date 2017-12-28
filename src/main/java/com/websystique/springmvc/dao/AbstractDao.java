@@ -57,8 +57,10 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	}
 
 	public List<T> getByNamedQueryWithTwoParams(String queryName,String paramname,String paramValue,String paramname2,String paramValue2) {
+		System.out.println("2222222" + paramname +" " + paramValue + " " + paramname2 + "" + paramValue2);
 		return getSession().getNamedQuery(queryName).setString(paramname,paramValue).setString(paramname2,paramValue2).list();
 	}
+
 	public void updater(String queryName,String paramname,String paramValue,String paramname2,String paramValue2){
 		getSession().createSQLQuery("insert into kofe_main_sklad(ingredient, amount) VALUES ("+paramValue+","+paramValue2+") ON DUPLICATE KEY UPDATE amount=amount + "+paramValue2+"").executeUpdate();
 	}

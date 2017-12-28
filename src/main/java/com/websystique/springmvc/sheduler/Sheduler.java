@@ -31,7 +31,7 @@ public class Sheduler {
 
 
     //PINGER
-    @Scheduled(fixedDelay = 1000000)
+   // @Scheduled(fixedDelay = 1000000)
     public void doPing() {
 
         List<Pinger> pingers = pingerService.findAll();

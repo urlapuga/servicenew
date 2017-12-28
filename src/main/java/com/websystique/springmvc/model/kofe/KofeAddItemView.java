@@ -13,6 +13,27 @@ public class KofeAddItemView {
     private Integer addition;
     private Integer item;
     private String name;
+    private double cost;
+
+    @Column(name = "cost")
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    @Column(name = "itemId")
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
+    private int itemId;
 
     @Id
     @Column(name = "id")

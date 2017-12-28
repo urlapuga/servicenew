@@ -47,6 +47,9 @@ public class HibernateConfiguration {
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();
+
+
+        properties.put("hibernate.enable_lazy_load_no_trans", "true");
         properties.put("useUnicode", "true");
         properties.put("characterEncoding", "utf8");
         properties.put("sqlScriptEncoding", "utf8");

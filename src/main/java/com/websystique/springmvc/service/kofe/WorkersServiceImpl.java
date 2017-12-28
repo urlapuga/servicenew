@@ -15,6 +15,11 @@ public class WorkersServiceImpl implements WorkersService {
     @Autowired
     private workersDao dao;
 
+    @Override
+    public KofeWorkers getByPin(String pin) {
+        return dao.getByIdPin(pin);
+    }
+
     public List<KofeWorkers> findAll() {
         return dao.findAll();
     }

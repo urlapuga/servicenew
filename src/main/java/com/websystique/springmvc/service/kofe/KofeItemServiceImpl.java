@@ -20,8 +20,8 @@ public class KofeItemServiceImpl implements KofeItemservice {
     }
 
     @Override
-    public List<KofeItems> findByType() {
-        return null;
+    public List<KofeItems> findByType(Integer type) {
+        return dao.findByType(type);
     }
 
     public void add(KofeItems entity) {

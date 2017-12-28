@@ -9,15 +9,32 @@ import javax.persistence.*;
 @Entity
 @Table(name = "kofe_item_ingredients_view", schema = "service", catalog = "")
 public class KofeItemIngredientsView {
-
+    public KofeItemIngredientsView() {
+    }
+    @Id
+    @Column(name = "itemid",insertable = false,updatable = false)
     private int itemid;
+    @Basic
+    @Column(name = "name")
     private String name;
+    @Basic
+    @Column(name = "ingredientid")
     private Integer ingredientid;
+    @Basic
+    @Column(name = "ingredientname")
     private String ingredientname;
+    @Basic
+    @Column(name = "amount")
     private Double amount;
-    private Double buycost;
-
     @Column(name = "buycost")
+    private Double buycost;
+    @Column(name = "thiscost")
+    private Double thiscost;
+
+    @ManyToOne
+    @JoinColumn(name="itemid", nullable=false,insertable = false,updatable = false)
+    KofeItems kofeItems;
+
     public Double getBuycost() {
         return buycost;
     }
@@ -26,7 +43,7 @@ public class KofeItemIngredientsView {
         this.buycost = buycost;
     }
 
-    @Column(name = "thiscost")
+
     public Double getThiscost() {
         return thiscost;
     }
@@ -35,9 +52,7 @@ public class KofeItemIngredientsView {
         this.thiscost = thiscost;
     }
 
-    private Double thiscost;
-    @Id
-    @Column(name = "itemid")
+
     public int getItemid() {
         return itemid;
     }
@@ -46,8 +61,7 @@ public class KofeItemIngredientsView {
         this.itemid = itemid;
     }
 
-    @Basic
-    @Column(name = "name")
+
     public String getName() {
         return name;
     }
@@ -56,8 +70,6 @@ public class KofeItemIngredientsView {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "ingredientid")
     public Integer getIngredientid() {
         return ingredientid;
     }
@@ -66,8 +78,7 @@ public class KofeItemIngredientsView {
         this.ingredientid = ingredientid;
     }
 
-    @Basic
-    @Column(name = "ingredientname")
+
     public String getIngredientname() {
         return ingredientname;
     }
@@ -76,8 +87,7 @@ public class KofeItemIngredientsView {
         this.ingredientname = ingredientname;
     }
 
-    @Basic
-    @Column(name = "amount")
+
     public Double getAmount() {
         return amount;
     }

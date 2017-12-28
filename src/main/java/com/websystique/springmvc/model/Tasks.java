@@ -7,25 +7,28 @@ import java.sql.Timestamp;
 @NamedQueries({
         @NamedQuery(
                 name = "managerTasks",
-                query = "from Tasks s where s.type = 5"
+                query = "from Tasks s where s.type = 5 order by dateto asc "
         ),
         @NamedQuery(
                 name = "technicianTasks",
-                query = "from Tasks s where s.type = 1 OR s.type = 2"
+                query = "from Tasks s where s.type = 1 OR s.type = 2 order by dateto asc "
         ),
 
         @NamedQuery(
                 name = "byemployeeTasks",
-                query = "from Tasks s where s.employeeTaskTo = :employeeId"
+                query = "from Tasks s where s.employeeTaskTo = :employeeId order by dateto asc "
         ),
         @NamedQuery(
                 name = "byCompany",
-                query = "from Tasks s where s.company = :companyId"
+                query = "from Tasks s where s.company = :companyId order by dateto asc "
         ),
         @NamedQuery(
                 name = "bySubscriber",
-                query = "from Tasks s where s.subscriberId = :subscriberId"
-        )
+                query = "from Tasks s where s.subscriberId = :subscriberId order by dateto asc "
+        ),
+        @NamedQuery(
+                name = "byDateAndSubscriber",
+                query = "from Tasks t where t.employeeTaskTo = :employee AND DATE(t.dateto)= :date order by dateto asc " )
 })
 @Entity
 @Table(name = "tasks")

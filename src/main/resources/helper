@@ -34,6 +34,8 @@ srr-queue rate bandwidth limit 10 ------- % from
 configure terminal
 interface FastEthernet 1/0/48 shutdown
 
+<<<< SHOW PORT
+sh mac address-table int fa 1/0/3
 
 //SIP
 302@94.131.209.250

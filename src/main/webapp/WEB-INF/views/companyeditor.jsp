@@ -49,7 +49,7 @@
                 <td>${employees.phonenumber}</td>
                 <td>${employees.email}</td>
                 <td>${employees.positionId}</td>
-                <td><a href="<c:url value='/edit-employee-${employees.id}' />" class="btn btn-default">Изменить</a></td>
+                <td><a href="<c:url value='/editemployee/${employees.id}' />" class="btn btn-default">Изменить</a></td>
             </tr>
         </c:forEach>
         <tr bgcolor="#a9a9a9">
@@ -95,9 +95,11 @@
     <table border="1">
         <thead>
         <tr>
-            <th>text</th>
-            <th>status</th>
-            <th>type</th>
+            <th>Текст</th>
+            <th>Статус</th>
+            <th>Тип</th>
+            <th>Дата</th>
+            <th>Исполнитель</th>
         </tr>
         </thead>
         <tbody>
@@ -106,13 +108,16 @@
                 <td>${task.text}</td>
                 <c:choose>
                     <c:when test="${task.status=='0'}">
-                        <td>NEW</td>
+                        <td>Новая</td>
                     </c:when>
                     <c:when test="${task.status=='1'}">
-                        <td>IN PROGRESS</td>
+                        <td>В процессе</td>
                     </c:when>
                     <c:when test="${task.status=='2'}">
-                        <td>DONE</td>
+                        <td>Выполнена</td>
+                    </c:when>
+                    <c:when test="${task.status=='3'}">
+                        <td>Отменена</td>
                     </c:when>
                 </c:choose>
 
@@ -121,8 +126,9 @@
                         ${tasktypes.id eq task.type ? tasktypes.name : ''}
                     </c:forEach>
                 </td>
+                <td>${task.dateto}</td>
+                <td>${task.employeesByEmployeeTaskTo.name}</td>
 
-                <td>${task.employee}</td>
             </tr>
         </c:forEach>
 

@@ -905,11 +905,11 @@ CREATE TABLE `task_type` (
 -- ----------------------------
 -- Records of task_type
 -- ----------------------------
-INSERT INTO `task_type` VALUES ('1', 'подключение', 'connect');
-INSERT INTO `task_type` VALUES ('2', 'обслуживание', 'connect');
-INSERT INTO `task_type` VALUES ('3', 'разработка', 'connect');
-INSERT INTO `task_type` VALUES ('4', 'ремонт', 'connect');
-INSERT INTO `task_type` VALUES ('5', 'задача менеджера', 'connect');
+INSERT INTO `task_type` VALUES ('1', 'подключение', 'execute');
+INSERT INTO `task_type` VALUES ('2', 'обслуживание', 'execute');
+INSERT INTO `task_type` VALUES ('3', 'разработка', 'execute');
+INSERT INTO `task_type` VALUES ('4', 'ремонт', 'execute');
+INSERT INTO `task_type` VALUES ('5', 'задача менеджера', 'execute');
 
 -- ----------------------------
 -- Table structure for user_profile

@@ -11,6 +11,11 @@ import java.util.List;
 @Repository("kofeitemDao")
 public class ItemsDaoImpl extends AbstractDao<Integer, KofeItems> implements ItemsDao
 {
+    @Override
+    public List<KofeItems> findByType(int type) {
+        return getByNamedQueryWithParam("itemsByType","type",String.valueOf(type));
+    }
+
     public List<KofeItems> findAll() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.

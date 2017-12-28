@@ -14,5 +14,6 @@ public interface TaskDao {
     List<Tasks> getTasksByEmployeeId(int id);
     List<Tasks> getTasksByCompany(int id);
     List<Tasks> getByCustomer(int id);
+    List<Tasks> getByEmployeeAndDate(String date,String employee);
     Tasks getById(int id);
 }

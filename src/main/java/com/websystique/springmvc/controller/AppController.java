@@ -26,6 +26,7 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/")
@@ -67,7 +68,6 @@ public class AppController {
     AddressService addressService;
     @Autowired
     ChatRoomsService chatRoomsService;
-
     @Autowired
     HttpSession session;
     @Autowired
@@ -147,7 +147,9 @@ public class AppController {
         Integer position = employees.getPositionId();
         Positions positions = positionsService.getById(position);
         model.addAttribute("tasktypes", taskTypeService.findAll());
-        model.addAttribute("owntasks", taskService.getByEmployee(employees.getId()));
+        List<Tasks> tasks = taskService.getByEmployee(employees.getId());
+        List<Tasks> tasks1 = tasks.stream().filter(t->t.getStatus()<2).collect(Collectors.toList());
+        model.addAttribute("owntasks",tasks1 );
         model.addAttribute("page", positions.getPage());
         return "index";
     }

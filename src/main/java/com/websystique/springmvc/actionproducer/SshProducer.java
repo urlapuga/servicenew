@@ -32,12 +32,12 @@ public class SshProducer {
         this.port = Integer.parseInt(props.getProperty("ssh.port"));
     }
 
-    public void shape(Integer speed,Integer port){
-        exec("shape port "+ port + " " + speed);
+    public void shape(Integer speed, Integer port) {
+        exec("shape port " + port + " " + speed);
     }
 
 
-    public void disablePort(Integer port){
+    public void disablePort(Integer port) {
         exec("disable");
 
     }
@@ -53,12 +53,9 @@ public class SshProducer {
             session.connect();
             System.out.println("Connected");
 
-            Channel channel = session.openChannel("shell");
-            ((ChannelExec) channel).setCommand("conf -t");
-            ((ChannelExec) channel).setCommand("int fa 1/0/45");
-            ((ChannelExec) channel).setCommand("shut");
-            ((ChannelExec) channel).setCommand("exit");
-            ((ChannelExec) channel).setCommand("exit");
+            Channel channel = session.openChannel("exec");
+            ((ChannelExec) channel).setCommand("sh log" +
+                    "sh log");
             channel.setInputStream(null);
             ((ChannelExec) channel).setErrStream(System.err);
 
@@ -80,7 +77,36 @@ public class SshProducer {
                 } catch (Exception ee) {
                 }
             }
+
+
+            System.out.println("command 2");
+            Channel channel1 = session.openChannel("exec");
+            ((ChannelExec) channel1).setCommand("sh log");
+            channel1.setInputStream(null);
+            ((ChannelExec) channel1).setErrStream(System.err);
+
+            in = channel1.getInputStream();
+            channel1.connect();
+            tmp = new byte[1024];
+            while (true) {
+                while (in.available() > 0) {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0) break;
+                    System.out.print(new String(tmp, 0, i));
+                }
+                if (channel1.isClosed()) {
+                    System.out.println("exit-status: " + channel1.getExitStatus());
+                    break;
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception ee) {
+                }
+            }
+
+
             channel.disconnect();
+            channel1.disconnect();
             session.disconnect();
             return true;
         } catch (Exception e) {

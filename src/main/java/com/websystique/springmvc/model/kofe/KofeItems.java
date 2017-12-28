@@ -1,18 +1,48 @@
 package com.websystique.springmvc.model.kofe;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
+
+@NamedQueries(value = {
+        @NamedQuery(name = "itemsByType",query = "FROM KofeItems k where k.type = :type")
+})
 @Entity
 @Table(name = "kofe_items", schema = "service")
 public class KofeItems {
+    @Id
+    @Column(name = "id")
     private int id;
+    @Basic
+    @Column(name = "name")
     private String name;
+    @Basic
+    @Column(name = "cost")
     private Double cost;
+    @Basic
+    @Column(name = "type")
     private Integer type;
+
+    @Transient
+    @Column(name = "addition")
     private Integer addition;
 
-    @Column(name = "addition")
+    @Transient
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "kofeItems")
+    private Set<KofeItemIngredientsView> kofeItemIngredientsViews;
+
+    public Set<KofeItemIngredientsView> getKofeItemIngredientsViews() {
+        return kofeItemIngredientsViews;
+    }
+
+    public void setKofeItemIngredientsViews(Set<KofeItemIngredientsView> kofeItemIngredientsViews) {
+        this.kofeItemIngredientsViews = kofeItemIngredientsViews;
+    }
+
     public Integer getAddition() {
         return addition;
     }
@@ -27,11 +57,10 @@ public class KofeItems {
     }
 
     public KofeItems() {
-        
+
     }
 
-    @Id
-    @Column(name = "id")
+
     public int getId() {
         return id;
     }
@@ -40,8 +69,6 @@ public class KofeItems {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -50,8 +77,6 @@ public class KofeItems {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "cost")
     public Double getCost() {
         return cost;
     }
@@ -60,8 +85,6 @@ public class KofeItems {
         this.cost = cost;
     }
 
-    @Basic
-    @Column(name = "type")
     public Integer getType() {
         return type;
     }

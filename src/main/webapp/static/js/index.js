@@ -2,26 +2,45 @@ var chatHidden = false;
 var tasksHidden = false;
 
 
-function callNew(){
+function callNew() {
 
-
-    SIPml.init(
-        function(e){
-            var stack =  new SIPml.Stack({realm: '94.131.209.250', impi: '302', impu: 'sip:302@94.131.209.250', password: 'Urlapuga2017',
-                events_listener: { events: 'started', listener: function(e){
-                    var callSession = stack.newSession('call-audiovideo', {
-
-                    });
-                    callSession.call('380638339275');
-                }
-                }
-            });
-            stack.start();
+    var sipStack;
+    var eventsListener = function (e) {
+        if (e.type == 'started') {
+            makeCall();
         }
-    );
+        else if (e.type == 'i_new_message') { // incoming new SIP MESSAGE (SMS-like)
+            acceptMessage(e);
+        }
+        else if (e.type == 'i_new_call') { // incoming audio/video call
+            acceptCall(e);
+        }
+    }
+};
+
+var makeCall = function(){
+    callSession = sipStack.newSession('call-audiovideo', {
+        events_listener: { events: '*', listener: eventsListener } // optional: '*' means all events
+    });
+    callSession.call('0638339275');
+    createSipStack();
+};
+    function createSipStack(){
+        sipStack = new SIPml.Stack({
+                realm: '94.131.209.250', // mandatory: domain name
+                impi: '302', // mandatory: authorization name (IMS Private Identity)
+                impu: 'sip:302@94.131.209.250', // mandatory: valid SIP Uri (IMS Public Identity)
+                password: 'Urlapuga2017', // optional
+                display_name: '302',
+            events_listener: { events: '*', listener: eventsListener }// optional
+            }
+        );
+        sipStack.start();
+        var callSession;
+    };
 
 
-}
+
 
 
 
@@ -30,7 +49,7 @@ function sendGet(addrString){
     xhttp.open("GET", addrString, false);
     xhttp.send();
     return xhttp.responseText;
-}
+};
 
 function showChat() {
 
@@ -45,7 +64,7 @@ function showChat() {
         chatHidden = false;
     }
 
-}
+};
 
 function showTasks() {
 
@@ -58,7 +77,7 @@ function showTasks() {
         tasksHidden = false;
     }
 
-}
+};
 
 
 function setgetter(getter) {
@@ -70,9 +89,10 @@ function send() {
     var room = document.getElementById("room").value;
     var message = document.getElementById("mess").value;
     var getter = document.getElementById("getter").value;
-    xhttp.open("GET", "newmessage-" + room + "-" + message + "-" + getter, false);
+    xhttp.open("GET", "chat/newmessage-" + room + "-" + message + "-" + getter, false);
     xhttp.send();
     document.getElementById("content").innerHTML = xhttp.responseText;
+    showRoom(room);
 };
 
 
@@ -94,7 +114,16 @@ function showUser(user) {
 };
 
 function showAbonent() {
-    window.open("/abonenteditor/" + document.getElementById("abonentid").value);
+    var subscriberName = document.getElementById("abonentName").value;
+    var subscriberId = document.getElementById("abonentid").value;
+    if(subscriberName!=null ){
+            if(subscriberName.length<3) alert("Название - минимум 3 буквы");
+            else{
+
+            }
+    }
+    if(subscriberId.length==0 ){alert("Необходимо указать номер договора");}
+    window.open("/abonenteditor/" + subscriberId);
 };
 
 function showDiv() {

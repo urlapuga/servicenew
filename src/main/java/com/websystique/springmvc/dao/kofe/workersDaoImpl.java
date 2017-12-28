@@ -35,4 +35,9 @@ public class workersDaoImpl extends AbstractDao<Integer, KofeWorkers> implements
     public KofeWorkers getById(int id) {
         return super.getByKey(id);
     }
+
+    @Override
+    public KofeWorkers getByIdPin(String pin) {
+        return getByNamedQueryWithParam("getWorkerByPin","pincode",pin).get(0);
+    }
 }

@@ -32,12 +32,10 @@
                 </c:choose>
 
                 <td>
-                    <c:forEach items="${tasktypes}" var="tasktypes">
-                        ${tasktypes.id eq task.type ? tasktypes.name : ''}
-                    </c:forEach>
+                    ${tasktypes.get(task.type).name}
                 </td>
 
-                <td>${task.employeesByEmployee.lastname} ${task.employeesByEmployee.name}</td>
+                <td>${task.employeesByEmployeeTaskTo.lastname} ${task.employeesByEmployeeTaskTo.name}</td>
                 <td>${task.dateto}</td>
             </tr>
         </c:forEach>

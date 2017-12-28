@@ -8,7 +8,7 @@ import java.util.List;
 public interface KofeItemservice {
      List<KofeItems> findAll();
 
-     List<KofeItems> findByType();
+     List<KofeItems> findByType(Integer type);
 
      void add(KofeItems entity) ;
 

@@ -3,6 +3,10 @@ package com.websystique.springmvc.model.kofe;
 import javax.persistence.*;
 import java.util.Collection;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "getWorkerByPin",query = "from KofeWorkers w where w.pincode =:pincode")
+})
+
 @Entity
 @Table(name = "kofe_workers", schema = "service")
 public class KofeWorkers {

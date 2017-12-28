@@ -52,6 +52,11 @@ public class TaskDaoImpl extends AbstractDao<Integer, Tasks> implements TaskDao 
     }
 
     @Override
+    public List<Tasks> getByEmployeeAndDate(String date, String employee) {
+        return getByNamedQueryWithTwoParams("byDateAndSubscriber","date",employee,"employee",date);
+    }
+
+    @Override
     public Tasks getById(int id) {
         return super.getByKey(id);
     }

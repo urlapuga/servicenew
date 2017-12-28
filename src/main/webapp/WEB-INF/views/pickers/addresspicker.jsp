@@ -62,9 +62,9 @@ function showSubscribers (){
 
 </script>
 
-<div>
+<div class="floatleft">
     <div id="cities" class="floatleft" >
-        <select path="city" name="city" onChange="getStreets()">
+        <select path="city" name="city" onChange="getStreets()" class="selectpicker">
             <option value="-1">--</option>
             <c:forEach items="${cities}" var="city">
 
@@ -78,7 +78,7 @@ function showSubscribers (){
     <div class="floatleft" id="buildings">
 
     </div>
-    <input class="floatleft"  type="button" value="Показать" onclick="showSubscribers()">
+    <input class="btn" style="float: left"  type="button" value="Показать" class="btn" onclick="showSubscribers()">
 
 </div>
 

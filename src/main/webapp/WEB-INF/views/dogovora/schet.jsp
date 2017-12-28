@@ -135,7 +135,7 @@
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R0C3" COLSPAN=32 ROWSPAN=3><DIV STYLE="width:100%;height:44px;overflow:hidden;">Увага! Оплата цього рахунку означає погодження з умовами поставки товарів. Повідомлення про оплату є обов'язковим, в іншому випадку не гарантується наявність товарів на складі. Товар відпускається за фактом надходження коштів на п/р Постачальника, самовивозом, за наявності довіреності та паспорта.</DIV></TD>
+        <TD CLASS="R0C3" COLSPAN=32 ROWSPAN=3><DIV STYLE="width:100%;height:44px;overflow:hidden;">РЈРІР°РіР°! РћРїР»Р°С‚Р° С†СЊРѕРіРѕ СЂР°С…СѓРЅРєСѓ РѕР·РЅР°С‡Р°С” РїРѕРіРѕРґР¶РµРЅРЅСЏ Р· СѓРјРѕРІР°РјРё РїРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂС–РІ. РџРѕРІС–РґРѕРјР»РµРЅРЅСЏ РїСЂРѕ РѕРїР»Р°С‚Сѓ С” РѕР±РѕРІ'СЏР·РєРѕРІРёРј, РІ С–РЅС€РѕРјСѓ РІРёРїР°РґРєСѓ РЅРµ РіР°СЂР°РЅС‚СѓС”С‚СЊСЃСЏ РЅР°СЏРІРЅС–СЃС‚СЊ С‚РѕРІР°СЂС–РІ РЅР° СЃРєР»Р°РґС–. РўРѕРІР°СЂ РІС–РґРїСѓСЃРєР°С”С‚СЊСЃСЏ Р·Р° С„Р°РєС‚РѕРј РЅР°РґС…РѕРґР¶РµРЅРЅСЏ РєРѕС€С‚С–РІ РЅР° Рї/СЂ РџРѕСЃС‚Р°С‡Р°Р»СЊРЅРёРєР°, СЃР°РјРѕРІРёРІРѕР·РѕРј, Р·Р° РЅР°СЏРІРЅРѕСЃС‚С– РґРѕРІС–СЂРµРЅРѕСЃС‚С– С‚Р° РїР°СЃРїРѕСЂС‚Р°.</DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -223,7 +223,7 @@
     <COL WIDTH=6>
     <TR CLASS=R4>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R4C1" COLSPAN=13><SPAN STYLE="white-space:nowrap;max-width:0px;">Зразок&nbsp;заповнення&nbsp;платіжного&nbsp;доручення</SPAN></TD>
+        <TD CLASS="R4C1" COLSPAN=13><SPAN STYLE="white-space:nowrap;max-width:0px;">Р—СЂР°Р·РѕРє Р·Р°РїРѕРІРЅРµРЅРЅСЏ РїР»Р°С‚С–Р¶РЅРѕРіРѕ РґРѕСЂСѓС‡РµРЅРЅСЏ</SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -241,8 +241,8 @@
     </TR>
     <TR CLASS=R6>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R6C1">Одержувач</TD>
-        <TD CLASS="R6C2" COLSPAN=7>Товариство з обмеженою відповідальністю "САКСКАЙ"</TD>
+        <TD CLASS="R6C1">РћРґРµСЂР¶СѓРІР°С‡</TD>
+        <TD CLASS="R6C2" COLSPAN=7>РўРѕРІР°СЂРёСЃС‚РІРѕ Р· РѕР±РјРµР¶РµРЅРѕСЋ РІС–РґРїРѕРІС–РґР°Р»СЊРЅС–СЃС‚СЋ "РЎРђРљРЎРљРђР™"</TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
@@ -253,7 +253,7 @@
     </TR>
     <TR CLASS=R7>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R7C1" ROWSPAN=2><DIV STYLE="width:100%;height:31px;overflow:hidden;">Код</DIV></TD>
+        <TD CLASS="R7C1" ROWSPAN=2><DIV STYLE="width:100%;height:31px;overflow:hidden;">РљРѕРґ</DIV></TD>
         <TD CLASS="R7C2" COLSPAN=2 ROWSPAN=2><DIV STYLE="width:100%;height:31px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">38883067</SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -261,7 +261,7 @@
         <TD CLASS="R7C6"><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R7C10" COLSPAN=2><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">КРЕДИТ&nbsp;рах.&nbsp;N</SPAN></TD>
+        <TD CLASS="R7C10" COLSPAN=2><DIV STYLE="width:100%;height:15px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">Р‘Р°РЅРє РѕРґРµСЂР¶СѓРІР°С‡Р°</SPAN></TD>
         <TD CLASS="R7C12"><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD CLASS="R7C13"><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:15px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -283,12 +283,12 @@
     </TR>
     <TR CLASS=R9>
         <TD><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R9C1" COLSPAN=2><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">Банк&nbsp;одержувача</SPAN></TD>
+        <TD CLASS="R9C1" COLSPAN=2><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅ&nbsp;пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</SPAN></TD>
         <TD><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R9C7" COLSPAN=2><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">Код&nbsp;банку</SPAN></TD>
+        <TD CLASS="R9C7" COLSPAN=2><DIV STYLE="width:100%;height:16px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅ&nbsp;пїЅпїЅпїЅпїЅпїЅ</SPAN></TD>
         <TD><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD CLASS="R9C12"><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD CLASS="R9C13"><DIV STYLE="position:relative; height:16px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -314,7 +314,7 @@
     </TR>
     <TR CLASS=R11>
         <TD><DIV STYLE="position:relative; height:29px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R11C1" COLSPAN=6><DIV STYLE="width:100%;height:29px;overflow:hidden;">Печерська філія ПАТ КБ «ПРИВАТБАНК»</TD>
+        <TD CLASS="R11C1" COLSPAN=6><DIV STYLE="width:100%;height:29px;overflow:hidden;">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅК»</TD>
         <TD CLASS="R11C7" COLSPAN=2><DIV STYLE="width:100%;height:29px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">300711</SPAN></TD>
         <TD><DIV STYLE="position:relative; height:29px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD CLASS="R11C10"><DIV STYLE="position:relative; height:29px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
@@ -433,7 +433,7 @@
     </TR>
     <TR CLASS=R15>
         <TD><DIV STYLE="position:relative; height:28px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
-        <TD CLASS="R15C1" COLSPAN=37><DIV STYLE="width:100%;height:28px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">Рахунок&nbsp;на&nbsp;оплату&nbsp;№&nbsp;101&nbsp;від&nbsp;26&nbsp;жовтня&nbsp;2017&nbsp;р.</SPAN></TD>
+        <TD CLASS="R15C1" COLSPAN=37><DIV STYLE="width:100%;height:28px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ&nbsp;пїЅпїЅ&nbsp;пїЅпїЅпїЅпїЅпїЅпїЅ&nbsp;пїЅ&nbsp;101&nbsp;пїЅпїЅ&nbsp;26&nbsp;пїЅпїЅпїЅпїЅпїЅпїЅ&nbsp;2017&nbsp;пїЅ.</SPAN></TD>
         <TD><DIV STYLE="position:relative; height:28px;width: 100%; overflow:hidden;"><SPAN></SPAN></DIV></TD>
         <TD><DIV STYLE="width:100%;height:28px;overflow:hidden;"></DIV></TD>
     </TR>
@@ -475,8 +475,8 @@
     </TR>
     <TR CLASS=R13>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R17C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">Постачальник:</SPAN></TD>
-        <TD CLASS="R17C6" COLSPAN=32>Товариство з обмеженою відповідальністю "САКСКАЙ"</TD>
+        <TD CLASS="R17C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:</SPAN></TD>
+        <TD CLASS="R17C6" COLSPAN=32>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -488,7 +488,7 @@
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R18C7" COLSPAN=31>П/р 26003052750322, Банк Печерська філія ПАТ КБ «ПРИВАТБАНК», МФО 300711<BR>04655, Київ, Московський проспект, буд. № 23, тел.: 0504421750,<BR>код за ЄДРПОУ 38883067, ІПН 388830626546, № свід.  200138613,<BR>Налог на прибыль и НДС</TD>
+        <TD CLASS="R18C7" COLSPAN=31>пїЅ/пїЅ 26003052750322, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅК», пїЅпїЅпїЅ 300711<BR>04655, пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ. пїЅ 23, пїЅпїЅпїЅ.: 0504421750,<BR>пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 38883067, пїЅпїЅпїЅ 388830626546, пїЅ пїЅпїЅпїЅ.  200138613,<BR>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -530,7 +530,7 @@
     </TR>
     <TR CLASS=R13>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R17C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">Покупець:</SPAN></TD>
+        <TD CLASS="R17C1" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:</SPAN></TD>
         <TD CLASS="R17C6" COLSPAN=32>${rekvizity.fopname}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
@@ -543,7 +543,7 @@
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R21C7" COLSPAN=31>Тел.: ${rekvizity.phone}</TD>
+        <TD CLASS="R21C7" COLSPAN=31>пїЅпїЅпїЅ.: ${rekvizity.phone}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -585,8 +585,8 @@
     </TR>
     <TR CLASS=R23>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R23C1" COLSPAN=4>Договір:</TD>
-        <TD CLASS="R23C1" COLSPAN=33>ДОГОВІР ${rekvizity.subscriber} від ${rekvizity.data.split(" ")[0]}</TD>
+        <TD CLASS="R23C1" COLSPAN=4>пїЅпїЅпїЅпїЅпїЅпїЅ:</TD>
+        <TD CLASS="R23C1" COLSPAN=33>пїЅпїЅпїЅпїЅВІпїЅ ${rekvizity.subscriber} пїЅпїЅ ${rekvizity.data.split(" ")[0]}</TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -628,11 +628,11 @@
     </TR>
     <TR CLASS=R13>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R25C1" COLSPAN=2 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">№</SPAN></DIV></TD>
-        <TD CLASS="R25C3" COLSPAN=23 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">Товари&nbsp;(роботи,&nbsp;послуги)</SPAN></DIV></TD>
-        <TD CLASS="R25C3" COLSPAN=5 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">Кількість</SPAN></DIV></TD>
-        <TD CLASS="R25C31" COLSPAN=3 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;">Ціна з ПДВ</DIV></TD>
-        <TD CLASS="R25C34" COLSPAN=4 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;">Сума з ПДВ</DIV></TD>
+        <TD CLASS="R25C1" COLSPAN=2 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅ</SPAN></DIV></TD>
+        <TD CLASS="R25C3" COLSPAN=23 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅпїЅ&nbsp;(пїЅпїЅпїЅпїЅпїЅпїЅ,&nbsp;пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)</SPAN></DIV></TD>
+        <TD CLASS="R25C3" COLSPAN=5 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;"><SPAN STYLE="white-space:nowrap;max-width:0px;">КіпїЅпїЅпїЅпїЅпїЅпїЅ</SPAN></DIV></TD>
+        <TD CLASS="R25C31" COLSPAN=3 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;">ЦіпїЅпїЅ пїЅ пїЅпїЅпїЅ</DIV></TD>
+        <TD CLASS="R25C34" COLSPAN=4 ROWSPAN=2><DIV STYLE="width:100%;height:32px;overflow:hidden;">пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ</DIV></TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -644,9 +644,9 @@
     <TR CLASS=R27>
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R27C1" COLSPAN=2><SPAN STYLE="white-space:nowrap;max-width:0px;">1</SPAN></TD>
-        <TD CLASS="R27C3" COLSPAN=23>Технічне обслуговування ком`ютерного обладнання</TD>
+        <TD CLASS="R27C3" COLSPAN=23>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ`пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</TD>
         <TD CLASS="R27C26" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">1</SPAN></TD>
-        <TD CLASS="R27C3" COLSPAN=2>послуга</TD>
+        <TD CLASS="R27C3" COLSPAN=2>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</TD>
         <TD CLASS="R27C26" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">${cost},00</SPAN></TD>
         <TD CLASS="R27C34" COLSPAN=4><SPAN STYLE="white-space:nowrap;max-width:0px;">${cost},00</SPAN></TD>
         <TD><SPAN></SPAN></TD>
@@ -709,7 +709,7 @@
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R29C23" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">Разом:</SPAN></TD>
+        <TD CLASS="R29C23" COLSPAN=3><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅ:</SPAN></TD>
         <TD CLASS="R29C26" COLSPAN=4><SPAN></SPAN></TD>
         <TD CLASS="R29C26" COLSPAN=4><SPAN></SPAN></TD>
         <TD CLASS="R29C34" COLSPAN=4><SPAN STYLE="white-space:nowrap;max-width:0px;">${cost}</SPAN></TD>
@@ -717,7 +717,7 @@
         <TD></TD>
     </TR>
     <TR CLASS=R13>
-        <TD CLASS="R29C23" COLSPAN=26><SPAN STYLE="white-space:nowrap;max-width:0px;">У&nbsp;тому&nbsp;числі&nbsp;ПДВ:</SPAN></TD>
+        <TD CLASS="R29C23" COLSPAN=26><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅ&nbsp;пїЅпїЅпїЅпїЅ&nbsp;пїЅпїЅпїЅпїЅ&nbsp;пїЅпїЅпїЅ:</SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD CLASS="R29C23"><SPAN></SPAN></TD>
         <TD CLASS="R29C23"><SPAN></SPAN></TD>
@@ -768,7 +768,7 @@
     </TR>
     <TR CLASS=R0>
         <TD><SPAN></SPAN></TD>
-        <TD COLSPAN=37><SPAN STYLE="white-space:nowrap;max-width:0px;">Всього&nbsp;найменувань&nbsp;1,&nbsp;на&nbsp;суму&nbsp;${cost},00&nbsp;грн.</SPAN></TD>
+        <TD COLSPAN=37><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅпїЅ&nbsp;пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ&nbsp;1,&nbsp;пїЅпїЅ&nbsp;пїЅпїЅпїЅпїЅ&nbsp;${cost},00&nbsp;пїЅпїЅпїЅ.</SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD></TD>
     </TR>
@@ -884,7 +884,7 @@
         <TD CLASS="R36C2"><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
-        <TD CLASS="R36C21" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">Виписав(ла):</SPAN></TD>
+        <TD CLASS="R36C21" COLSPAN=5><SPAN STYLE="white-space:nowrap;max-width:0px;">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅ):</SPAN></TD>
         <TD CLASS="R36C26" COLSPAN=11><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>
         <TD><SPAN></SPAN></TD>

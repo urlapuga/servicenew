@@ -1,9 +1,14 @@
 package com.websystique.springmvc.controller;
 
+import com.websystique.springmvc.model.Employees;
+import com.websystique.springmvc.model.Subscribers;
 import com.websystique.springmvc.model.TaskType;
 import com.websystique.springmvc.model.Tasks;
+import com.websystique.springmvc.service.EmployeeService;
+import com.websystique.springmvc.service.SubscriberService;
 import com.websystique.springmvc.service.TaskService;
 import com.websystique.springmvc.service.TaskTypeService;
+import net.schmizz.sshj.connection.channel.direct.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/")
@@ -28,9 +36,11 @@ public class TaskController {
     TaskService taskService;
     @Autowired
     TaskTypeService taskTypeService;
+    @Autowired
+    HttpSession session;
+    @Autowired
+    EmployeeService employeeService;
     //TASKS
-
-
     @RequestMapping(value = {"/settaskemployee/{id}/{employeeId}"}, method = RequestMethod.GET)
     public String setTaskEmployee(@PathVariable Integer id,@PathVariable Integer employeeId, ModelMap model) {
 
@@ -41,6 +51,18 @@ public class TaskController {
         return "error";
     }
 
+    @RequestMapping(value = {"/owntasksByDate/{date}/"}, method = RequestMethod.GET)
+    public String getTasksByDate(@PathVariable String date, ModelMap model) {
+
+        String data = date.split("T")[0];
+
+        String employeeId= String.valueOf(((Employees)session.getAttribute("employee")).getId());
+        System.out.println("data"+data + "employee"+employeeId);
+        List<Tasks> tasks = taskService.getByEmployeeAndDate(employeeId,data);
+        System.out.println(tasks);
+        model.addAttribute("owntasks",tasks);
+        return "owntasks";
+    }
 
 
     /**
@@ -49,33 +71,35 @@ public class TaskController {
      */
     @RequestMapping(value = {"/closetask/{id}"}, method = RequestMethod.GET)
     public String closeOwnTask(@PathVariable String id, ModelMap model) {
-
+        Employees employees = (Employees) session.getAttribute("employee");
+        Integer employeeId = employees.getId();
         Tasks tasks = taskService.getById(Integer.parseInt(id));
-        Integer employeeId = 3;
-        if ((tasks.getEmployee() == employeeId) && (tasks.getStatus() == 1)) {
+        if ((tasks.getEmployeeTaskTo() == employeeId) && (tasks.getStatus() == 1)) {
             tasks.setStatus(2);
             taskService.update(tasks);
-            model.addAttribute("error", "1");
+            model.addAttribute("error", "Задача закрыта");
         } else {
-            model.addAttribute("error", "0");
+            model.addAttribute("error", "Ошибка при закрытии задачи");
         }
         return "error";
     }
 
 
     @RequestMapping(value = {"/startwork/{id}"}, method = RequestMethod.GET)
-    public String startOwnTask(@PathVariable String id, ModelMap model) {
+    public String startOwnTask(@PathVariable Integer id, ModelMap model) {
 
-        Tasks tasks = taskService.getById(Integer.parseInt(id));
-        Integer employeeId = 3;
+        Tasks tasks = taskService.getById(id);
+        Employees employees = (Employees) session.getAttribute("employee");
+        Integer employeeId = employees.getId();
         String message = "";
-        if ((tasks.getEmployee() == employeeId) && (tasks.getStatus() == 0)) {
+        if ((tasks.getEmployeeTaskTo() == employeeId) && (tasks.getStatus() == 0)) {
             tasks.setStatus(1);
             taskService.update(tasks);
+            System.out.println("задача в работе");
             message = "Задача в работе";
         } else {
-            if (tasks.getStatus() != 1) message = "В работу можно взть тоьк оновую заявку ";
-            if (tasks.getEmployee() != employeeId) message = "В работу можно взять только свою задачу";
+            if (tasks.getStatus() != 0) message = "В работу можно взять только новую заявку ";
+            if (tasks.getEmployeeTaskTo() != employeeId) message = "В работу можно взять только свою задачу";
         }
         model.addAttribute("error", message);
         return "error";
@@ -84,10 +108,11 @@ public class TaskController {
     @RequestMapping(value = {"/canceltask/{id}"}, method = RequestMethod.GET)
     public String cancelOwnTask(@PathVariable String id, ModelMap model) {
 
+        Integer employeeId = ((Employees) session.getAttribute("employee")).getId();
         Tasks tasks = taskService.getById(Integer.parseInt(id));
-        Integer employeeId = 3;
+
         String message = "";
-        if (tasks.getEmployee() == employeeId) {
+        if (tasks.getEmployeeTaskTo() == employeeId) {
             tasks.setStatus(3);
             taskService.update(tasks);
             message = "Задача отменена ";
@@ -100,11 +125,11 @@ public class TaskController {
 
     @RequestMapping(value = {"/rejecttask/{id}"}, method = RequestMethod.GET)
     public String rejectOwnTask(@PathVariable String id, ModelMap model) {
-
+        Integer employeeId = ((Employees) session.getAttribute("employee")).getId();
         Tasks tasks = taskService.getById(Integer.parseInt(id));
-        Integer employeeId = 3;
+
         String message = "";
-        if (tasks.getEmployee() == employeeId) {
+        if (tasks.getEmployeeTaskTo() == employeeId) {
             tasks.setEmployeeTaskTo(null);
             taskService.update(tasks);
             message = "Задача теперь без исполнителя";
@@ -135,6 +160,7 @@ public class TaskController {
             tasks.setType(Integer.parseInt(type));
             tasks.setSubscriberId(Integer.parseInt(subscriber));
             tasks.setText(text);
+            tasks.setCompany(((Employees) session.getAttribute("employee")).getCompanyId());
             taskService.add(tasks);
         }
 
@@ -157,9 +183,12 @@ public class TaskController {
     @RequestMapping(value = {"/tasks"}, method = RequestMethod.POST)
     public String saveTask(@Valid Tasks tasks, BindingResult result,HttpServletRequest request,
                            ModelMap model) {
-        System.out.println(tasks.getDateto());
+        tasks.setCompany(((Employees) session.getAttribute("employee")).getCompanyId());
         taskService.add(tasks);
-        model.addAttribute("tasktypes", taskTypeService.findAll());
+        Map<Integer,TaskType> taskTypeMap = new HashMap<>();
+        List<TaskType> taskTypes = taskTypeService.findAll();
+        taskTypes.forEach(t->taskTypeMap.put(t.getId(),t));
+        model.addAttribute("tasktypes",taskTypeMap );
         model.addAttribute("tasks", taskService.findAll());
         return "redirect:"+request.getHeader("Referer");
     }

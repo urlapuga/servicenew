@@ -1,52 +1,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-
 <script>
-    window.onload = function() {
-        console.logg(1);
-        $(function () {
-            $("#datepicker").datetimepicker();
-        });
 
-        $(function () {
-            $("#datepicker1").datetimepicker();
-        });
-    }
 </script>
-<style>
-    #taskcloser {
-        width: 20px;
-        height: 100%;
-        background-color: #cccccc;
-        float: right;
-    }
 
-    #owntaskscontainer {
-        height:100%;
-        position:relative;
-        width: 350px;
-        float: right;
-    }
-
-     #taskaddform{
-         position: absolute;
-         bottom: 0px;
-     }
-
-    #taskdate{
-        vertical-align: top;
-    }
-</style>
-<div>
+<div style="float: right;
+        background-color: aliceblue;">
+    <div id="taskcloser" onclick="showTasks()"></div>
     <div id="owntaskscontainer">
 
-        <div id="taskdate"><input type="text" id="datepicker"/>
+        <div id="taskdate"><input type="datetime-local" id="dateTaskTo"/>
+            <input type="button" value="Показать" onclick="showTasksByDate()">
         </div>
-        <table>
+        <table border="1">
             <c:forEach items="${owntasks}" var="task">
                 <tr>
                     <td>
+                            ${task.dateto.toString().split(" ")[0]}:
                             ${task.dateto.toString().split(" ")[1].split(":")[0]}:
                             ${task.dateto.toString().split(" ")[1].split(":")[1]}
                     </td>
@@ -114,6 +84,7 @@
 
 
     </div>
-    <div id="taskcloser" onclick="showTasks()"></div>
+
+
 </div>
 

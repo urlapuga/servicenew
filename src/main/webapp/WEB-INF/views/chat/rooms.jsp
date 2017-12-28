@@ -1,29 +1,7 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    <style>
-        #chatcontainer {
-            width: 900px;
-        }
 
-        #nav {
-            width: 200px;
-            float: left;
-        }
-
-        #aside {
-            width: 20px;
-            height: 100%;
-            background-color: #cccccc;
-            float: left;
-        }
-
-        #chatcontent {
-            float: left;
-        }
-    </style>
-
-    <div id="chatcontainer">
+    <div id="chatcontainer" style="background-color: aliceblue;">
         <div id="nav">
 
             <table>

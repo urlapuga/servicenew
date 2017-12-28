@@ -6,6 +6,8 @@ import com.websystique.springmvc.model.kofe.KofeWorkers;
 import java.util.List;
 
 public interface WorkersService {
+
+     KofeWorkers getByPin(String pin);
      List<KofeWorkers> findAll();
 
      void add(KofeWorkers entity) ;

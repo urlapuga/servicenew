@@ -63,10 +63,10 @@
         <a href="/showdoc/dogovor/${subscriber.id}" target="_blank">
             <button>Договор</button>
         </a>
-        <a href="/showdoc/dodatoc/${subscriber.id}" target="_blank">
+        <a href="/showdoc/dodatok/${subscriber.id}" target="_blank">
             <button>Додаток</button>
         </a>
-        <a href="/showdoc/conectakt/${subscriber.id}" target="_blank">
+        <a href="/showdoc/conectact/${subscriber.id}" target="_blank">
             <button>Акт подключения</button>
         </a>
         <a href="/showdoc/schet/${subscriber.id}" target="_blank">

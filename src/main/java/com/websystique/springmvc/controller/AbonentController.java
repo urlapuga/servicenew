@@ -133,8 +133,15 @@ public class AbonentController {
         Subscribers subscribers = subscriberService.getById(subscriberID);
 
         model.addAttribute("cost", tarifService.getById(subscribers.getTarif()).getCost());
-        model.addAttribute("money", MoneyConverter.convert(String.valueOf(tarifService.getById(subscribers.getTarif()).getCost()), rekvizity.getPdv()));
-        model.addAttribute("month", MonthUkr.values()[Integer.parseInt(rekvizity.getData().toString().split("-")[1])]);
+        if(subscribers.getTarif()!=0){
+            String moneyString = String.valueOf(tarifService.getById(subscribers.getTarif()).getCost());
+            model.addAttribute("money", MoneyConverter.convert(moneyString,rekvizity.getPdv())) ;
+        }
+        else{
+            model.addAttribute("money", "0 грн") ;
+        }
+
+        model.addAttribute("month", MonthUkr.values()[Integer.parseInt(subscribers.getDateRegistered().toString().split("-")[1])]);
         model.addAttribute("rekvizity", rekvizity);
         return "/dogovora/" + doctype;
     }
@@ -175,7 +182,9 @@ public class AbonentController {
         subscribers.setTarif(0);
         Rekvizity rekvizity = new Rekvizity();
         subscribers = subscriberService.addGet(subscribers);
+        System.out.println(subscribers);
         rekvizity.setSubscriber(subscribers.getId());
+        System.out.println(rekvizity);
         rekvizityService.add(rekvizity);
         model.addAttribute("error", subscribers.getId());
         return "error";

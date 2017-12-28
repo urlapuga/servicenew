@@ -1,18 +1,69 @@
-#container {
-    width: 100%; /* Ширина макета */
+.selectpicker{
+    color: black;
 }
 
 #chat {
-    width: 20%;
+    position: relative;
     float: left;
+    z-index:2;
 }
 
 #content {
+    margin-left: 250px;
+    position: absolute;
     width: 60%;
     float: left;
+    z-index: 1;
 }
 
 #tasks {
-    width: 20%;
+    position: relative;
     float: right;
+    z-index: 2;
+}
+
+#mainDiv {
+    background: #007E3E;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#taskcloser {
+    width: 20px;
+    height: 100%;
+    background-color: #cccccc;
+    float: left;
+    position:relative;
+}
+
+#owntaskscontainer {
+    margin: 25px;
+    height:100%;
+    width: 350px;
+}
+
+#taskaddform{
+    position: absolute;
+    bottom: 0px;
+}
+
+#taskdate{
+    vertical-align: top;
+}
+
+#nav {
+    width: 200px;
+    float: left;
+}
+
+#aside {
+    width: 20px;
+    height: 100%;
+    background-color: #cccccc;
+    float: left;
+}
+
+#chatcontent {
+    float: left;
 }

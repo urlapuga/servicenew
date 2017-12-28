@@ -34,7 +34,7 @@
             <td>
                     ${tarif.speed}
             </td>
-            <td><a href="<c:url value='/delete-tarif-${tarif.id}' />" class="btn btn-danger custom-width">delete</a>
+            <td><a href="<c:url value='/delete-tarif-${tarif.id}' />" class="btn btn-danger custom-width">Удалить</a>
             </td>
         </tr>
     </c:forEach>

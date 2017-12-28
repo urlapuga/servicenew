@@ -14,6 +14,12 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskDao dao;
 
+    @Override
+    public List<Tasks> getByEmployeeAndDate(String employee, String date) {
+
+        return dao.getByEmployeeAndDate(employee, date);
+    }
+
     public List<Tasks> findAll() {
         return dao.findAll();
     }

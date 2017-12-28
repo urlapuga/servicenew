@@ -1,3 +1,13 @@
+function showTasksByDate() {
+  var date = document.getElementById("dateTaskTo").value ;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "/owntasksByDate/" + date + "/", false);
+    xhttp.send();
+    var  resp = xhttp.responseText;
+    document.getElementById("tasks").innerHTML=resp;
+
+};
+
 function createowntask() {
 
     var dateto = document.getElementById("datepicker1").value;
@@ -22,6 +32,7 @@ function closeTask(id) {
     xhttp.open("GET", "closetask/" + id + "/", false);
     xhttp.send();
     alert(xhttp.responseText);
+    location.reload();
 };
 
 function startTask(id) {
@@ -30,6 +41,7 @@ function startTask(id) {
     xhttp.send();
     var resp = xhttp.responseText;
     alert(resp);
+    location.reload();
 };
 
 function cancelTask(id) {
@@ -37,6 +49,7 @@ function cancelTask(id) {
     xhttp.open("GET", "canceltask/" + id + "/", false);
     xhttp.send();
     alert(xhttp.responseText);
+    location.reload();
 };
 
 function rejectTask(id) {

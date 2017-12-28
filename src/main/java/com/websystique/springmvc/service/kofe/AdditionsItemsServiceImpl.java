@@ -14,7 +14,7 @@ public class AdditionsItemsServiceImpl implements AdditionsItemsService {
 
     @Autowired
     private AdditionsItemsDao dao;
-
+    @Transactional
     public List<KofeAdditionsItems> findAll() {
         return dao.findAll();
     }

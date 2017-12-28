@@ -25,8 +25,11 @@ public class SshjProducer {
     }
 
     public void exec(List<String> commands){
+        SSHClient ssh = new SSHClient();
+
         try {
-            session = ssh.startSession();
+            ssh = new SSHClient();
+            Session session = ssh.startSession();
             ssh.loadKnownHosts();
             ssh.connect(host);
             ssh.authPassword(login, pass);
@@ -53,7 +56,7 @@ public class SshjProducer {
         }
     }
 
-    public static void main(String[] args) {
+    public static void test(String[] args) {
         SSHClient ssh = new SSHClient();
         Session session = null;
 

@@ -1,11 +1,13 @@
 package com.websystique.springmvc.service;
 
+import com.websystique.springmvc.model.TaskType;
 import com.websystique.springmvc.model.Tasks;
 
 import java.util.List;
 
 public interface TaskService {
 
+    List<Tasks> getByEmployeeAndDate(String employee,String date);
     List<Tasks> findAll();
     List<Tasks> getManagerTasks();
     List<Tasks> getTechnicianTasks();

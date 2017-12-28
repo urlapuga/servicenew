@@ -61,18 +61,18 @@
 
 <table border="1" cellspacing="0" cellpadding="0" width="100%">
     <tr height="25">
-        <th align="center">Ïóíêò</th>
-        <th align="center">Íàçâà ïîñëóãè</th>
-        <th align="center">Âàðò³ñòü ïîñëóãè, ãðí.</th>
+        <th align="center">Ціна</th>
+        <th align="center">ПДВ 20%</th>
+        <th align="center">В т.ч.з ПДВ.</th>
     </tr>
     <tr height="25">
         <td align="center"><strong>1.1.</strong></td>
-        <td align="center">Àáîíïëàòà çà ì³ñÿöü (øâèäê³ñòü ïîðòó _______Ìá³ò/ñ)</td>
+        <td align="center"></td>
         <td align="center"></td>
     </tr>
     <tr height="25">
         <td align="center"><strong>1.2.</strong></td>
-        <td align="center">Ñòàòè÷íèé IP àäðåñ</td>
+        <td align="center">Статична IP адреса</td>
         <td align="center"></td>
     </tr>
     <tr height="25">
@@ -82,8 +82,8 @@
     </tr>
     <tr height="25">
         <td align="center"></td>
-        <td align="right"><strong>ÏÄÂ 20% <br>
-            Âñüîãî äî ñïëàòè:</strong></td>
+        <td align="right"><strong>ПДВ 20% <br>
+            Всього до сплати:</strong></td>
         <td align="center"></td>
     </tr>
 </table>
@@ -105,18 +105,20 @@
             ${rekvizity.rr}<br>
             ${rekvizity.bank}<br>
             ${rekvizity.mfo}<br>
-            <strong>Äèðåêòîð</strong><br>
+            <strong>Директор </strong><br>
             <strong>______________ ${rekvizity.director}</strong></td>
 
 
-        <td align="left" ><strong>ÒÎÂ «ÑÀÊÑÊÀÉ»</strong><br>
-            04655, ì. Êè¿â, ïð. Ìîñêîâñüêèé (Ñòåïàíà Áàíäåðè), 23<br>
-            Êîä ªÄÐÏÎÓ 38883067 <br>
-            ð/ð  26003052750322<br>
-            ó Ïå÷åðñüê³é ô³ë³¿ ÏÀÒ ÊÁ «ÏÐÈÂÀÒÁÀÍÊ» ó ì. Êèºâ³,<br>
-            ÌÔÎ 300711 </p>
-            <p><strong>Äèðåêòîð </strong></p>
-            <p><strong>______________ ÑÀÄÎÂÑÜÊÈÉ Î.Ë.</strong></p></td>
+        <td align="left" ><strong>ТОВ «САКСКАЙ»</strong><br>
+            04655, м. Київ, пр. Московський
+            (Степана Бандери), 23
+            <br>
+            Код ЄДРПОУ 38883067<br>
+            р/р  26003052750322<br>
+            у Печерській філії ПАТ КБ «ПРИВАТБАНК» у м. Києві<br>
+            МФО 300711 </p>
+            <p><strong>Директор  </strong></p>
+            <p><strong>______________ САДОВСЬКИЙ О.Л.</strong></p></td>
     </tr>
 </table>
 
