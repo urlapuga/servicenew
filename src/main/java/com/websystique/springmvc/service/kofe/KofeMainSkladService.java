@@ -1,4 +1,4 @@
-package com.websystique.springmvc.service.kofe.temp;
+package com.websystique.springmvc.service.kofe;
 
 import com.websystique.springmvc.model.kofe.KofeMainSklad;
 

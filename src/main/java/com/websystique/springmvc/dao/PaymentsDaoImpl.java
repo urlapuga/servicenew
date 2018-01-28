@@ -4,7 +4,6 @@ import com.websystique.springmvc.model.Payments;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository("paymentsDao")

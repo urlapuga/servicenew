@@ -15,8 +15,21 @@
         <springsecurity.version>4.0.4.RELEASE</springsecurity.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>bintray-stokito-maven</id>
+            <name>stokito-maven</name>
+            <url>https://dl.bintray.com/stokito/maven</url>
+        </repository>
+    </repositories>
+
     <dependencies>
 
+        <dependency>
+            <groupId>com.liqpay</groupId>
+            <artifactId>liqpay-sdk</artifactId>
+            <version>0.6</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/net.schmizz/sshj -->
         <dependency>
             <groupId>net.schmizz</groupId>

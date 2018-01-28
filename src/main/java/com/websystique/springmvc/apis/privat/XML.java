@@ -3,8 +3,8 @@ import java.security.MessageDigest;
 
 public class XML {
 
-    static String id = "130386";
-    static String signature = "lx3PIDjmL2OzkJv69IM3DHu2gy15WvQ9";
+    static String id = "120365";
+    static String signature = "i1Abx0Jr88SIa5207cUXxwWBBk16gKG7";
     static String card = "4149437830388334";
     static String data ="<oper>cmt</oper><wait>1</wait><test>1</test><payment id=\"\"><prop name=\"cardnum\" value=\""+card+"\"/><prop name=\"country\" value=\"UA\"/></payment>";
 

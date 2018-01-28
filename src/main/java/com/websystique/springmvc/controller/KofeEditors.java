@@ -16,6 +16,9 @@ import java.util.List;
 @RequestMapping("/kofe/editor/")
 public class KofeEditors {
 
+
+    @Autowired
+    PlacesItemsViewService placesItemsViewService;
     @Autowired
     KofeItemservice kofeItemservice;
     @Autowired
@@ -37,7 +40,7 @@ public class KofeEditors {
     public String editItem(ModelMap model, @PathVariable Integer id) {
         List<KofeIngredients> ingredientsList =ingredientsService.findAll();
         KofeItems kofeItems = kofeItemservice.getById(id);
-
+        itemIngredientsViewService.findByItem(id).forEach(System.out::println);
         model.addAttribute("types",kofeItemsTypesService.findAll());
         model.addAttribute("additions",additionsService.findAll());
         model.addAttribute("itemingredients",itemIngredientsViewService.findByItem(id));
@@ -48,9 +51,10 @@ public class KofeEditors {
 
     @RequestMapping(value = {"/place/{id}"})
     public String editPlace(ModelMap model, @PathVariable Integer id) {
-
+        placesItemsViewService.getByPlaceId(id).forEach(System.out::println);
         KofePlaces places = placesService.getById(id);
         model.addAttribute("place", places);
+        model.addAttribute("items",placesItemsViewService.getByPlaceId(id));
         return "kofe/editors/placeeditor";
     }
 

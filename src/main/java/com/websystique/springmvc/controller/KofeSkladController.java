@@ -3,7 +3,7 @@ package com.websystique.springmvc.controller;
 import com.websystique.springmvc.model.kofe.KofeIngredients;
 import com.websystique.springmvc.model.kofe.KofeMainSklad;
 import com.websystique.springmvc.service.kofe.IngredientsService;
-import com.websystique.springmvc.service.kofe.temp.KofeMainSkladService;
+import com.websystique.springmvc.service.kofe.KofeMainSkladService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

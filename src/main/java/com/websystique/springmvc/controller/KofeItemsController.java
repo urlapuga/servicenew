@@ -1,9 +1,11 @@
 package com.websystique.springmvc.controller;
 
 
-import com.websystique.springmvc.model.kofe.KofeItemTypes;
 import com.websystique.springmvc.model.kofe.KofeItems;
+import com.websystique.springmvc.model.kofe.KofeItemsPlacesCosts;
 import com.websystique.springmvc.service.kofe.KofeItemservice;
+import com.websystique.springmvc.service.kofe.temp.KofePlacesItemsCostsService;
+import com.websystique.springmvc.service.kofe.temp.KofePlacesItemsCostsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,6 +21,9 @@ public class KofeItemsController {
     @Autowired
     KofeItemservice kofeItemservice;
 
+    @Autowired
+    KofePlacesItemsCostsService kofePlacesItemsCostsService;
+
     @RequestMapping(value = {"/items/add/{name}/{type}"})
     public String addItem(ModelMap model, @PathVariable String name, @PathVariable Integer type) {
         kofeItemservice.add(new KofeItems(name, type));
@@ -33,6 +38,40 @@ public class KofeItemsController {
         return "kofe/message";
     }
 
+
+    @RequestMapping(value = {"/itemsplaces/add/{id}/{place}/{cost}"})
+    public String addPlaceItem(ModelMap model, @PathVariable Integer id,
+                               @PathVariable Integer place, @PathVariable double cost) {
+        KofeItemsPlacesCosts k = new KofeItemsPlacesCosts();
+        k.setItem(id);
+        k.setCost(cost);
+        k.setPlace(place);
+        kofePlacesItemsCostsService.add(k);
+        model.addAttribute("message", "Добавлено");
+        return "kofe/message";
+    }
+
+    @RequestMapping(value = {"/itemsplaces/del/{id}/{place}"})
+    public String removePlaceItem(ModelMap model, @PathVariable Integer id, @PathVariable Integer place) {
+        KofeItemsPlacesCosts k = new KofeItemsPlacesCosts();
+        k.setItem(id);
+        k.setPlace(place);
+        kofePlacesItemsCostsService.delete(k);
+        model.addAttribute("message", "Товар удален");
+        return "kofe/message";
+    }
+
+    @RequestMapping(value = "/itemsplaces/update/{id}/{place}/{cost}")
+    public String updateByPlaceCost(ModelMap model, @PathVariable Integer id,
+                                    @PathVariable Integer place, @PathVariable double cost) {
+
+        KofeItemsPlacesCosts kofeItemsPlacesCosts = new KofeItemsPlacesCosts();
+        kofeItemsPlacesCosts.setCost(cost);
+        kofeItemsPlacesCosts.setItem(id);
+        kofeItemsPlacesCosts.setPlace(place);
+        kofePlacesItemsCostsService.update(kofeItemsPlacesCosts);
+        return "message";
+    }
 
     @RequestMapping(value = {"/items/update/{id}/{name}/{cost}/{type}/{addition}/"})
     public String updateItem(ModelMap model, @PathVariable Integer id, @PathVariable String name,

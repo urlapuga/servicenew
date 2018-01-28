@@ -11,7 +11,19 @@ import javax.persistence.*;
 public class KofeItemIngredientsView {
     public KofeItemIngredientsView() {
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Id
+    @Column(name = "id")
+    private int id;
+
     @Column(name = "itemid",insertable = false,updatable = false)
     private int itemid;
     @Basic

@@ -35,8 +35,14 @@ var options = {
 
 function call(number){
     ua.start();
-    ua.call(number, options);
+    //ua.call(number, options);
+    ua.send(number,"123");
 }
 
+function send(number){
+    ua.start();
+    //ua.call(number, options);
+    ua.send(number,"123");
+}
 //var session = ua.call('380638339275', options);
 

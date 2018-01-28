@@ -2,8 +2,13 @@ package com.websystique.springmvc.model.kofe;
 
 import javax.persistence.*;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "getByPlaceItem",
+                query = "From KofeItemsPlacesCosts k where k.place=:place AND k.item=:item")
+})
+
 @Entity
-@Table(name = "kofe_items_places_costs", schema = "service", catalog = "")
+@Table(name = "kofe_items_places_costs", schema = "service")
 public class KofeItemsPlacesCosts {
     private int id;
     private Integer item;
